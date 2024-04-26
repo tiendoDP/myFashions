@@ -18,10 +18,22 @@ class CartModel extends Model
         return DB::select('SELECT * FROM carts WHERE product_id = '.$id.' and user_id = '. Auth::user()->id);
     }
 
+    static public function getProductInCart($id, $size, $color) {
+        return DB::table('carts')
+            ->where('product_id', $id)
+            ->where('user_id', Auth::id())
+            ->where('size_id', $size)
+            ->where('color_id', $color)
+            ->get();
+    }
+
     static public function getRecord() {
         if(Auth::check()) {
-            return self::select('carts.*', 'products.name as product_name', 'products.image as image', 'products.price as price', 'products.discount as discount')
+            return self::select('carts.*', 'products.name as product_name', 'products.image as image',
+                         'products.price as price', 'products.discount as discount', 'colors.name as color', 'sizes.name as size')
                        ->join('products', 'carts.product_id', '=', 'products.id')
+                       ->join('colors', 'carts.color_id', '=', 'colors.id')
+                       ->join('sizes', 'carts.size_id', '=', 'sizes.id')
                        ->where('user_id', '=', Auth::user()->id)
                        ->get();
         }

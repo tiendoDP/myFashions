@@ -1,6 +1,17 @@
 @extends('admin.layouts.app')
-@section('style')
+@section('styles')
+<style>
+  .preview-image {
+    max-width: 100px; /* Đảm bảo hình ảnh không quá rộng */
+    max-height: 100px; /* Đảm bảo hình ảnh không quá cao */
+    margin-right: 10px; /* Khoảng cách giữa các hình ảnh */
+}
 
+.preview-single-image {
+    max-width: 200px; /* Đảm bảo ảnh không quá rộng */
+    max-height: 200px; /* Đảm bảo ảnh không quá cao */
+}
+</style>
 @endsection
 
 
@@ -32,16 +43,54 @@
             @enderror
         </div>
         <div class="form-group">
-            <label class="form-label">Image</label> <br>
-            <input  type="file" name="image" onchange="showFile(event)">
-            @error('name')
+          <label class="form-label">Image Main</label> <br>
+          <input type="file" name="image" accept="image/*" id="imageMain"/>
+          <div class="preview-main-image mt-2"></div>
+          @error('image')
               <small class="form-text text-muted">
-                <div style="color:red">{{$message}}</div>
+                  <div style="color:red">{{$message}}</div>
               </small>
-            @enderror
+          @enderror
         </div>
-        <img src="{{asset('assets/images/'.$product->image)}}" id="file" class="card-img-top" alt="" style="max-width: 150px">
+        <img src="{{asset('assets/images/products/'.$product->image)}}" id="file" class="card-img-top" alt="" style="max-width: 200px">
         <input type="hidden" name="old_image" value="{{$product->image}}" />
+        <div class="form-group">
+          <label class="form-label">Images</label> <br>
+          <input type="file" name="images[]" accept="image/*" id="imageInput" multiple/>
+          <div class="preview-images mt-2"></div> <!-- Đây là nơi để hiển thị trước các hình ảnh -->
+          <div id="displayImageOld"></div> <!-- Đây là nơi để hiển thị trước các hình ảnh -->
+          @error('images')
+              <small class="form-text text-muted">
+                  <div style="color:red">{{$message}}</div>
+              </small>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label>Size</label> </br>
+          @foreach($sizes as $size)
+          <label class="m-2">{{$size->name}}
+            <input type="checkbox" name="sizes[]" @if($product_sizes->contains('size_id', $size->id)) checked @endif value="{{$size->id}}"/>
+          </label>
+          @endforeach
+          @error('sizes')
+            <small class="form-text text-muted">
+              <div style="color:red">{{$message}}</div>
+            </small>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label>Color</label> </br>
+          @foreach($colors as $color)
+          <label class="m-2">{{$color->name}}
+            <input type="checkbox" name="colors[]" @if($product_colors->contains('color_id', $color->id)) checked @endif value="{{$color->id}}"/>
+          </label>
+          @endforeach
+          @error('colors')
+            <small class="form-text text-muted">
+              <div style="color:red">{{$message}}</div>
+            </small>
+          @enderror
+        </div>
         <div class="form-group">
             <label>Category</label>
             <select class="form-control" name="category_id" >
@@ -50,6 +99,13 @@
                 @endforeach
             </select>
         </div>
+        <div class="form-group">
+          <label>Sex</label>
+          <select class="form-control" name="sex">
+            <option value="0" {{ $product->sex == 0 ? 'selected' : '' }}>Male</option>
+            <option value="1" {{ $product->sex == 1 ? 'selected' : '' }}>Female</option>
+          </select>
+      </div>
         <div class="form-group">
             <label>Quantity</label>
             <input type="text" class="form-control" value="{{old('quantity', $product->quantity)}}" name="quantity" placeholder="Quantity">
@@ -69,6 +125,15 @@
             @enderror
         </div>
         <div class="form-group">
+          <label>Discount</label>
+          <input type="text" class="form-control" value="{{old('discount', $product->discount)}}" name="discount" placeholder="Discount">
+          @error('discount')
+            <small class="form-text text-muted">
+              <div style="color:red">{{$message}}</div>
+            </small>
+          @enderror
+        </div>
+        <div class="form-group">
             <label>Status</label>
             <select class="form-control" name="status">
                 <option value="0" value="{{(old('email') == 0) ? 'selected' : ''}}">Active</option>
@@ -77,22 +142,68 @@
             <small class="form-text text-muted"></small>
         </div>
         
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
       </form>
     
 </div>
 
 @endsection
 
-@section('script')
-function showFile(event) {
-    var input = event.target;
+@section('scripts')
+<script>
+  var productImages = {!! json_encode($product_images) !!};
+
+  displayImage(productImages);
+  function displayImage(images) {
+    var displayImageOld = document.getElementById('displayImageOld');
+    displayImageOld.innerHTML = ''; // Xóa bỏ tất cả các hình ảnh hiện tại trong container
+
+    images.forEach(function(image) {
+        var imgElement = document.createElement('img');
+        imgElement.src = '/assets/images/products/' + image.url;
+        imgElement.alt = 'Image';
+        imgElement.classList.add('preview-image'); // Thêm một class cho ảnh (tuỳ chọn)
+        displayImageOld.appendChild(imgElement); // Thêm ảnh vào container
+    });
+  }
+  //Image main preview
+  document.getElementById('imageMain').addEventListener('change', function(event) {
+    $('#file').addClass('d-none')
+    var previewContainer = document.querySelector('.preview-main-image');
+    previewContainer.innerHTML = '';
+    var file = event.target.files[0];
+
     var reader = new FileReader();
-    reader.onload = function () {
-        var dataURL = reader.result;
-        var output = document.getElementById('file');
-        output.src = dataURL;
-    };
-    reader.readAsDataURL(input.files[0]);
-}
+    reader.onload = function(e) {
+        var imgElement = document.createElement('img');
+        imgElement.src = e.target.result;
+        imgElement.classList.add('preview-single-image');
+        previewContainer.appendChild(imgElement); // Thêm ảnh vào container
+    }
+
+    reader.readAsDataURL(file);
+  });
+
+  //Images preview
+  document.getElementById('imageInput').addEventListener('change', function(event) {
+  $('#displayImageOld').addClass('d-none')
+  var previewContainer = document.querySelector('.preview-images');
+  previewContainer.innerHTML = ''; // Xóa bỏ tất cả các hình ảnh hiện tại trong container
+
+  var files = event.target.files;
+  for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+          var imgElement = document.createElement('img');
+          imgElement.src = e.target.result;
+          imgElement.classList.add('preview-image');
+          previewContainer.appendChild(imgElement); // Thêm hình ảnh vào container
+      }
+
+      reader.readAsDataURL(file); // Đọc dữ liệu của file hình ảnh
+  }
+});
+</script>
 @endsection

@@ -12,32 +12,32 @@ use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
-
     public function add(Request $request) {
         $id = $request->id;
-        if($id!=null) {
-
-            $cart = CartModel::getCartByProductId($id);
- 
+        if($id != null) {
+            $cart = CartModel::getProductInCart($id, $request->size, $request->color);
             $product = ProductModel::find($id);
-            if(!$cart) {      
+            if ($cart->isEmpty()) {      
                 $cartNew = new CartModel;
                 $cartNew->product_id = $product->id;                  
-                ($request->quantity == null) ? $cartNew->quantity = 1 : $cartNew->quantity = $request->quantity;
-                if($product->discount == null) $cartNew->money = (int) $cartNew->quantity * (int) $product->price;
-                else $cartNew->money = (int) $product->price - ((int) $cartNew->quantity * (int) $product->price * (int) $product->discount / 100);
+                $cartNew->quantity = $request->quantity ?? 1;
+                $cartNew->money = $product->discount == null ? (int) $cartNew->quantity * (int) $product->price : (int) $product->price - ((int) $cartNew->quantity * (int) $product->price * (int) $product->discount / 100);
                 $cartNew->user_id = Auth::user()->id;
+                $cartNew->size_id = $request->size ?? 1;
+                $cartNew->color_id = $request->color ?? 1;
                 $cartNew->save();
-                return redirect()->back()->with('success', 'Cart added successfully');
-            }
-            else {       
-                ($request->quantity == null) ? $data['quantity'] = $cart[0]->quantity + 1 : $data['quantity'] = $cart[0]->quantity + $request->quantity;
+            } else {       
+                $cartFirst = $cart->first();
+                $data['quantity'] = $request->quantity ? $cartFirst->quantity + $request->quantity : $cart->quantity + 1;
                 $data['money'] = (int) $product->price * (int) $data['quantity'] - (int) $data['quantity'] * (int) $product->price * (int) $product->discount / 100;
-                DB::table('carts')->where('product_id', $id)->where('user_id', Auth::user()->id)->update($data);
-                return redirect()->back()->with('success', 'Cart added successfully');
+                $data['size_id'] = $request->size ?? 1;
+                $data['color_id'] = $request->color ?? 1;
+                DB::table('carts')->where('id', $cartFirst->id)->update($data);
             }
+            return redirect()->back()->with('success', 'Cart added successfully');
         }
     }
+    
 
     public function view_cart() {
         $data['header_title'] = 'View Cart';

@@ -1,12 +1,13 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Comment</h5>
+                <h5 class="modal-title" id="commentModalLabel">Comment</h5>
                 {{-- <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button> --}}
             </div>
             <div class="modal-body">
-                <form style="margin: 8px 12px">
+                <form style="margin: 8px 12px" id="commentForm">
+                    @csrf
                     {{-- <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Recipient:</label>
                         <input type="text" class="form-control" id="recipient-name" />
@@ -15,30 +16,37 @@
                         <label for="message-text" class="col-form-label">Message:</label>
                         <textarea class="form-control" id="message-text"></textarea>
                     </div>
-                    <div class="mb-2">
+                    {{-- <div class="mb-2">
                         <label for="fileInput" class="fileLabel">
                             <div><i class="fa-solid fa-camera"></i></div>
                         </label>
                         <input type="file" id="fileInput" class="fileInput" multiple />
-                    </div>
+                    </div> --}}
                 
-                    <div class="imagePreview carousel slide" data-ride="carousel">
+                    {{-- <div class="imagePreview carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <!-- Các ảnh sẽ được thêm vào đây -->
                         </div>
                         <a class="carousel-control-prev d-none" href=".imagePreview" role="button" data-slide="prev">
-                            {{-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> --}}
                             <span class="icon"><i class="fa-solid fa-angle-left"></i></span>
                         </a>
                         <a class="carousel-control-next d-none" href=".imagePreview" role="button" data-slide="next">
-                            {{-- <span class="carousel-control-next-icon" aria-hidden="true"></span> --}}
                             <span class="icon"><i class="fa-solid fa-angle-right"></i></span>
                         </a>
+                    </div> --}}
+                    
+                    <label for="input-radio" class="col-form-label">Rating:</label>
+                    <div class="star-rating">
+                        <input type="radio" id="star1" name="rating" value="5" checked><label for="star1">&#9733;</label>
+                        <input type="radio" id="star2" name="rating" value="4"><label for="star2">&#9733;</label>
+                        <input type="radio" id="star3" name="rating" value="3"><label for="star3">&#9733;</label>
+                        <input type="radio" id="star4" name="rating" value="2"><label for="star4">&#9733;</label>
+                        <input type="radio" id="star5" name="rating" value="1"><label for="star5">&#9733;</label>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" id="closeModalComment" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>

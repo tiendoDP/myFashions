@@ -75,7 +75,6 @@ class CheckOutController extends Controller
 
     public function handleCheckout(CheckoutRequest $request)
     {
-        try {
         if (isset($_POST['cod'])) {
             $this->checkout($request, 1);
             $sql = CartModel::where('user_id', Auth::user()->id);
@@ -211,9 +210,6 @@ class CheckOutController extends Controller
                 } else {
                     echo json_encode($returnData);
                 }
-        }
-        } catch (e) {
-
         }
     }
 

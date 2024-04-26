@@ -10,7 +10,7 @@ use App\Models\ProductModel;
 class Comment extends Model
 {
     use HasFactory;
-    protected $fillable = ['content', 'user_id', 'product_id'];
+    protected $fillable = ['content', 'rating', 'user_id', 'product_id'];
 
     public function user()
     {
@@ -19,6 +19,6 @@ class Comment extends Model
 
     public function product()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(ProductModel::class);
     }
 }

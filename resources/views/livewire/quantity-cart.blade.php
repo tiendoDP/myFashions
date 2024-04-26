@@ -12,6 +12,8 @@
                     <th>Product</th>
                     <th>Price</th>
                     <th>Quantity</th>
+                    <th>Size</th>
+                    <th>Color</th>
                     <th>Total</th>
                     <th></th>
                 </tr>
@@ -51,6 +53,8 @@
                                 </div>
                             </div>
                         </td>
+                        <td class="price-col">{{$cart->size}}</td>
+                        <td class="price-col">{{$cart->color}}</td>
                         <td class="total-col">đ {{ number_format((int) $cart->money, 0, ',', '.') }}</td>
                         <td class="remove-col"><a href="{{ route('cart.delete', ['id' => $cart->id]) }}"
                                 class="btn-remove"><i class="icon-close"></i></a></td>

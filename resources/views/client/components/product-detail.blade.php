@@ -1,6 +1,7 @@
 @extends('client.layouts.app')
 
 @section('styles')
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <style>
         .imagePreview {
             margin: 0 16px;
@@ -53,6 +54,101 @@
             width: 13px;
             padding: 0
         }
+
+        /* size */
+
+        .small-label {
+            font-size: 10px;
+        }
+
+        .btn-size {
+            border-radius: 12px;
+            padding: 6px 12px;
+            margin-right: 6px;
+            font-size: 10px;
+        }
+
+        .btn-size input[type="radio"] {
+            display: none;
+        }
+
+        .btn-size label {
+            margin-bottom: 0;
+        }
+
+        .btn-size input[type="radio"]:checked+label {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-size input[type="radio"]:checked+label:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-size label:hover {
+            background-color: #f2f2f2;
+            color: #007bff;
+        }
+
+        .details-row-size {
+            margin-bottom: 10px;
+        }
+
+        .input-radio {
+            min-width: 20px !important;
+            margin: 4px 8px !important;
+            background-color: #fff !important;
+            color: #000;
+        }
+
+        .input-radio:hover {
+            background-color: #971313 !important;
+            color: #fff;
+        }
+
+        .active.input-radio {
+            background-color: #971313 !important;
+            color: #fff;
+        }
+
+
+        .star-rating input[type="radio"] {
+            display: none;
+        }
+
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: start;
+        }
+
+        .star-rating label {
+            font-size: 30px;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input[type="radio"]:checked ~ label {
+            color: #ffc107;
+        }
+
+        /* Điều chỉnh hiển thị các sao được chọn từ bên trái */
+        .star-rating input[type="radio"]:checked ~ label:nth-last-child(-n+3) {
+            color: #ffc107;
+        }
+
+        .modal-footer button {
+            min-width: max-content !important;
+            border-radius: 6px;
+        }
+
+        .reviews,  .reviews a, .reviews p{
+            font-family: "Inter", sans-serif !important;
+        }
+
     </style>
 @endsection
 
@@ -126,7 +222,7 @@
                                 <form action="{{ route('cart.add') }}" method="GET">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $product_detail->id }}" />
-                                    <div class="details-filter-row details-row-size">
+                                    {{-- <div class="details-filter-row details-row-size">
                                         <label>Color:</label>
 
                                         <div class="product-nav product-nav-thumbs">
@@ -135,9 +231,54 @@
                                                     alt="product desc">
                                             </a>
                                         </div><!-- End .product-nav -->
+                                    </div> --}}
+
+                                    <div class="details-filter-row details-row-color">
+                                        <label class="col-form-label">Color:</label>
+                                    
+                                        <div class="btn-group btn-group-toggle" style="" data-toggle="buttons">
+                                            <label class="btn btn-primary active input-radio">
+                                                <input type="radio" name="color" value="1" autocomplete="off" checked> White
+                                            </label>
+                                            <label class="btn btn-primary input-radio">
+                                                <input type="radio" name="color" value="2" autocomplete="off"> Black
+                                            </label>
+                                            <label class="btn btn-primary input-radio">
+                                                <input type="radio" name="color" value="3" autocomplete="off"> Red
+                                            </label>
+                                            <label class="btn btn-primary input-radio">
+                                                <input type="radio" name="color" value="4" autocomplete="off"> Blink
+                                            </label>
+                                            <label class="btn btn-primary input-radio">
+                                                <input type="radio" name="color" value="5" autocomplete="off"> Blue
+                                            </label>
+                                        </div>
                                     </div>
 
-
+                                    <div class="details-filter-row details-row-size">
+                                        <label class="col-form-label">Size:</label>
+                                    
+                                        <div class="btn-group btn-group-toggle" style="" data-toggle="buttons">
+                                            <label class="btn btn-primary active input-radio">
+                                                <input type="radio" name="size" value="1" autocomplete="off" checked> S
+                                            </label>
+                                            <label class="btn btn-primary input-radio">
+                                                <input type="radio" name="size" value="2" autocomplete="off"> M
+                                            </label>
+                                            <label class="btn btn-primary input-radio">
+                                                <input type="radio" name="size" value="3" autocomplete="off"> L
+                                            </label>
+                                            <label class="btn btn-primary input-radio">
+                                                <input type="radio" name="size" value="4" autocomplete="off"> XL
+                                            </label>
+                                            <label class="btn btn-primary input-radio">
+                                                <input type="radio" name="size" value="5" autocomplete="off"> XXL
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                                                                                                                       
 
                                     <div class="details-filter-row details-row-size">
                                         <label for="qty">Qty:</label>
@@ -231,32 +372,25 @@
                                     <div class="w-100">
                                         <input type="text" class="textInput" id="showModalBtn" />
                                     </div>
-                                    <div>
-                                        <label class="fileLabel">
-                                            <div><i class="fa-solid fa-camera"></i></div>
-                                        </label>
-                                    </div>
                                 </div>
+                                @foreach($comments as $comment)
                                 <div class="review">
                                     <div class="row no-gutters">
-                                        <div class="col-auto">
-                                            <h4><a href="#">Samanta J.</a></h4>
+                                        <div class="col-2">
+                                            <h4><a href="#">{{$comment->user->name}}</a></h4>
                                             <div class="ratings-container">
                                                 <div class="ratings">
-                                                    <div class="ratings-val" style="width: 40%;"></div>
+                                                    <div class="ratings-val" style="width: {{$comment->rating*20}}%;"></div>
                                                     <!-- End .ratings-val -->
                                                 </div><!-- End .ratings -->
                                             </div><!-- End .rating-container -->
-                                            <span class="review-date">6 days ago</span>
+                                            <span class="review-date">{{$comment->created_at}}</span>
                                         </div><!-- End .col -->
                                         <div class="col">
-                                            <h4>Good, perfect size</h4>
+                                            {{-- <h4>Good, perfect size</h4> --}}
 
                                             <div class="review-content">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus cum
-                                                    dolores assumenda asperiores facilis porro reprehenderit animi culpa
-                                                    atque blanditiis commodi perspiciatis doloremque, possimus, explicabo,
-                                                    autem fugit beatae quae voluptas!</p>
+                                                <p>{{$comment->content}}</p>
                                             </div><!-- End .review-content -->
 
                                             <div class="review-action">
@@ -266,35 +400,7 @@
                                         </div><!-- End .col-auto -->
                                     </div><!-- End .row -->
                                 </div><!-- End .review -->
-
-                                <div class="review">
-                                    <div class="row no-gutters">
-                                        <div class="col-auto">
-                                            <h4><a href="#">John Doe</a></h4>
-                                            <div class="ratings-container">
-                                                <div class="ratings">
-                                                    <div class="ratings-val" style="width: 100%;"></div>
-                                                    <!-- End .ratings-val -->
-                                                </div><!-- End .ratings -->
-                                            </div><!-- End .rating-container -->
-                                            <span class="review-date">5 days ago</span>
-                                        </div><!-- End .col -->
-                                        <div class="col">
-                                            <h4>Very good</h4>
-
-                                            <div class="review-content">
-                                                <p>Sed, molestias, tempore? Ex dolor esse iure hic veniam laborum blanditiis
-                                                    laudantium iste amet. Cum non voluptate eos enim, ab cumque nam, modi,
-                                                    quas iure illum repellendus, blanditiis perspiciatis beatae!</p>
-                                            </div><!-- End .review-content -->
-
-                                            <div class="review-action">
-                                                <a href="#"><i class="icon-thumbs-up"></i>Helpful (0)</a>
-                                                <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
-                                            </div><!-- End .review-action -->
-                                        </div><!-- End .col-auto -->
-                                    </div><!-- End .row -->
-                                </div><!-- End .review -->
+                                @endforeach
                             </div><!-- End .reviews -->
                         </div><!-- .End .tab-pane -->
                     </div><!-- End .tab-content -->
@@ -378,7 +484,7 @@
                                             <div class="ratings-val" style="width: 20%;"></div><!-- End .ratings-val -->
                                         </div><!-- End .ratings -->
                                         <span class="ratings-text">( 2 Reviews )</span>
-                                    </div><!-- End .rating-container -->
+                                    </div>
                                 </div><!-- End .product-body -->
                             </div>
                         @endforeach
@@ -398,39 +504,94 @@
     <script>
         $(document).ready(function() {
             $('#showModalBtn').click(function() {
-                $('#exampleModal').modal('show');
+                $('#commentModal').modal('show');
             });
 
             // preview image
-            $('#fileInput').change(function() {
-                var files = $(this)[0].files;
-                if (files.length > 1) {
-                    $('.imagePreview a').removeClass('d-none');
-                } else {
-                    $('.imagePreview a').addClass('d-none');
-                }
+            // $('#fileInput').change(function() {
+            //     var files = $(this)[0].files;
+            //     if (files.length > 1) {
+            //         $('.imagePreview a').removeClass('d-none');
+            //     } else {
+            //         $('.imagePreview a').addClass('d-none');
+            //     }
 
-                // Xóa tất cả các slide hiện có trước khi thêm slide mới
-                $('.imagePreview').find('.carousel-inner').empty();
+            //     // Xóa tất cả các slide hiện có trước khi thêm slide mới
+            //     $('.imagePreview').find('.carousel-inner').empty();
 
-                for (var i = 0; i < files.length; i++) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        // Thêm ảnh mới vào slide show
-                        var imgElement = $('<img>').attr('src', e.target.result).addClass(
-                            'd-block w-100');
-                        var slideItem = $('<div>').addClass('carousel-item').append($('<div>').addClass(
-                            'imagePreview').append(imgElement));
+            //     for (var i = 0; i < files.length; i++) {
+            //         var reader = new FileReader();
+            //         reader.onload = function(e) {
+            //             // Thêm ảnh mới vào slide show
+            //             var imgElement = $('<img>').attr('src', e.target.result).addClass(
+            //                 'd-block w-100');
+            //             var slideItem = $('<div>').addClass('carousel-item').append($('<div>').addClass(
+            //                 'imagePreview').append(imgElement));
 
-                        // Xác định slide mới được thêm vào là slide đầu tiên hoặc không
-                        if ($('.imagePreview').find('.carousel-item').length === 0) {
-                            slideItem.addClass('active');
-                        }
+            //             // Xác định slide mới được thêm vào là slide đầu tiên hoặc không
+            //             if ($('.imagePreview').find('.carousel-item').length === 0) {
+            //                 slideItem.addClass('active');
+            //             }
 
-                        $('.imagePreview').find('.carousel-inner').append(slideItem);
-                    };
-                    reader.readAsDataURL(files[i]);
-                }
+            //             $('.imagePreview').find('.carousel-inner').append(slideItem);
+            //         };
+            //         reader.readAsDataURL(files[i]);
+            //     }
+            // });
+
+            //start rating
+            var $star_rating = $('.star-rating .fa');
+
+            var SetRatingStar = function() {
+                return $star_rating.each(function() {
+                    if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+                    return $(this).removeClass('fa-star-o').addClass('fa-star');
+                    } else {
+                    return $(this).removeClass('fa-star').addClass('fa-star-o');
+                    }
+                });
+            };
+
+            $star_rating.on('click', function() {
+                $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+                return SetRatingStar();
+            });
+
+            SetRatingStar();
+            $('#commentModal .btn-primary').click(function(){
+                console.log(123);
+                var csrfToken = $('#commentForm input[name="_token"]').val();
+                // Lấy giá trị của các trường dữ liệu
+                var message = $('#message-text').val();
+                var rating = $('input[name="rating"]:checked').val();
+
+                var currentURL = window.location.href;
+                var urlParts = currentURL.split('/');
+                var lastPart = urlParts[urlParts.length - 1];
+                
+                // Tạo object chứa dữ liệu để gửi qua AJAX
+                var formData = {
+                    _token: csrfToken,
+                    message: message,
+                    rating: rating,
+                    product_id: lastPart,
+                };
+
+                    // Gửi dữ liệu thông qua AJAX
+                $.ajax({
+                    type: 'POST',
+                    url: '/comment/add', // Đường dẫn đến route xử lý lưu dữ liệu
+                    data: formData,
+                    dataType: 'json',
+                    success: function(data){
+                        $('#closeModalComment').click();
+                    },
+                    error: function(xhr, status, error){
+                        // Xử lý khi có lỗi xảy ra trong quá trình AJAX request
+                        console.error(error); // In lỗi vào console
+                        // Hiển thị thông báo lỗi hoặc thực hiện các hành động khác nếu cần
+                    }
+                });
             });
         });
     </script>

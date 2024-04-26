@@ -13,12 +13,16 @@ class ProductController extends Controller
     public function detailsProduct($id) {       
         $product = ProductModel::getProductById($id);
         $data['product_detail'] = $product['0'];
+        //dd($data['product_detail']);
         $data['header_title'] = $data['product_detail']['name'];
         if($data['product_detail']['sex'] == null) $data['product_detail']['sex'] = 2;
         $data['also_like'] = CategoryModel::find($data['product_detail']->category_id)->products->take(6);
         $data['comments'] = ProductModel::find($id)->comments;
-        //dd($data['comments']);
-        return view('client/components/product-detail', $data);
+        $data['images'] = ProductModel::find($id)->images;
+        $data['product_sizes'] = ProductModel::find($id)->sizes;
+        $data['product_colors'] = ProductModel::find($id)->colors;
+        
+        return view('client/components/productDetail', $data);
     }
 
     public function listProducts(Request $request) {
