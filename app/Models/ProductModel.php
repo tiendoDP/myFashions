@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use PhpOffice\PhpSpreadsheet\Calculation\LookupRef\Offset;
 use App\Models\Comment;
+use App\Models\ProductImage;
 
 class ProductModel extends Model
 {
@@ -24,6 +25,21 @@ class ProductModel extends Model
         'discount',
         'status',
     ];
+
+    public function colors()
+    {
+        return $this->hasMany(ProductColor::class, 'product_id');
+    }
+
+    public function sizes()
+    {
+        return $this->hasMany(ProductSize::class, 'product_id');
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class, 'product_id');
+    }
 
     public function comments()
     {

@@ -13,6 +13,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Components\CartController;
 use App\Http\Controllers\Components\CheckOutController;
 use App\Http\Controllers\Components\WishlistController;
+use App\Http\Controllers\Components\CommentController;
 use App\Http\Controllers\Components\ContactController;
 use App\Http\Controllers\Components\ProfileController;
 use App\Http\Controllers\Components\OrderController;
@@ -33,7 +34,7 @@ use App\Http\Controllers\MailController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'Hello World';
 });
 
 Route::get('admin', [AuthController::class, 'login_admin']);
@@ -113,7 +114,9 @@ Route::middleware(['user', 'verifyEmail', 'shareView'])->group(function () {
         Route::get('/delete/{id}', [WishlistController::class, 'delete'])->name('wishlist.delete');
     });
     
-
+    Route::prefix('comment')->group(function () {
+        Route::post('/add', [CommentController::class, 'save']);
+    });
 });
 
 
