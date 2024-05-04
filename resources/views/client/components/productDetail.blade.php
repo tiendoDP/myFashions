@@ -327,7 +327,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab"
-                                role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews (2)</a>
+                                role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews ({{$comments->count()}})</a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -341,13 +341,13 @@
 
                         <div class="tab-pane fade" id="product-review-tab" role="tabpanel"
                             aria-labelledby="product-review-link">
-                            <div class="reviews">
-                                <h3>Reviews (2)</h3>
-                                <div class="comment">
-                                    <div class="w-100">
-                                        <input type="text" class="textInput" id="showModalBtn" />
-                                    </div>
+                            <h3 class="fs-4">Reviews ({{$comments->count()}})</h3>
+                            <div class="comment">
+                                <div class="w-100">
+                                    <input type="text" class="textInput" id="showModalBtn" />
                                 </div>
+                            </div>
+                            <div class="reviews">
                                 @foreach($comments as $comment)
                                 <div class="review">
                                     <div class="row no-gutters">
@@ -380,6 +380,31 @@
                         </div><!-- .End .tab-pane -->
                     </div><!-- End .tab-content -->
                 </div><!-- End .product-details-tab -->
+
+                <div id="cover-comment" class="review d-none">
+                    <div class="row no-gutters">
+                        <div class="col-2">
+                            <h4><a href="#" class="userName"></a></h4>
+                            <div class="ratings-container">
+                                <div class="ratings">
+                                    <div class="ratings-val"></div>
+                                </div>
+                            </div>
+                            <span class="review-date"></span>
+                        </div>
+                        <div class="col">
+                            {{-- <h4>Good, perfect size</h4> --}}
+
+                            <div class="review-content">
+                                <p></p>
+                            </div>
+                            <div class="review-action">
+                                <a href="#"><i class="icon-thumbs-up"></i>Helpful (2)</a>
+                                <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <h2 class="title text-center mb-4">You May Also Like</h2>
 
@@ -482,6 +507,38 @@
                 $('#commentModal').modal('show');
             });
 
+            //preview image
+            $('#fileInput').change(function() {
+                var files = $(this)[0].files;
+                if (files.length > 1) {
+                    $('.imagePreview a').removeClass('d-none');
+                } else {
+                    $('.imagePreview a').addClass('d-none');
+                }
+
+                // Xóa tất cả các slide hiện có trước khi thêm slide mới
+                $('.imagePreview').find('.carousel-inner').empty();
+
+                for (var i = 0; i < files.length; i++) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        // Thêm ảnh mới vào slide show
+                        var imgElement = $('<img>').attr('src', e.target.result).addClass(
+                            'd-block w-100');
+                        var slideItem = $('<div>').addClass('carousel-item').append($('<div>').addClass(
+                            'imagePreview').append(imgElement));
+
+                        // Xác định slide mới được thêm vào là slide đầu tiên hoặc không
+                        if ($('.imagePreview').find('.carousel-item').length === 0) {
+                            slideItem.addClass('active');
+                        }
+
+                        $('.imagePreview').find('.carousel-inner').append(slideItem);
+                    };
+                    reader.readAsDataURL(files[i]);
+                }
+            });
+
             var $star_rating = $('.star-rating .fa');
 
             var SetRatingStar = function() {
@@ -501,7 +558,6 @@
 
             SetRatingStar();
             $('#commentModal .btn-primary').click(function(){
-                console.log(123);
                 var csrfToken = $('#commentForm input[name="_token"]').val();
                 // Lấy giá trị của các trường dữ liệu
                 var message = $('#message-text').val();
@@ -526,15 +582,26 @@
                     data: formData,
                     dataType: 'json',
                     success: function(data){
+                        var cloneComment = $('#cover-comment').clone();
+                        cloneComment.removeClass('d-none');
+                        cloneComment.find('.userName').text(data.data.user_name);
+                        cloneComment.find('.ratings-val').css('width', (rating * 20) + '%');
+                        cloneComment.find('.review-date').text('a second ago');
+                        cloneComment.find('.review-content').text(data.data.content);
+                        
+                        $(".reviews").prepend(cloneComment);
+                        cloneComment.removeAttr('id');
+
                         $('#closeModalComment').click();
                     },
                     error: function(xhr, status, error){
-                        // Xử lý khi có lỗi xảy ra trong quá trình AJAX request
-                        console.error(error); // In lỗi vào console
-                        // Hiển thị thông báo lỗi hoặc thực hiện các hành động khác nếu cần
+                        console.error(error);
                     }
                 });
             });
+
+            //add comment
+            
         });
     </script>
 @endsection

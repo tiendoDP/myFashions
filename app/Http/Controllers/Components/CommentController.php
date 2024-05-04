@@ -31,7 +31,12 @@ class CommentController extends Controller
         $comment->rating = $validatedData['rating'];
         $comment->save();
 
+        $data['user_name'] = $comment->user->name;
+        $data['created_at'] = $comment->created_at;
+        $data['content'] = $comment->content;
+        $data['rating'] = $comment->rating;
+
         // Trả về kết quả thành công
-        return response()->json(['success' => true, 'message' => 'Comment saved successfully']);
+        return response()->json(['success' => true, 'message' => 'Comment saved successfully', 'data' => $data]);
     }
 }

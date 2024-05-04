@@ -507,37 +507,37 @@
                 $('#commentModal').modal('show');
             });
 
-            // preview image
-            // $('#fileInput').change(function() {
-            //     var files = $(this)[0].files;
-            //     if (files.length > 1) {
-            //         $('.imagePreview a').removeClass('d-none');
-            //     } else {
-            //         $('.imagePreview a').addClass('d-none');
-            //     }
+            preview image
+            $('#fileInput').change(function() {
+                var files = $(this)[0].files;
+                if (files.length > 1) {
+                    $('.imagePreview a').removeClass('d-none');
+                } else {
+                    $('.imagePreview a').addClass('d-none');
+                }
 
-            //     // Xóa tất cả các slide hiện có trước khi thêm slide mới
-            //     $('.imagePreview').find('.carousel-inner').empty();
+                // Xóa tất cả các slide hiện có trước khi thêm slide mới
+                $('.imagePreview').find('.carousel-inner').empty();
 
-            //     for (var i = 0; i < files.length; i++) {
-            //         var reader = new FileReader();
-            //         reader.onload = function(e) {
-            //             // Thêm ảnh mới vào slide show
-            //             var imgElement = $('<img>').attr('src', e.target.result).addClass(
-            //                 'd-block w-100');
-            //             var slideItem = $('<div>').addClass('carousel-item').append($('<div>').addClass(
-            //                 'imagePreview').append(imgElement));
+                for (var i = 0; i < files.length; i++) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        // Thêm ảnh mới vào slide show
+                        var imgElement = $('<img>').attr('src', e.target.result).addClass(
+                            'd-block w-100');
+                        var slideItem = $('<div>').addClass('carousel-item').append($('<div>').addClass(
+                            'imagePreview').append(imgElement));
 
-            //             // Xác định slide mới được thêm vào là slide đầu tiên hoặc không
-            //             if ($('.imagePreview').find('.carousel-item').length === 0) {
-            //                 slideItem.addClass('active');
-            //             }
+                        // Xác định slide mới được thêm vào là slide đầu tiên hoặc không
+                        if ($('.imagePreview').find('.carousel-item').length === 0) {
+                            slideItem.addClass('active');
+                        }
 
-            //             $('.imagePreview').find('.carousel-inner').append(slideItem);
-            //         };
-            //         reader.readAsDataURL(files[i]);
-            //     }
-            // });
+                        $('.imagePreview').find('.carousel-inner').append(slideItem);
+                    };
+                    reader.readAsDataURL(files[i]);
+                }
+            });
 
             //start rating
             var $star_rating = $('.star-rating .fa');

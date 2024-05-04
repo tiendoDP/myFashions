@@ -6,7 +6,7 @@
                 {{-- <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button> --}}
             </div>
             <div class="modal-body">
-                <form style="margin: 8px 12px" id="commentForm">
+                <form style="margin: 8px 12px" id="commentForm" enctype="multipart/form-data">
                     @csrf
                     {{-- <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Recipient:</label>
@@ -16,14 +16,14 @@
                         <label for="message-text" class="col-form-label">Message:</label>
                         <textarea class="form-control" id="message-text"></textarea>
                     </div>
-                    {{-- <div class="mb-2">
-                        <label for="fileInput" class="fileLabel">
-                            <div><i class="fa-solid fa-camera"></i></div>
+                    <div class="mb-1">
+                        <label for="fileInput" class="fileLabel mb-0">
+                            <div class="d-flex justify-content-center alight-itemscenter">Upload image <i class="fa-solid fa-camera ml-2"></i></div>
                         </label>
                         <input type="file" id="fileInput" class="fileInput" multiple />
-                    </div> --}}
+                    </div>
                 
-                    {{-- <div class="imagePreview carousel slide" data-ride="carousel">
+                    <div class="imagePreview carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <!-- Các ảnh sẽ được thêm vào đây -->
                         </div>
@@ -33,7 +33,7 @@
                         <a class="carousel-control-next d-none" href=".imagePreview" role="button" data-slide="next">
                             <span class="icon"><i class="fa-solid fa-angle-right"></i></span>
                         </a>
-                    </div> --}}
+                    </div>
                     
                     <label for="input-radio" class="col-form-label">Rating:</label>
                     <div class="star-rating">
