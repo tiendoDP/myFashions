@@ -639,4 +639,28 @@
             
         });
     </script>
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var commentDates = document.querySelectorAll(".review-date");
+        commentDates.forEach(function(commentDate) {
+            var date = moment(commentDate.innerText);
+            var now = moment();
+            var diffInMinutes = now.diff(date, 'minutes');
+
+            if (diffInMinutes < 1) {
+                commentDate.innerText = "Vừa xong";
+            }
+             else if (diffInMinutes < 60) {
+                commentDate.innerText = diffInMinutes + " phút trước";
+            } else if (diffInMinutes < 1440) {
+                commentDate.innerText = moment(date).fromNow();
+            } else {
+                commentDate.innerText = moment(date).format("DD/MM/YYYY");
+            }
+        });
+    });
+</script>
 @endsection
