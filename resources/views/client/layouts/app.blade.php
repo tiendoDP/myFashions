@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="{{asset("assets/css/skins/skin-demo-6.css")}}">
     <link rel="stylesheet" href="{{asset("assets/css/demos/demo-6.css")}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @yield('styles')
     @livewireStyles
 </head>
@@ -67,12 +68,40 @@
     <script src="{{asset("assets/js/jquery.countdown.min.js")}}"></script>
     <script src="{{asset("assets/js/jquery.elevateZoom.min.js")}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
     <!-- Main JS File -->
     <script src="{{asset("assets/js/main.js")}}"></script>
     <script src="{{asset("assets/js/demos/demo-6.js")}}"></script>
 
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+
+    <script>
+        toastr.options = {
+            closeButton: true,
+            debug: false,
+            newestOnTop: false,
+            progressBar: true,
+            positionClass: 'toast-top-right',
+            preventDuplicates: false,
+            onclick: null,
+            showDuration: '300',
+            hideDuration: '1000',
+            timeOut: '2000',
+            extendedTimeOut: '1000',
+            showEasing: 'swing',
+            hideEasing: 'linear',
+            showMethod: 'fadeIn',
+            hideMethod: 'fadeOut'
+        };
+        @if(session('success'))
+            toastr.options.timeOut = 2000;
+            toastr.success('{{session('success')}}');
+        @elseif(session('error'))
+            toastr.options.timeOut = 2000;
+            toastr.error('{{session('error')}}');
+        @endif
+    </script>
 
     @livewireScripts
     @yield('scripts')

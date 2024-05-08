@@ -159,10 +159,17 @@
             font-family: "Inter", sans-serif !important;
         }
 
+        /* #imagemodal {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+        } */
+
     </style>
 @endsection
 
 @include('client.components.Models.comment')
+@include('client.components.Models.previewImage')
 
 
 
@@ -212,7 +219,7 @@
                                     <div class="ratings">
                                         <div class="ratings-val" style="width: 80%;"></div>
                                     </div>
-                                    <a class="ratings-text" href="#product-review-link" id="review-link">( 2 Reviews )</a>
+                                    <a class="ratings-text" href="#product-review-link" id="review-link"><span class="numberComment">({{$comments->count()}})</span></a>
                                 </div>
 
                                 <div class="product-price">
@@ -229,21 +236,11 @@
 
                                 {{-- <div class="product-content">
                                     <p>{{ $product_detail->description }}</p>
-                                </div><!-- End .product-content --> --}}
+                                </div> --}}
 
                                 <form action="{{ route('cart.add') }}" method="GET">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $product_detail->id }}" />
-                                    {{-- <div class="details-filter-row details-row-size">
-                                        <label>Color:</label>
-
-                                        <div class="product-nav product-nav-thumbs">
-                                            <a href="#" class="active">
-                                                <img src="{{ asset('assets/images/products/' . $product_detail->image) }}"
-                                                    alt="product desc">
-                                            </a>
-                                        </div><!-- End .product-nav -->
-                                    </div> --}}
 
                                     <div class="details-filter-row details-row-color">
                                         <label class="col-form-label">Color:</label>
@@ -327,7 +324,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab"
-                                role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews ({{$comments->count()}})</a>
+                                role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews <span class="numberComment">({{$comments->count()}})</span></a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -341,12 +338,14 @@
 
                         <div class="tab-pane fade" id="product-review-tab" role="tabpanel"
                             aria-labelledby="product-review-link">
-                            <h3 class="fs-4">Reviews ({{$comments->count()}})</h3>
-                            <div class="comment">
-                                <div class="w-100">
-                                    <input type="text" class="textInput" id="showModalBtn" />
+                            <h3 class="fs-4">Reviews</h3>
+                            @if (Auth::check())
+                                <div class="comment">
+                                    <div class="w-100">
+                                        <input type="text" class="textInput" id="showModalBtn" />
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                             <div class="reviews">
                                 @foreach($comments as $comment)
                                 <div class="review">
@@ -368,9 +367,14 @@
                                                 <p>{{$comment->content}}</p>
                                             </div><!-- End .review-content -->
 
-                                            <div class="review-action">
-                                                <a href="#"><i class="icon-thumbs-up"></i>Helpful (2)</a>
-                                                <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
+                                            <div class="images-comment d-flex alight-item-center">
+                                                @if(isset($comment->images))
+                                                    @foreach($comment->images as $image)
+                                                        <div class="pop">
+                                                            <img src="{{ asset($image->image_path) }}" style="width: 100px; margin-right: 6px;" class="d-block" alt="...">
+                                                        </div>
+                                                    @endforeach
+                                                @endif
                                             </div><!-- End .review-action -->
                                         </div><!-- End .col-auto -->
                                     </div><!-- End .row -->
@@ -393,14 +397,10 @@
                             <span class="review-date"></span>
                         </div>
                         <div class="col">
-                            {{-- <h4>Good, perfect size</h4> --}}
-
                             <div class="review-content">
                                 <p></p>
                             </div>
-                            <div class="review-action">
-                                <a href="#"><i class="icon-thumbs-up"></i>Helpful (2)</a>
-                                <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
+                            <div class="images-comment"> 
                             </div>
                         </div>
                     </div>
@@ -503,41 +503,45 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
+            var myCarousel = document.querySelector('#carouselExampleControls')
+            var carousel = new bootstrap.Carousel(myCarousel)
             $('#showModalBtn').click(function() {
                 $('#commentModal').modal('show');
             });
 
             //preview image
             $('#fileInput').change(function() {
-                var files = $(this)[0].files;
-                if (files.length > 1) {
-                    $('.imagePreview a').removeClass('d-none');
-                } else {
-                    $('.imagePreview a').addClass('d-none');
+    var files = $(this)[0].files;
+    if (files.length > 1) {
+        $('.imagePreview a').removeClass('d-none');
+    } else {
+        $('.imagePreview a').addClass('d-none');
+    }
+
+    // Xóa tất cả các slide hiện có trước khi thêm slide mới
+    $('.imagePreview').find('.carousel-inner').empty();
+
+    for (var i = 0; i < files.length; i++) {
+        (function(file) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                // Thêm ảnh mới vào slide show
+                var imgElement = $('<img>').attr('src', e.target.result).addClass('d-block w-100');
+                var slideItem = $('<div>').addClass('carousel-item').append($('<div>').addClass(
+                    'imagePreview').append(imgElement));
+
+                // Xác định slide mới được thêm vào là slide đầu tiên hoặc không
+                if ($('.imagePreview').find('.carousel-item').length === 0) {
+                    slideItem.addClass('active');
                 }
 
-                // Xóa tất cả các slide hiện có trước khi thêm slide mới
-                $('.imagePreview').find('.carousel-inner').empty();
+                $('.imagePreview').find('.carousel-inner').append(slideItem);
+            };
+            reader.readAsDataURL(file);
+        })(files[i]);
+    }
+});
 
-                for (var i = 0; i < files.length; i++) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        // Thêm ảnh mới vào slide show
-                        var imgElement = $('<img>').attr('src', e.target.result).addClass(
-                            'd-block w-100');
-                        var slideItem = $('<div>').addClass('carousel-item').append($('<div>').addClass(
-                            'imagePreview').append(imgElement));
-
-                        // Xác định slide mới được thêm vào là slide đầu tiên hoặc không
-                        if ($('.imagePreview').find('.carousel-item').length === 0) {
-                            slideItem.addClass('active');
-                        }
-
-                        $('.imagePreview').find('.carousel-inner').append(slideItem);
-                    };
-                    reader.readAsDataURL(files[i]);
-                }
-            });
 
             var $star_rating = $('.star-rating .fa');
 
@@ -557,6 +561,9 @@
             });
 
             SetRatingStar();
+
+            var commentCount = parseInt({{$comments->count()}});
+
             $('#commentModal .btn-primary').click(function(){
                 var csrfToken = $('#commentForm input[name="_token"]').val();
                 // Lấy giá trị của các trường dữ liệu
@@ -567,20 +574,26 @@
                 var urlParts = currentURL.split('/');
                 var lastPart = urlParts[urlParts.length - 1];
                 
-                // Tạo object chứa dữ liệu để gửi qua AJAX
-                var formData = {
-                    _token: csrfToken,
-                    message: message,
-                    rating: rating,
-                    product_id: lastPart,
-                };
+                var formData = new FormData();
+                formData.append('_token', csrfToken);
+                formData.append('message', message);
+                formData.append('rating', rating);
+                formData.append('product_id', lastPart);
+
+                var files = $('#fileInput').get(0).files;
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    formData.append('images[]', file);
+                }
 
                     // Gửi dữ liệu thông qua AJAX
                 $.ajax({
                     type: 'POST',
                     url: '/comment/add', // Đường dẫn đến route xử lý lưu dữ liệu
                     data: formData,
-                    dataType: 'json',
+                    //enctype: 'multipart/form-data',
+                    contentType: false,
+                    processData: false,
                     success: function(data){
                         var cloneComment = $('#cover-comment').clone();
                         cloneComment.removeClass('d-none');
@@ -588,10 +601,25 @@
                         cloneComment.find('.ratings-val').css('width', (rating * 20) + '%');
                         cloneComment.find('.review-date').text('a second ago');
                         cloneComment.find('.review-content').text(data.data.content);
+
+                        var imgContainer = $('<div>').addClass('pop d-flex alight-item-center');
+                        data.data.images.forEach(element => {
+                            var imgElement = $('<img>').attr('src', "{{ asset('') }}" + element.image_path)
+                                                        .css({'width': '100px', 'margin-right': '6px'})
+                                                        .addClass('d-block');
+                            imgContainer.append(imgElement);
+                            cloneComment.find('.images-comment').append(imgContainer);
+                        });
                         
                         $(".reviews").prepend(cloneComment);
                         cloneComment.removeAttr('id');
+                        commentCount++;
+                        $('.numberComment').text('(' + commentCount + ')');
 
+                        $('#message-text').val('');
+                        $('#fileInput').val(null);
+                        $('.carousel-inner').empty();
+                        $('#star1').attr('checked', 'checked');
                         $('#closeModalComment').click();
                     },
                     error: function(xhr, status, error){
@@ -600,7 +628,14 @@
                 });
             });
 
-            //add comment
+            //preview comment image
+            $(function() {
+                $('.pop').on('click', function() {
+                    $('.imageCommentPreview').attr('src', $(this).find('img').attr('src'));
+                    $('#imagemodal').modal('show');
+                    //$('#imagemodal').addClass('d-flex align-items-center');
+                });		
+            });
             
         });
     </script>

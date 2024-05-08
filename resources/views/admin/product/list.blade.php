@@ -11,7 +11,7 @@
         <p class="h2">Product list</p>
         <a href="{{url('admin/product/add')}}" class="btn btn-primary">Add new Product</a>
     </div>
-    @if(!empty(session('success'))) <p class="h3">{{session('success')}}</p> @endif
+    
     <table class="table table-hover">
         <thead>
           <tr>
@@ -23,7 +23,7 @@
             <th scope="col">Quantity</th>
             <th scope="col">Price</th>
             <th scope="col">Status</th>
-            <th scope="col">Action</th>
+            <th scope="col" style="min-width: 150px;">Action</th>
           </tr>
         </thead>
         <tbody>

@@ -23,7 +23,7 @@
                         <input type="file" id="fileInput" class="fileInput" multiple />
                     </div>
                 
-                    <div class="imagePreview carousel slide" data-ride="carousel">
+                    <div class="imagePreview carousel slide">
                         <div class="carousel-inner">
                             <!-- Các ảnh sẽ được thêm vào đây -->
                         </div>

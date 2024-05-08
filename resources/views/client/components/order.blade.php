@@ -66,9 +66,7 @@
                                             </td>
                                             <td class="product-col">
                                                 @if ($item->notes != null)
-                                                    {{ $item->notes }}
-                                                @else
-                                                    Không có
+                                                    {{ $item->notes }}                                                   
                                                 @endif
                                             </td>
                                             <td class="product-col">{{ $item->created_at }}</td>
