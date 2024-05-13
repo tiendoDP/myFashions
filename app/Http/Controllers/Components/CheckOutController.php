@@ -86,7 +86,7 @@ class CheckOutController extends Controller
             }
             $sql->delete();
             session()->forget('fntotal');
-            return redirect()->route('order')->with('success', 'Order successfully');
+            return redirect()->route('order')->with('success', 'Đặt hàng thành công!');
         } 
         else if(isset($_POST['payUrl'])) {
             $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
@@ -226,11 +226,11 @@ class CheckOutController extends Controller
             session()->forget('fntotal');
             $payment->status = 1;
             $payment->save();
-            return redirect()->route('order')->with('success', 'Order success');
+            return redirect()->route('order')->with('success', 'Đặt hàng thành công');
         }
         else {
             Order::where('id', $payment->order_id)->delete();
-            return redirect()->route('order')->with('error', 'Error when order');
+            return redirect()->route('order')->with('error', 'Xảy ra lỗi khi đặt hàng');
         }
     }
 }

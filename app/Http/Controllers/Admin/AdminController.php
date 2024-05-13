@@ -41,7 +41,7 @@ class AdminController extends Controller
         $user->status = $request->status;
         $user->save();
         
-        return redirect('admin/admin/list')->with('success', "Admin Successfully Created");
+        return redirect('admin/admin/list')->with('success', "Thêm mới tài khoản thành công!");
     }
 
     public function edit($id) {
@@ -67,7 +67,7 @@ class AdminController extends Controller
         $user->status = $request->status;
         $user->save();
         
-        return redirect('admin/admin/list')->with('success', "Admin Successfully Updated");
+        return redirect('admin/admin/list')->with('success', "Cập nhật tài khoản thành công!");
     }
 
     public function delete($id, Request $request) {
@@ -76,7 +76,7 @@ class AdminController extends Controller
         $user->is_deleted = 1;
         $user->save();
         
-        return redirect()->back()->with('success', "Admin Successfully Deleted");
+        return redirect()->back()->with('success', "Xóa tài khoản thành công!");
     }
 
     public function unlock($id, Request $request) {
@@ -85,6 +85,6 @@ class AdminController extends Controller
         $user->is_deleted = 0;
         $user->save();
         
-        return redirect()->back()->with('success', "Admin Successfully Deleted");
+        return redirect()->back()->with('success', "Cập nhật tài khoản thành công!");
     }
 }

@@ -21,7 +21,7 @@ class CartController extends Controller
             $cart = CartModel::getProductInCart($id, $request->size, $request->color);
             $product = ProductModel::find($id);
             if($request->quantity > $product->quantity) {
-                return redirect()->back()->with('error', 'Out stock quantity');
+                return redirect()->back()->with('error', 'Quá số lượng đang có');
             }
             if ($cart->isEmpty()) {      
                 $cartNew = new CartModel;
@@ -40,7 +40,7 @@ class CartController extends Controller
                 $data['color_id'] = $request->color ? $request->color : Color::first()->id;
                 DB::table('carts')->where('id', $cartFirst->id)->update($data);
             }
-            return redirect()->back()->with('success', 'Cart added successfully');
+            return redirect()->back()->with('success', 'Thêm sản phẩm vào giỏ thành công!');
         }
     }
     
@@ -56,7 +56,7 @@ class CartController extends Controller
     public function delete($id) {
         $cart = CartModel::find($id);
         $cart->delete();
-        return redirect()->back()->with('success', "Product Successfully Deleted");
+        return redirect()->back()->with('success', "Xóa sản phẩm thành công!");
     }
 
 }

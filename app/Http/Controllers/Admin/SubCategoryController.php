@@ -37,7 +37,7 @@ class SubCategoryController extends Controller
         $subcategory->status = $request->status;
         $subcategory->save();
         
-        return redirect('admin/sub_category/list')->with('success', "Category Successfully Created");
+        return redirect('admin/sub_category/list')->with('success', "Thêm mới thành công!");
     }
 
     public function edit($id) {
@@ -61,13 +61,13 @@ class SubCategoryController extends Controller
         $subcategory->status = $request->status;
         $subcategory->save();
         
-        return redirect('admin/sub_category/list')->with('success', "SubCategory Successfully Updated");
+        return redirect('admin/sub_category/list')->with('success', "Cập nhật thành công");
     }
 
     public function delete($id, Request $request) {
         $category = SubCategoryModel::find($id);       
         $category->delete();
         
-        return redirect()->back()->with('success', "Subcategory Successfully Deleted");
+        return redirect()->back()->with('success', "Xóa thành công");
     }
 }

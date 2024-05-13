@@ -8,22 +8,22 @@
 
 <div class="content-wrapper">
     <div class="p-3 d-flex justify-content-between align-items-center">
-        <p class="h2">Product list</p>
-        <a href="{{url('admin/product/add')}}" class="btn btn-primary">Add new Product</a>
+        <p class="h2">Danh sách sản phẩm</p>
+        <a href="{{url('admin/product/add')}}" class="btn btn-primary">Thêm sản phẩm mới</a>
     </div>
     
     <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Image</th>
-            <th scope="col">Name</th>
-            <th scope="col-2" style="width: 30%">Description</th>
-            <th scope="col">Category Name</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Price</th>
-            <th scope="col">Status</th>
-            <th scope="col" style="min-width: 150px;">Action</th>
+            <th scope="col">Ảnh</th>
+            <th scope="col">Tên</th>
+            <th scope="col-2" style="width: 30%">Mô tả</th>
+            <th scope="col">Danh mục</th>
+            <th scope="col">Số lượng</th>
+            <th scope="col">Giá</th>
+            <th scope="col">Tình trạng</th>
+            <th scope="col" style="min-width: 150px;">Thao tác</th>
           </tr>
         </thead>
         <tbody>
@@ -41,12 +41,12 @@
                 <td>{{$value->price}}</td>
                 <td>{{($value->status) == 0 ? 'active' : 'inactive'}}</td>
                 <td>
-                  <a href="{{url('admin/product/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
-                  <a href="{{url('admin/product/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
+                  <a href="{{url('admin/product/edit/'.$value->id)}}" class="btn btn-primary">Sửa</a>
+                  <a href="{{url('admin/product/delete/'.$value->id)}}" class="btn btn-danger">Xóa</a>
                 </td> 
               </tr>
             @endforeach
-          @else <p class="text-center">Product is not found</p>
+          @else <p class="text-center">Không tìm thấy sản phẩm</p>
           @endif
         </tbody>
       </table>

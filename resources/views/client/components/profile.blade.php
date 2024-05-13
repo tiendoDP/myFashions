@@ -28,14 +28,14 @@
                   alt="Avatar" class="img-fluid my-5 mb-0" style="width: 120px;" />
                 <div class="d-flex justify-content-center align-items-center flex-column p-3" style="justify-content: start !important;">
                   <h5 class="mt-3 mb-1">{{Auth::user()->name}}</h5>
-                  <p>Customer</p>
+                  <p>Khách hàng</p>
                 </div>
               </div>
               <div class="col-md-8">
                 <div class="card-body p-4" style="max-width: 550px">
                   <p style="width: max-content; border-radius: 6px; cursor: pointer" class="p-1 m-1">
                     <span class="m-1"><i class="fa-regular fa-pen-to-square"></i></span>
-                    <span class="" style="" data-bs-toggle="modal" data-bs-target="#editProfile" data-bs-whatever="@mdo">Edit Profile</span>
+                    <span class="" style="" data-bs-toggle="modal" data-bs-target="#editProfile" data-bs-whatever="@mdo">Chỉnh sửa</span>
                   </p>
                   <hr class="mt-0 mb-4">
                   <div class="row pt-1">
@@ -44,7 +44,7 @@
                       <p class="text-muted">{{Auth::user()->email}}</p>
                     </div>
                     <div class="col-6 mb-3">
-                      <h6>Phone</h6>
+                      <h6>Số điện thoại</h6>
                       <p class="text-muted">{{Auth::user()->phone_number}}</p>
                     </div>
                   </div>
@@ -52,11 +52,11 @@
                   <hr class="mt-0 mb-4">
                   <div class="row pt-1">
                     <div class="col-6 mb-3">
-                      <h6>My Order</h6>
-                      <p class="text-muted"><a href="{{route('order')}}">View Order ({{count($allOrder)}})</a></p>
+                      <h6>Đơn hàng</h6>
+                      <p class="text-muted"><a href="{{route('order')}}">Xem đơn hàng ({{count($allOrder)}})</a></p>
                     </div>
                     <div class="col-6 mb-3">
-                      <h6>Address</h6>
+                      <h6>Địa chỉ</h6>
                       <p class="text-muted">{{Auth::user()->address}}</p>
                     </div>
                   </div>
@@ -84,7 +84,7 @@
 <script>
   $(document).ready(function() {
     $('#updateUser').on('click', function() {
-      $isCheck = confirm('Are you sure you want to update');
+      $isCheck = confirm('Bạn chắc chắn với chỉnh sửa này?');
       if($isCheck) {
         $('#formUpdateUser').submit();
       }

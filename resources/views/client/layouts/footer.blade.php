@@ -31,19 +31,19 @@
                         <ul class="widget-list">
                             <li><a href="{{route('contact')}}">About TDFahion</a></li>
                             <li><a href="#">FAQ</a></li>
-                            <li><a href="{{route('login')}}">Log in</a></li>
+                            <li><a href="{{route('login')}}">Đăng nhập</a></li>
                         </ul><!-- End .widget-list -->
                     </div><!-- End .widget -->
                 </div><!-- End .col-sm-6 col-lg-3 -->
 
                 <div class="col-sm-6 col-lg-3">
                     <div class="widget">
-                        <h4 class="widget-title">Customer Service</h4><!-- End .widget-title -->
+                        <h4 class="widget-title">Chăm sóc khách hàng</h4><!-- End .widget-title -->
 
                         <ul class="widget-list">
-                            <li><a href="{{route('product_list')}}">Products</a></li>
-                            <li><a href="{{route('cart.view')}}">View cart</a></li>
-                            <li><a href="{{route('wishlist.index')}}">Wishlist</a></li>
+                            <li><a href="{{route('product_list')}}">Sản phẩm</a></li>
+                            <li><a href="{{route('cart.view')}}">Giỏ hàng</a></li>
+                            <li><a href="{{route('wishlist.index')}}">Yêu thích</a></li>
                             
                         </ul><!-- End .widget-list -->
                     </div><!-- End .widget -->
@@ -51,27 +51,18 @@
 
                 <div class="col-sm-6 col-lg-3">
                     <div class="widget">
-                        <h4 class="widget-title">My Account</h4><!-- End .widget-title -->
+                        <h4 class="widget-title">Trang cá nhân</h4><!-- End .widget-title -->
 
                         <ul class="widget-list">
-                            <li><a href="{{route('profile')}}">Account</a></li>
-                            <li><a href="{{route('changePassword')}}">Reset password</a></li>
-                            <li><a href="{{route('order')}}">My Order</a></li>
-                            <li><a href="{{route('contact')}}">Help</a></li>
+                            <li><a href="{{route('profile')}}">Tài khoản</a></li>
+                            <li><a href="{{route('changePassword')}}">Đổi mật khẩu</a></li>
+                            <li><a href="{{route('order')}}">Đơn hàng</a></li>
+                            <li><a href="{{route('contact')}}">Trợ giúp</a></li>
                         </ul><!-- End .widget-list -->
                     </div><!-- End .widget -->
                 </div><!-- End .col-sm-6 col-lg-3 -->
             </div><!-- End .row -->
         </div><!-- End .container -->
     </div><!-- End .footer-middle -->
-
-    <div class="footer-bottom">
-        <div class="container">
-            <p class="footer-copyright">Copyright © 2024 TDFashion Store. All Rights Reserved.</p><!-- End .footer-copyright -->
-            <figure class="footer-payments">
-                <img src="{{asset('assets/images/payments.png')}}" alt="Payment methods" width="272" height="20">
-            </figure><!-- End .footer-payments -->
-        </div><!-- End .container -->
-    </div><!-- End .footer-bottom -->
 </footer><!-- End .footer -->
 

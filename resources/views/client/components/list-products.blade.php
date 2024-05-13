@@ -7,7 +7,7 @@
     <main class="main">
         <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
             <div class="container">
-                <h1 class="page-title">List<span>Products</span></h1>
+                <h1 class="page-title">Danh sách<span>Sản phẩm</span></h1>
             </div>
         </div>
         <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">

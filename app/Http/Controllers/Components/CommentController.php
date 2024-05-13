@@ -56,10 +56,10 @@ class CommentController extends Controller
 
             DB::commit();
             // Trả về kết quả thành công
-            return response()->json(['success' => true, 'message' => 'Comment saved successfully', 'data' => $data]);
+            return response()->json(['success' => true, 'message' => 'Cảm ơn bạn đã đánh giá sản phẩm', 'data' => $data]);
         } catch (\Exception $e) {
             DB::rollBack();
-            return response()->json(['error' => true, 'message' => 'Error when add comment']);
+            return response()->json(['error' => true, 'message' => 'Xảy ra lỗi khi comment']);
         }
         
     }

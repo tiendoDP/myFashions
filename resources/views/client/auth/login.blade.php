@@ -12,7 +12,7 @@
                 <div class="form-tab">
                     <ul class="nav nav-pills nav-fill" role="tablist">
                         <li class="nav-item">
-                            <div class="nav-link p-4" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab" aria-controls="signin-2" aria-selected="false" style="font-size: 30px" >Sing In</div>
+                            <div class="nav-link p-4" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab" aria-controls="signin-2" aria-selected="false" style="font-size: 30px" >Đăng nhập</div>
                         </li>
                     </ul>
                     @if(!empty(session('error')))
@@ -27,41 +27,41 @@
                             <form action="" method="POST">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="register-email-2">Your email address *</label>
+                                    <label for="register-email-2">Email *</label>
                                     <input type="email" class="form-control" id="register-email-2" name="singin_email" required>
                                 </div><!-- End .form-group -->
 
                                 <div class="form-group">
-                                    <label for="register-password-2">Password *</label>
+                                    <label for="register-password-2">Mật khẩu *</label>
                                     <input type="password" class="form-control" id="register-password-2" name="singin_password" required>
                                 </div><!-- End .form-group -->
 
                                 <div class="form-footer">
                                     <button type="submit" class="btn btn-outline-primary-2">
-                                        <span>SIGN IN</span>
+                                        <span>Đăng nhập</span>
                                         <i class="icon-long-arrow-right"></i>
                                     </button>
 
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" name="remember" id="signin-remember-2">
-                                        <label class="custom-control-label" for="signin-remember-2">Remember Me</label>
+                                        <label class="custom-control-label" for="signin-remember-2">Nhớ mật khẩu</label>
                                     </div>
                                 </div><!-- End .form-footer -->
                             </form>
                             <div class="form-choice">
-                                <p>Not a member? <a href="{{route('register')}}">Register</a></p>
-                                <p class="text-center">or sign in with</p>
+                                <p>Chưa có tài khoản? <a href="{{route('register')}}">Đăng ký ngay</a></p>
+                                <p class="text-center">Hoặc đăng nhập với</p>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <a href="#" class="btn btn-login btn-g">
                                             <i class="icon-google"></i>
-                                            Login With Google
+                                            Đăng nhập với Google
                                         </a>
                                     </div><!-- End .col-6 -->
                                     <div class="col-sm-6">
                                         <a href="#" class="btn btn-login  btn-f">
                                             <i class="icon-facebook-f"></i>
-                                            Login With Facebook
+                                            Đăng nhập với Facebook
                                         </a>
                                     </div><!-- End .col-6 -->
                                 </div><!-- End .row -->

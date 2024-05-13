@@ -27,13 +27,13 @@ class WishlistController extends Controller
                 $productInWishlist->product_id = $product->id;
                 $productInWishlist->save();
             }
-            return redirect()->back()->with('success', 'Wishlist added successfully');
+            return redirect()->back()->with('success', 'Yêu thích sản phẩm thành công!');
         }
     }
 
     public function delete($id) {
         $product = WishlistModel::where('product_id', $id)->first();
         $product->delete();
-        return redirect()->back()->with('success', "Successfully Deleted");
+        return redirect()->back()->with('success', "Bỏ thích sản phẩm thành công");
     }
 }

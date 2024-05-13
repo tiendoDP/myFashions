@@ -44,17 +44,17 @@
             <div class="mb-5"></div><!-- End .mb-5 -->
             <div class="container">
                 <div class="heading heading-center mb-3">
-                    <h2 class="title">Trending</h2><!-- End .title -->
+                    <h2 class="title">Nổi bật</h2><!-- End .title -->
 
                     <ul class="nav nav-pills justify-content-center" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="trending-all-link" data-toggle="tab" href="#trending-all-tab" role="tab" aria-controls="trending-all-tab" aria-selected="true">All</a>
+                            <a class="nav-link active" id="trending-all-link" data-toggle="tab" href="#trending-all-tab" role="tab" aria-controls="trending-all-tab" aria-selected="true">Tất cả</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="trending-women-link" data-toggle="tab" href="#trending-women-tab" role="tab" aria-controls="trending-women-tab" aria-selected="false">Women</a>
+                            <a class="nav-link" id="trending-women-link" data-toggle="tab" href="#trending-women-tab" role="tab" aria-controls="trending-women-tab" aria-selected="false">Nữ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="trending-men-link" data-toggle="tab" href="#trending-men-tab" role="tab" aria-controls="trending-men-tab" aria-selected="false">Men</a>
+                            <a class="nav-link" id="trending-men-link" data-toggle="tab" href="#trending-men-tab" role="tab" aria-controls="trending-men-tab" aria-selected="false">Nam</a>
                         </li>
                     </ul>
                 </div><!-- End .heading -->
@@ -101,12 +101,12 @@
                                         </a>
     
                                         <div class="product-action-vertical">
-                                            <a href="{{route('wishlist.add', ['id' => $item->id])}}" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                            <a href="{{route('wishlist.add', ['id' => $item->id])}}" class="btn-product-icon btn-wishlist btn-expandable"><span>Yêu thích</span></a>
                                         </div><!-- End .product-action-vertical -->
     
                                         
                                         <div class="product-action">
-                                            <a href="{{route('cart.add', ['id' => $item->id])}}" class="btn-product btn-cart"><span>add to cart</span></a>
+                                            <a href="{{route('cart.add', ['id' => $item->id])}}" class="btn-product btn-cart"><span>Thêm vào giỏ</span></a>
                                         </div>
                                     </figure>
     
@@ -170,12 +170,12 @@
                                         </a>
     
                                         <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>Yêu thích</span></a>
                                         </div><!-- End .product-action-vertical -->
     
                                         
                                         <div class="product-action">
-                                            <a href="{{route('cart.add', ['id' => $item->id])}}" class="btn-product btn-cart"><span>add to cart</span></a>
+                                            <a href="{{route('cart.add', ['id' => $item->id])}}" class="btn-product btn-cart"><span>Thêm vào giỏ</span></a>
                                         </div>
                                     </figure>
     
@@ -239,12 +239,12 @@
                                         </a>
     
                                         <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>Yêu thích</span></a>
                                         </div><!-- End .product-action-vertical -->
     
                                         
                                         <div class="product-action">
-                                            <a href="{{route('cart.add', ['id' => $item->id])}}" class="btn-product btn-cart"><span>add to cart</span></a>
+                                            <a href="{{route('cart.add', ['id' => $item->id])}}" class="btn-product btn-cart"><span>Thêm vào giỏ</span></a>
                                         </div>
                                     </figure>
     
@@ -277,8 +277,8 @@
                     <div class="row justify-content-center">
                         <div class="col-sm-12 col-md-8 col-lg-6">
                             <div class="deal-content text-center">
-                                <h4>Limited quantities. </h4>
-                                <h2>Deal of the Day</h2>
+                                <h4>Giới hạn số lượng. </h4>
+                                <h2>Khuyến mãi trong ngày</h2>
                                 <div class="deal-countdown" data-until="+10h"></div><!-- End .deal-countdown -->
                             </div><!-- End .deal-content -->
                             <div class="row deal-products">
@@ -331,7 +331,7 @@
                                     <i class="icon-truck"></i>
                                 </span>
                                 <div class="icon-box-content">
-                                    <h3 class="icon-box-title">Payment & Delivery</h3><!-- End .icon-box-title -->
+                                    <h3 class="icon-box-title">Thanh toán & Giao hàng</h3><!-- End .icon-box-title -->
                                     <p>Free shipping for orders over $50</p>
                                 </div><!-- End .icon-box-content -->
                             </div><!-- End .icon-box -->
@@ -343,7 +343,7 @@
                                     <i class="icon-rotate-left"></i>
                                 </span>
                                 <div class="icon-box-content">
-                                    <h3 class="icon-box-title">Return & Refund</h3><!-- End .icon-box-title -->
+                                    <h3 class="icon-box-title">Trả hàng & Hoàn tiền</h3><!-- End .icon-box-title -->
                                     <p>Free 100% money back guarantee</p>
                                 </div><!-- End .icon-box-content -->
                             </div><!-- End .icon-box -->
@@ -355,7 +355,7 @@
                                     <i class="icon-unlock"></i>
                                 </span>
                                 <div class="icon-box-content">
-                                    <h3 class="icon-box-title">Secure Payment</h3><!-- End .icon-box-title -->
+                                    <h3 class="icon-box-title">Bảo mật thanh toán</h3><!-- End .icon-box-title -->
                                     <p>100% secure payment</p>
                                 </div><!-- End .icon-box-content -->
                             </div><!-- End .icon-box -->
@@ -367,7 +367,7 @@
                                     <i class="icon-headphones"></i>
                                 </span>
                                 <div class="icon-box-content">
-                                    <h3 class="icon-box-title">Quality Support</h3><!-- End .icon-box-title -->
+                                    <h3 class="icon-box-title">Hỗ trợ nhiệt tình</h3><!-- End .icon-box-title -->
                                     <p>Alway online feedback 24/7</p>
                                 </div><!-- End .icon-box-content -->
                             </div><!-- End .icon-box -->
@@ -379,7 +379,7 @@
             <div class="mb-6"></div><!-- End .mb-5 -->
 
             <div class="container">
-                <h2 class="title text-center mb-4">New Arrivals</h2><!-- End .title text-center -->
+                <h2 class="title text-center mb-4">Xu hướng mới</h2><!-- End .title text-center -->
 
                 <div class="products">
                     <div class="row justify-content-center">
@@ -397,11 +397,11 @@
                                             </a>
         
                                             <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>Yêu thích</span></a>
                                             </div><!-- End .product-action-vertical -->
         
                                             <div class="product-action">
-                                                <a href="{{route('cart.add', ['id' => $item->id])}}" class="btn-product btn-cart"><span>add to cart</span></a>
+                                                <a href="{{route('cart.add', ['id' => $item->id])}}" class="btn-product btn-cart"><span>Thêm vào giỏ</span></a>
                                             </div><!-- End .product-action -->
                                         </figure><!-- End .product-media -->
         
@@ -434,7 +434,7 @@
             <div class="pb-3">
                 <div class="container brands pt-5 pt-lg-7 ">
 
-                    <h2 class="title text-center mb-4">shop by brands</h2><!-- End .title text-center -->
+                    <h2 class="title text-center mb-4">Thương hiệu</h2><!-- End .title text-center -->
 
                     <div class="owl-carousel owl-simple" data-toggle="owl" 
                         data-owl-options='{
@@ -516,7 +516,7 @@
                         <div class="col-lg-6 d-flex align-items-stretch subscribe-div">
                             <div class="cta cta-box">
                                 <div class="cta-content">
-                                    <h3 class="cta-title">Subscribe To Our Newsletter</h3><!-- End .cta-title -->
+                                    <h3 class="cta-title">Đăng ký nhận thông báo</h3><!-- End .cta-title -->
                                     <p>Sign up now for <span class="primary-color">10% discount</span> on first order. Customise my news:</p>
                                     <div class="text-center">
                                         <a href="{{route('register')}}" >
@@ -538,7 +538,7 @@
             
             <div class="blog-posts mb-5">
                 <div class="container">
-                    <h2 class="title text-center mb-4">From Our Blog</h2><!-- End .title text-center -->
+                    <h2 class="title text-center mb-4">Tin tức</h2><!-- End .title text-center -->
 
                     <div class="owl-carousel owl-simple mb-3" data-toggle="owl" 
                         data-owl-options='{

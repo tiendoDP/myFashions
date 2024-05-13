@@ -19,14 +19,14 @@
 
 <div class="content-wrapper">
     <div class="p-3 d-flex justify-content-between align-items-center">
-        <p class="h2">Add new Product</p>
-        <a href="{{url('admin/product/list')}}" class="btn btn-primary">Back</a>
+        <p class="h2">Thêm sản phẩm mới</p>
+        <a href="{{url('admin/product/list')}}" class="btn btn-primary">Hủy</a>
     </div>
     <form class="m-4" action="" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" value="{{old('name')}}" name="name" placeholder="Name">
+            <label>Tên</label>
+            <input type="text" class="form-control" value="{{old('name')}}" name="name" placeholder="Tên">
             @error('name')
               <small class="form-text text-muted">
                 <div style="color:red">{{$message}}</div>
@@ -34,8 +34,8 @@
             @enderror
         </div>
         <div class="form-group">
-            <label>Description</label>
-            <textarea name="description" class="form-control" placeholder="Description" >{{old('description')}}</textarea>
+            <label>Mô tả</label>
+            <textarea name="description" class="form-control" placeholder="Mô tả" >{{old('description')}}</textarea>
             @error('description')
               <small class="form-text text-muted">
                 <div style="color:red">{{$message}}</div>
@@ -43,7 +43,7 @@
             @enderror
         </div>
         <div class="form-group">
-          <label class="form-label">Image Main</label> <br>
+          <label class="form-label">Hình ảnh</label> <br>
           <input type="file" name="image" accept="image/*" id="imageMain"/>
           <div class="preview-main-image mt-2"></div>
           @error('image')
@@ -53,7 +53,7 @@
           @enderror
         </div>
         <div class="form-group">
-          <label class="form-label">Images</label> <br>
+          <label class="form-label">Ảnh liên quan</label> <br>
           <input type="file" name="images[]" accept="image/*" id="imageInput" multiple/>
           <div class="preview-images mt-2"></div> <!-- Đây là nơi để hiển thị trước các hình ảnh -->
           @error('images')
@@ -63,7 +63,7 @@
           @enderror
         </div>
         <div class="form-group">
-          <label>Size</label> </br>
+          <label>Kích cỡ</label> </br>
           @foreach($sizes as $size)
           <label class="m-2">{{$size->name}}
             <input type="checkbox" name="sizes[]" checked value="{{$size->id}}"/>
@@ -77,7 +77,7 @@
         </div>
       
         <div class="form-group">
-          <label>Color</label> </br>
+          <label>màu sắc</label> </br>
           @foreach($colors as $color)
           <label class="m-2">{{$color->name}}
             <input type="checkbox" name="colors[]" checked value="{{$color->id}}"/>
@@ -90,7 +90,7 @@
           @enderror
         </div>
         <div class="form-group">
-            <label>Category</label>
+            <label>Danh mục</label>
             <select class="form-control" name="category_id" >
                 @foreach($getRecord_Category as $value)
                     <option value="{{$value->id}}">{{$value->name}}</option>
@@ -103,15 +103,15 @@
             @enderror
         </div>
         <div class="form-group">
-          <label>Sex</label>
+          <label>Giới tính</label>
           <select class="form-control" name="sex" >
-            <option value="0">Male</option>
-            <option value="1">Female</option>
+            <option value="0">Nam</option>
+            <option value="1">Nữ</option>
           </select>
       </div>
         <div class="form-group">
-            <label>Quantity</label>
-            <input type="text" class="form-control" value="{{old('quantity')}}" name="quantity" placeholder="Quantity">
+            <label>Số lượng</label>
+            <input type="text" class="form-control" value="{{old('quantity')}}" name="quantity" placeholder="Số lượng">
             @error('quantity')
               <small class="form-text text-muted">
                 <div style="color:red">{{$message}}</div>
@@ -119,8 +119,8 @@
             @enderror
         </div>
         <div class="form-group">
-            <label>Price</label>
-            <input type="text" class="form-control" value="{{old('price')}}" name="price" placeholder="Price">
+            <label>Giá</label>
+            <input type="text" class="form-control" value="{{old('price')}}" name="price" placeholder="Giá">
             @error('price')
               <small class="form-text text-muted">
                 <div style="color:red">{{$message}}</div>
@@ -128,8 +128,8 @@
             @enderror
         </div>
         <div class="form-group">
-          <label>Discount</label>
-          <input type="text" class="form-control" value="{{old('discount')}}" name="discount" placeholder="Discount">
+          <label>Khuyến mại</label>
+          <input type="text" class="form-control" value="{{old('discount')}}" name="discount" placeholder="Khuyến mại">
           @error('discount')
             <small class="form-text text-muted">
               <div style="color:red">{{$message}}</div>
@@ -137,7 +137,7 @@
           @enderror
       </div>
         <div class="form-group">
-            <label>Status</label>
+            <label>Tình trạng</label>
             <select class="form-control" name="status">
                 <option value="0" value="{{(old('email') == 0) ? 'selected' : ''}}">Active</option>
                 <option value="1" value="{{(old('email') == 1) ? 'selected' : ''}}">Inactive</option>
@@ -145,7 +145,7 @@
             <small class="form-text text-muted"></small>
         </div>
         
-        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        <button type="submit" class="btn btn-primary mb-2">Thêm</button>
       </form>
     
 </div>

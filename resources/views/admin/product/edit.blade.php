@@ -19,14 +19,14 @@
 
 <div class="content-wrapper">
     <div class="p-3 d-flex justify-content-between align-items-center">
-        <p class="h2">Edit new Product</p>
-        <a href="{{url('admin/product/list')}}" class="btn btn-primary">Back</a>
+        <p class="h2">Chỉnh sửa</p>
+        <a href="{{url('admin/product/list')}}" class="btn btn-primary">Hủy</a>
     </div>
     <form class="m-4" action="" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" value="{{old('name', $product->name)}}" name="name" placeholder="Name">
+            <label>Tên</label>
+            <input type="text" class="form-control" value="{{old('name', $product->name)}}" name="name" placeholder="Tên">
             @error('name')
               <small class="form-text text-muted">
                 <div style="color:red">{{$message}}</div>
@@ -34,8 +34,8 @@
             @enderror
         </div>
         <div class="form-group">
-            <label>Description</label>
-            <textarea name="description" class="form-control" placeholder="Description" >{{old('description', $product->description)}}</textarea>
+            <label>Mô tả</label>
+            <textarea name="description" class="form-control" placeholder="Mô tả" >{{old('description', $product->description)}}</textarea>
             @error('description')
               <small class="form-text text-muted">
                 <div style="color:red">{{$message}}</div>
@@ -43,7 +43,7 @@
             @enderror
         </div>
         <div class="form-group">
-          <label class="form-label">Image Main</label> <br>
+          <label class="form-label">Hình ảnh</label> <br>
           <input type="file" name="image" accept="image/*" id="imageMain"/>
           <div class="preview-main-image mt-2"></div>
           @error('image')
@@ -55,7 +55,7 @@
         <img src="{{asset('assets/images/products/'.$product->image)}}" id="file" class="card-img-top" alt="" style="max-width: 200px">
         <input type="hidden" name="old_image" value="{{$product->image}}" />
         <div class="form-group">
-          <label class="form-label">Images</label> <br>
+          <label class="form-label">Ảnh liên quan</label> <br>
           <input type="file" name="images[]" accept="image/*" id="imageInput" multiple/>
           <div class="preview-images mt-2"></div> <!-- Đây là nơi để hiển thị trước các hình ảnh -->
           <div id="displayImageOld"></div> <!-- Đây là nơi để hiển thị trước các hình ảnh -->
@@ -66,7 +66,7 @@
           @enderror
         </div>
         <div class="form-group">
-          <label>Size</label> </br>
+          <label>Kích cỡ</label> </br>
           @foreach($sizes as $size)
           <label class="m-2">{{$size->name}}
             <input type="checkbox" name="sizes[]" @if($product_sizes->contains('size_id', $size->id)) checked @endif value="{{$size->id}}"/>
@@ -79,7 +79,7 @@
           @enderror
         </div>
         <div class="form-group">
-          <label>Color</label> </br>
+          <label>Màu sắc</label> </br>
           @foreach($colors as $color)
           <label class="m-2">{{$color->name}}
             <input type="checkbox" name="colors[]" @if($product_colors->contains('color_id', $color->id)) checked @endif value="{{$color->id}}"/>
@@ -92,7 +92,7 @@
           @enderror
         </div>
         <div class="form-group">
-            <label>Category</label>
+            <label>Danh mục</label>
             <select class="form-control" name="category_id" >
                 @foreach($getRecord_Category as $value)
                     <option value="{{$value->id}}">{{$value->name}}</option>
@@ -100,15 +100,15 @@
             </select>
         </div>
         <div class="form-group">
-          <label>Sex</label>
+          <label>Giới tính</label>
           <select class="form-control" name="sex">
-            <option value="0" {{ $product->sex == 0 ? 'selected' : '' }}>Male</option>
-            <option value="1" {{ $product->sex == 1 ? 'selected' : '' }}>Female</option>
+            <option value="0" {{ $product->sex == 0 ? 'selected' : '' }}>Nam</option>
+            <option value="1" {{ $product->sex == 1 ? 'selected' : '' }}>Nữ</option>
           </select>
       </div>
         <div class="form-group">
-            <label>Quantity</label>
-            <input type="text" class="form-control" value="{{old('quantity', $product->quantity)}}" name="quantity" placeholder="Quantity">
+            <label>Số lượng</label>
+            <input type="text" class="form-control" value="{{old('quantity', $product->quantity)}}" name="quantity" placeholder="Số lượng">
             @error('quantity')
               <small class="form-text text-muted">
                 <div style="color:red">{{$message}}</div>
@@ -116,8 +116,8 @@
             @enderror
         </div>
         <div class="form-group">
-            <label>Price</label>
-            <input type="text" class="form-control" value="{{old('price', $product->price)}}" name="price" placeholder="Price">
+            <label>Giá</label>
+            <input type="text" class="form-control" value="{{old('price', $product->price)}}" name="price" placeholder="Giá">
             @error('price')
               <small class="form-text text-muted">
                 <div style="color:red">{{$message}}</div>
@@ -125,8 +125,8 @@
             @enderror
         </div>
         <div class="form-group">
-          <label>Discount</label>
-          <input type="text" class="form-control" value="{{old('discount', $product->discount)}}" name="discount" placeholder="Discount">
+          <label>khuyễn mại</label>
+          <input type="text" class="form-control" value="{{old('discount', $product->discount)}}" name="discount" placeholder="Khuyến mại">
           @error('discount')
             <small class="form-text text-muted">
               <div style="color:red">{{$message}}</div>
@@ -134,7 +134,7 @@
           @enderror
         </div>
         <div class="form-group">
-            <label>Status</label>
+            <label>tình trạng</label>
             <select class="form-control" name="status">
                 <option value="0" value="{{(old('email') == 0) ? 'selected' : ''}}">Active</option>
                 <option value="1" value="{{(old('email') == 1) ? 'selected' : ''}}">Inactive</option>
@@ -142,7 +142,7 @@
             <small class="form-text text-muted"></small>
         </div>
         
-        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        <button type="submit" class="btn btn-primary mb-2">Cập nhật</button>
       </form>
     
 </div>

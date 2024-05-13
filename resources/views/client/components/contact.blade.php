@@ -13,7 +13,7 @@
         <div class="container">
             <div class="page-header page-header-big text-center"
                 style="background-image: url('assets/images/about-header-bg.jpg')">
-                <h1 class="page-title text-white">About us<span class="text-white">Who we are</span></h1>
+                <h1 class="page-title text-white">Liên hệ</h1>
             </div><!-- End .page-header -->
         </div><!-- End .container -->
 
@@ -22,20 +22,20 @@
                 <div class="row">
                     <div class="col-lg-6 mb-3 mb-lg-0">
                         <h2 class="title">Our Vision</h2><!-- End .title -->
-                        <p>In our vision of the future, the fashion store transcends its traditional role as a mere retail
-                            space, transforming into a unique and creative experiential hub. We envision a space where
-                            customers not only shop but embark on a journey of exploration through a diverse and eclectic
-                            world of fashion.</p>
+                        <p>Trong tầm nhìn của chúng tôi về tương lai, cửa hàng thời trang vượt qua vai trò truyền thống là cửa hàng bán lẻ đơn thuần.
+                            không gian, biến thành một trung tâm trải nghiệm độc đáo và sáng tạo. Chúng tôi hình dung một không gian nơi
+                            khách hàng không chỉ mua sắm mà còn bắt tay vào hành trình khám phá thông qua các sản phẩm đa dạng và chiết trung
+                            thế giới thời trang.</p>
 
-                        <p>Our vision is to create a friendly and interactive environment where innovation and novelty are
-                            highly valued. The store not only offers top-tier fashion collections but also serves as a venue
-                            for encountering outstanding designers and hosting exciting events such as fashion shows,
-                            exhibitions, and workshops featuring leading experts in the industry.</p>
+                        <p>Tầm nhìn của chúng tôi là tạo ra một môi trường thân thiện và tương tác, nơi có sự đổi mới và mới lạ.
+                            được đánh giá cao. Cửa hàng không chỉ cung cấp các bộ sưu tập thời trang hàng đầu mà còn đóng vai trò là địa điểm
+                            để gặp gỡ các nhà thiết kế xuất sắc và tổ chức các sự kiện thú vị như trình diễn thời trang,
+                            triển lãm và hội thảo có sự góp mặt của các chuyên gia hàng đầu trong ngành.</p>
 
-                        <p>We are committed to providing customers with more than just a shopping experience; we aim to
-                            offer an exciting journey of discovering personal style and expression. By seamlessly blending
-                            modernity with tradition, our goal is for each customer to feel the uniqueness and authenticity
-                            in every product, every space, and every experience within our fashion store.</p>
+                        <p>Chúng tôi cam kết mang đến cho khách hàng nhiều điều hơn là chỉ trải nghiệm mua sắm; chúng tôi nhắm tới
+                            mang đến một hành trình thú vị để khám phá phong cách và cách thể hiện cá nhân. Bằng cách kết hợp liền mạch
+                            hiện đại với truyền thống, mục tiêu của chúng tôi là để mỗi khách hàng cảm nhận được sự độc đáo và chân thực
+                            trong mọi sản phẩm, mọi không gian và mọi trải nghiệm trong cửa hàng thời trang của chúng tôi.</p>
                     </div><!-- End .col-lg-6 -->
                 </div><!-- End .row -->
 
@@ -46,19 +46,19 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5 mb-3 mb-lg-0">
-                            <h2 class="title">Who We Are</h2><!-- End .title -->
+                            <h2 class="title">Chúng tôi là</h2><!-- End .title -->
                             <p class="lead text-primary mb-3">TD Fashion</p><!-- End .lead text-primary -->
-                            <p class="mb-2">Welcome to our fashion store, where you can explore styles and indulge in a
-                                unique shopping experience. We take pride in introducing a modern fashion space that offers
-                                not only exceptional clothing but also an adventure into the diverse world of fashion.</p>
-                            <p class="mb-2">With a mission to innovate and make a difference, our store consistently
-                                updates with the latest trends and unique designs from leading brands in the market. We are
-                                committed to providing customers with a shopping experience that goes beyond selecting
-                                outfits – it's a journey of discovering personal style and confidence.</p>
-                            <p class="mb-2">More than just a shopping destination, our store is a hub of creativity,
-                                hosting fashion events, exhibitions, and workshops where you can share your passion and
-                                knowledge with the fashion community. Come and experience a distinctive fashion space where
-                                beauty and style converge, creating exhilarating moments for all fashion enthusiasts.</p>
+                            <p class="mb-2">Chào mừng bạn đến với cửa hàng thời trang của chúng tôi, nơi bạn có thể khám phá các phong cách và thưởng thức
+                                trải nghiệm mua sắm độc đáo. Chúng tôi tự hào giới thiệu một không gian thời trang hiện đại mang đến
+                                không chỉ là những bộ quần áo đặc biệt mà còn là một cuộc phiêu lưu vào thế giới thời trang đa dạng.</p>
+                            <p class="mb-2">Với sứ mệnh đổi mới và tạo nên sự khác biệt, cửa hàng chúng tôi luôn kiên định
+                                cập nhật những xu hướng mới nhất và thiết kế độc đáo từ các thương hiệu hàng đầu trên thị trường. Chúng tôi là
+                                cam kết mang đến cho khách hàng trải nghiệm mua sắm vượt xa việc lựa chọn
+                                trang phục – đó là hành trình khám phá phong cách cá nhân và sự tự tin.</p>
+                            <p class="mb-2">Không chỉ là một địa điểm mua sắm, cửa hàng của chúng tôi còn là trung tâm của sự sáng tạo,
+                                tổ chức các sự kiện, triển lãm và hội thảo thời trang nơi bạn có thể chia sẻ niềm đam mê và
+                                kiến thức với cộng đồng thời trang. Hãy đến và trải nghiệm không gian thời trang đặc sắc nơi
+                                vẻ đẹp và phong cách hội tụ, tạo nên những phút giây thăng hoa cho mọi tín đồ thời trang.</p>
                             <a href="blog.html" class="btn btn-sm btn-minwidth btn-outline-primary-2">
                                 <span>VIEW OUR NEWS</span>
                                 <i class="icon-long-arrow-right"></i>
@@ -178,7 +178,7 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="brands-text">
-                            <h2 class="title">Our store address.</h2><!-- End .title -->
+                            <h2 class="title">Địa chỉ cửa hàng.</h2><!-- End .title -->
                             <p>Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus
                                 id, mattis vel, nis</p>
                         </div><!-- End .brands-text -->
@@ -198,7 +198,7 @@
 
                 <hr class="mt-4 mb-6">
 
-                <h2 class="title text-center mb-4">Meet Our Team</h2><!-- End .title text-center mb-2 -->
+                <h2 class="title text-center mb-4">Gặp mặt chúng tôi</h2><!-- End .title text-center mb-2 -->
 
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-4">
@@ -236,7 +236,7 @@
 
             <div class="about-testimonials bg-light-2 pt-6 pb-6">
                 <div class="container">
-                    <h2 class="title text-center mb-3">What Customer Say About Us</h2><!-- End .title text-center -->
+                    <h2 class="title text-center mb-3">Khách hàng nói gì về chúng tôi</h2><!-- End .title text-center -->
 
                     <div class="owl-carousel owl-simple owl-testimonials-photo" data-toggle="owl"
                         data-owl-options='{

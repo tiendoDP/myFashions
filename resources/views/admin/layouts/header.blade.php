@@ -168,7 +168,7 @@
             <a href="{{url('admin/admin/list')}}" class="nav-link @if(Request::segment(2) == 'admin') active @endif">
               <i class="nav-icon fas fa-user"></i>
               <p>
-                Account
+                Tài khoản
               </p>
             </a>
           </li>
@@ -176,7 +176,7 @@
             <a href="{{url('admin/category/list')}}" class="nav-link @if(Request::segment(2) == 'category') active @endif">
               <i class="nav-icon fas fa-list-alt"></i>
               <p>
-                Category
+                Danh mục
               </p>
             </a>
           </li>
@@ -184,7 +184,7 @@
             <a href="{{url('admin/product/list')}}" class="nav-link @if(Request::segment(2) == 'product') active @endif">
               <i class="nav-icon fab fa-product-hunt"></i>
               <p>
-                Product
+                Sản phẩm
               </p>
             </a>
           </li>
@@ -193,7 +193,7 @@
             <a href="{{url('admin/logout')}}" class="nav-link @if(Request::segment(2) == 'logout') active @endif">
               <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>
-                Logout
+                Đăng xuất
               </p>
             </a>
           </li>

@@ -8,7 +8,7 @@
     <main class="main">
         <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
             <div class="container">
-                <h1 class="page-title">Wishlist<span>Shop</span></h1>
+                <h1 class="page-title">Sản phẩm<span>Yêu thích</span></h1>
             </div><!-- End .container -->
         </div><!-- End .page-header -->
         <nav aria-label="breadcrumb" class="breadcrumb-nav">
@@ -20,9 +20,9 @@
                 <table class="table table-wishlist table-mobile">
                     <thead>
                         <tr>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Stock Status</th>
+                            <th>Sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Tình trạng</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -46,22 +46,21 @@
                                             </h3><!-- End .product-title -->
                                         </div><!-- End .product -->
                                     </td>
-                                    <td class="price-col">đ {{number_format($item->price, 0, ',', '.')}}</td>
+                                    <td class="price-col">{{number_format($item->price, 0, ',', '.')}}đ</td>
                                     <td class="stock-col">
                                         @if ($item->quantity == 0)
-                                            <span class="out-of-stock">Out of stock</span>
+                                            <span class="out-of-stock">Hết hàng</span>
                                         @else
-                                            <span class="in-stock">In stock</span>
+                                            <span class="in-stock">Còn hàng</span>
                                         @endif
                                     </td>
                                     <td class="action-col">
                                         @if ($item->quantity == 0)
-                                            <button class="btn btn-block btn-outline-primary-2 disabled">Out of
-                                                Stock</button>
+                                            <button class="btn btn-block btn-outline-primary-2 disabled">Hết hàng</button>
                                         @else
                                             <a href="{{ route('cart.add', ['id' => $item->product_id]) }}"
                                                 class="btn btn-block btn-outline-primary-2"><i
-                                                    class="icon-cart-plus"></i>Add to Cart</a>
+                                                    class="icon-cart-plus"></i>Thêm vào giỏ</a>
                                         @endif
                                     </td>
                                     <td class="remove-col"><a
@@ -74,7 +73,7 @@
                 </table><!-- End .table table-wishlist -->
                 <div class="wishlist-share">
                     <div class="social-icons social-icons-sm mb-2">
-                        <label class="social-label">Share on:</label>
+                        <label class="social-label">Chia sẻ:</label>
                         <a href="#" class="social-icon" title="Facebook" target="_blank"><i
                                 class="icon-facebook-f"></i></a>
                         <a href="#" class="social-icon" title="Twitter" target="_blank"><i

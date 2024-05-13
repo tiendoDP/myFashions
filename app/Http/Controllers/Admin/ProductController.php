@@ -93,11 +93,11 @@ class ProductController extends Controller
                 $colorNew->save();
             }
             DB::commit();
-            return redirect('admin/product/list')->with('success', "Product Successfully Created");
+            return redirect('admin/product/list')->with('success', "Thêm sản phẩm thành công!");
         } catch (\Exception $e) {
             DB::rollback();
             dd($e->getMessage());
-            return redirect()->back()->with('error', 'Failed to create product. Please try again.');
+            return redirect()->back()->with('error', 'Thêm thất bại, vui lòng thử lại.');
         }
     }
     
@@ -183,17 +183,17 @@ class ProductController extends Controller
                 $colorNew->save();
             }
             DB::commit();
-            return redirect('admin/product/list')->with('success', "Product Successfully Updated");
+            return redirect('admin/product/list')->with('success', "Cập nhật sản phẩm thành công!");
         } catch (\Exception $e) {
             DB::rollback();
             dd($e->getMessage());
-            return redirect()->back()->with('error', 'Failed to create product. Please try again.');
+            return redirect()->back()->with('error', 'Cập nhật thất bại, vui lòng thử lại.');
         }
     }
     public function delete($id, Request $request) {
         $category = ProductModel::find($id);       
         $category->delete();
         
-        return redirect()->back()->with('success', "Product Successfully Deleted");
+        return redirect()->back()->with('success', "Xóa sản phẩm thành công!");
     }
 }

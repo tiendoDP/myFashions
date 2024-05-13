@@ -27,7 +27,7 @@
             <div class="card">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Sales statistics</h3>
+                  <h3 class="card-title">Thống kê doanh thu</h3>
                   <div class="card-tools">
                     <div title="Export pdf" id="downloadTurnover" class="btn btn-tool btn-sm">
                       <i class="fas fa-download"></i>
@@ -73,7 +73,7 @@
 
             <div class="card">
               <div class="card-header border-0">
-                <h3 class="card-title">Top 5 Selling Products</h3>
+                <h3 class="card-title">Top 5 sản phẩm bán chạy nhất</h3>
                 <div class="card-tools">
                   <div id="exportTopSelling" class="btn btn-tool btn-sm">
                     <i class="fas fa-download"></i>
@@ -93,9 +93,9 @@
                   <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Sales</th>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng bán</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -151,7 +151,7 @@
                           <i class="fas fa-arrow-up"></i>
                           12%
                         </small> --}}
-                        {{$selling->total_quantity}} Sold
+                        {{$selling->total_quantity}} Đã bán
                       </td>
                     </tr>
                     @endforeach

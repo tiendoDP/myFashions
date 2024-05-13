@@ -17,12 +17,11 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Welcome to...</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Đăng nhập để quản trị</p>
       @if(!empty(session('error')))
       <div class="alert alert-danger">{{session('error')}}</div>
       @endif
@@ -37,7 +36,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="password" required placeholder="Password">
+          <input type="password" class="form-control" name="password" required placeholder="Mật khẩu">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -49,13 +48,13 @@
             <div class="icheck-primary">
               <input type="checkbox" id="remember" name="remember">
               <label for="remember">
-                Remember Me
+                Nhớ mật khẩu
               </label>
             </div>
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
           </div>
           <!-- /.col -->
         </div>
@@ -65,7 +64,7 @@
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
+        <a href="forgot-password.html">Quên mật khẩu</a>
       </p>
     </div>
     <!-- /.login-card-body -->
