@@ -31,8 +31,13 @@ class ProductController extends Controller
         if($request->search) {
             $data['search'] = $request->search;
         }
+        if($request->gender || $request->gender == 0) {
+            $data['gender'] = $request->gender;
+        }
+        
         $data['products'] = ProductModel::select('products.*', 'categories.name as category_name')
         ->join('categories', 'products.category_id', '=', 'categories.id')
+        
         ->orderby('id', 'desc')
         ->paginate(3);
         return view('client/components/list-products', $data);

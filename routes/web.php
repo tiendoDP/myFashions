@@ -43,6 +43,7 @@ Route::get('admin/logout', [AuthController::class, 'logout_admin']);
 
 Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/export-top-selling', [DashboardController::class, 'exportTopSelling'])->name('export.topSelling');
 
     Route::get('admin/list', [AdminController::class, 'list']);
     Route::get('admin/add', [AdminController::class, 'add']);
@@ -96,6 +97,9 @@ Route::get('/logout', [AuthController::class, 'logout_user'])->name('logout');
 
 Route::get('register', [UserController::class, 'register_user'])->name('register');
 Route::post('register', [UserController::class, 'insert']);
+Route::get('change-password', [UserController::class, 'changePassword'])->name('changePassword');
+Route::patch('change-password', [UserController::class, 'submitChangePassword']);
+Route::patch('editProfile', [UserController::class, 'editProfile'])->name('editProfile');
 
 Route::middleware(['user', 'verifyEmail', 'shareView'])->group(function () {
     Route::prefix('cart')->group(function () {

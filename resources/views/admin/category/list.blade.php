@@ -11,7 +11,6 @@
         <p class="h2">Category list</p>
         <a href="{{url('admin/category/add')}}" class="btn btn-primary">Add new Category</a>
     </div>
-    @if(!empty(session('success'))) <p class="h3">{{session('success')}}</p> @endif
     <table class="table ">
         <thead>
           <tr>

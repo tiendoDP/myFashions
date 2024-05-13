@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 
 class UserController extends Controller
@@ -30,9 +31,9 @@ class UserController extends Controller
             'check' => 'required',
         ], [
             'required' => 'The :attribute field is required',
-            'email' => ':attribute lỗi',
-            'unique' => ':attribute đã tồn tại',
-            'min' => ':attribute phải lớn hơn 6 ký tự',
+            'email' => ':attribute error format',
+            'unique' => ':attribute already exists',
+            'min' => ':attribute must be greater than 6 characters',
         ]);
 
         $token_verify_email = Hash::make(Str::random(10));
@@ -50,4 +51,53 @@ class UserController extends Controller
         return redirect()->route('login')->with('success', "User Successfully Created");
         //return redirect()->route('VerifyEmail.Message');
     }
+
+    public function changePassword() {
+        $data['header_title'] = 'Change Password';
+        return view('client/components/change-password', $data);
+    }
+
+    public function submitChangePassword(Request $request) {
+        $request->validate([
+            'oldPassword' => 'required|min:6',
+            'newPassword' => 'required|min:6',
+            'repeatPassword' => 'required|min:6|same:newPassword',
+        ]);
+
+        $user = Auth::user();
+
+        // Kiểm tra mật khẩu cũ
+        if (!Hash::check($request->oldPassword, $user->password)) {
+            return redirect()->back()->with('error', 'Old password is incorrect');
+        }
+
+        // Cập nhật mật khẩu mới cho người dùng
+        $user->password = Hash::make($request->newPassword);
+        // $user->save();
+
+        return redirect()->back()->with('success', 'Password changed successfully');
+    }
+
+    public function editProfile(Request $request) {
+        $user = User::find(Auth::user()->id);
+        
+        $request->validate([
+            'name' => 'required',
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('users')->ignore($user->id),
+            ],
+        ]);
+        
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone_number = $request->phone;
+        $user->address = $request->address;
+        $user->save();
+        
+    
+        return redirect()->back()->with('success', 'Update successfully');
+    }
+
 }

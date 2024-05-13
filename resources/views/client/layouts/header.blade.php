@@ -6,9 +6,7 @@
                     <a href="#">Eng</a>
                     <div class="header-menu">
                         <ul>
-                            <li><a href="#">English</a></li>
-                            <li><a href="#">French</a></li>
-                            <li><a href="#">Spanish</a></li>
+                            <li><a href="">English</a></li>
                         </ul>
                     </div><!-- End .header-menu -->
                 </div><!-- End .header-dropdown -->
@@ -18,7 +16,7 @@
                 <ul class="top-menu">
                     <li>
                         <ul>
-                            <li><i class="icon-phone"></i>Call: +0123 456 789</li>
+                            <li><i class="icon-phone"></i>Call: +0862 671 500</li>
                             <li><a href="{{route('wishlist.index')}}"><i class="icon-heart-o"></i>Wishlist <span>({{!empty($all_wishlist) ? count($all_wishlist) : 0 }})</span></a></li>
                             <li><a href="{{route('contact')}}">About Us</a></li>
                             <li>                                
@@ -28,6 +26,7 @@
                                         <div class="header-menu">
                                             <ul style="flex-wrap: wrap; justify-content:center">
                                                 <li style="margin: 0; padding: 4px"><a href="{{route('profile')}}">Account</a></li>
+                                                <li style="margin: 0; padding: 4px"><a href="{{route('changePassword')}}">Change Password</a></li>
                           
                                                 <li style="margin: 0; padding: 4px"><a href="{{route('logout')}}">Logout</a></li>
                                             </ul>
@@ -52,7 +51,7 @@
                 </button>
 
                 <a href="{{route('home')}}" class="logo">
-                    <img src="{{asset('assets/images/logo/1.webp')}}" alt="Molla Logo" width="105" height="25">
+                    <img src="{{asset('assets/images/logo/1.webp')}}" alt="TD Fashion" width="105" height="25">
                 </a>
 
                 <nav class="main-nav">
@@ -64,66 +63,24 @@
                             <a href="{{route('product_list')}}" class="pr-0">Products</a>
                         </li>
                         <li>
+                            <a href="{{route('product_list', ['gender' => 0])}}" class="pr-0">Men</a>
+                        </li>
+                        <li>
+                            <a href="{{route('product_list', ['gender' => 1])}}" class="pr-0">Women</a>
+                        </li>
+                        <li>
                             <a href="#" class="sf-with-ul">Pages</a>
 
                             <ul>
                                 <li>
                                     <a href="{{route('contact')}}">About us</a>
                                 </li>
-                                <li>
-                                    <a href="contact.html" class="sf-with-ul">Contact</a>
-
-                                    <ul>
-                                        <li><a href="contact.html">Contact 01</a></li>
-                                        <li><a href="contact-2.html">Contact 02</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="faq.html">FAQs</a></li>
-                                <li><a href="404.html">Error 404</a></li>
-                                <li><a href="coming-soon.html">Coming Soon</a></li>
+                                
+                                <li><a href="#">FAQs</a></li>
+                                <li><a href="#">Error 404</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="blog.html" class="sf-with-ul">Blog</a>
-
-                            <ul>
-                                <li><a href="blog.html">Classic</a></li>
-                                <li><a href="blog-listing.html">Listing</a></li>
-                                <li>
-                                    <a href="#">Grid</a>
-                                    <ul>
-                                        <li><a href="blog-grid-2cols.html">Grid 2 columns</a></li>
-                                        <li><a href="blog-grid-3cols.html">Grid 3 columns</a></li>
-                                        <li><a href="blog-grid-4cols.html">Grid 4 columns</a></li>
-                                        <li><a href="blog-grid-sidebar.html">Grid sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Masonry</a>
-                                    <ul>
-                                        <li><a href="blog-masonry-2cols.html">Masonry 2 columns</a></li>
-                                        <li><a href="blog-masonry-3cols.html">Masonry 3 columns</a></li>
-                                        <li><a href="blog-masonry-4cols.html">Masonry 4 columns</a></li>
-                                        <li><a href="blog-masonry-sidebar.html">Masonry sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Mask</a>
-                                    <ul>
-                                        <li><a href="blog-mask-grid.html">Blog mask grid</a></li>
-                                        <li><a href="blog-mask-masonry.html">Blog mask masonry</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Single Post</a>
-                                    <ul>
-                                        <li><a href="single.html">Default with sidebar</a></li>
-                                        <li><a href="single-fullwidth.html">Fullwidth no sidebar</a></li>
-                                        <li><a href="single-fullwidth-sidebar.html">Fullwidth with sidebar</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+                        
                         
                     </ul><!-- End .menu -->
                 </nav><!-- End .main-nav -->

@@ -74,6 +74,11 @@ composer require stripe/stripe-php
 //vpcd hrnk xtwf buam
 
 
+php artisa migrate
+php artisan make:seeder ColorSeeder
+php artisan make:seeder SizeSeeder
+
+
 test momo:
 NGUYEN VAN A
 9704 0000 0000 0018

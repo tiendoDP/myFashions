@@ -649,14 +649,21 @@
             var date = moment(commentDate.innerText);
             var now = moment();
             var diffInMinutes = now.diff(date, 'minutes');
+            var diffInSeconds = now.diff(date, 'seconds');
+            var diffInHours = now.diff(date, 'hours');
+            var diffInDays = now.diff(date, 'days');
+            var diffInWeeks = now.diff(date, 'weeks');
 
             if (diffInMinutes < 1) {
-                commentDate.innerText = "Vừa xong";
-            }
-             else if (diffInMinutes < 60) {
-                commentDate.innerText = diffInMinutes + " phút trước";
+                commentDate.innerText = diffInSeconds + " seconds ago";
+            } else if (diffInMinutes < 60) {
+                commentDate.innerText = diffInMinutes + " minutes ago";
             } else if (diffInMinutes < 1440) {
-                commentDate.innerText = moment(date).fromNow();
+                commentDate.innerText = diffInHours + " hours ago";
+            } else if (diffInDays < 8) {
+                commentDate.innerText = diffInDays + " days ago";
+            } else if (diffInWeeks < 5) {
+                commentDate.innerText = diffInWeeks + " weeks ago";
             } else {
                 commentDate.innerText = moment(date).format("DD/MM/YYYY");
             }

@@ -12,9 +12,18 @@
         </div>
         <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
         </nav>
-        @if (!empty($search))
-            {
+        
+        @if (!empty($search) && !empty($gender))
+        {
+            @livewire('products.filter', ['cate' => $all_cate, 'keyword' => $search, 'gender' => $gender])
+        }
+        @elseif (!empty($search))
+        {
             @livewire('products.filter', ['cate' => $all_cate, 'keyword' => $search])
+        }
+        @elseif ($gender || $gender == 0)
+            {
+            @livewire('products.filter', ['cate' => $all_cate, 'gender' => $gender])
             }
         @else
             @livewire('products.filter', ['cate' => $all_cate])

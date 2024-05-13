@@ -11,7 +11,7 @@
         <p class="h2">Account list</p>
         <a href="{{url('admin/admin/add')}}" class="btn btn-primary">Add new Account</a>
     </div>
-    @if(!empty(session('success'))) <p class="h3">{{session('success')}}</p> @endif
+
     <table class="table ">
         <thead>
           <tr>
@@ -34,11 +34,11 @@
                 <td>{{($admin->roles) == 0 ? 'user' : 'admin'}}</td>
                 <td>
                   <a href="{{url('admin/admin/edit/'.$admin->id)}}" class="btn btn-primary">Edit</a>
-                  @if ($admin->is_deleted == 0)
+                  {{-- @if ($admin->is_deleted == 0)
                       <a href="{{ url('admin/admin/delete/'.$admin->id) }}" class="btn btn-danger">Lock</a>
                   @else
                       <a href="{{ url('admin/admin/unlock/'.$admin->id) }}" class="btn btn-info">Unlock</a>
-                  @endif
+                  @endif --}}
 
                   
                 </td> 

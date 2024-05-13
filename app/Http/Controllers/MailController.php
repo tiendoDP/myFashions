@@ -33,7 +33,7 @@ class MailController extends Controller
         }
         else {
             Auth::logout();
-            return "xác thực thất bại";
+            return "Error when verify email";
         }
     }
 

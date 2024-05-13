@@ -53,11 +53,11 @@ class CategoryController extends Controller
         ]);
         $category = CategoryModel::find($id);
         $category->name = $request->name;
-        $category->create_by = Auth::user()->id;
+        $category->created_by = Auth::user()->id;
         $category->status = $request->status;
         $category->save();
         
-        return redirect('admin/category/list')->with('success', "Category Successfully UPdated");
+        return redirect('admin/category/list')->with('success', "Category Successfully Updated");
     }
 
     public function delete($id, Request $request) {

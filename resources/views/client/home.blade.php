@@ -18,7 +18,7 @@
                                 <div class="banner-content banner-content-center">
                                     <h4 class="banner-subtitle text-white"><a href="#">New in</a></h4><!-- End .banner-subtitle -->
                                     <h3 class="banner-title text-white"><a href="#"><strong>Women’s</strong></h3><!-- End .banner-title -->
-                                    <a href="#" class="btn btn-outline-white banner-link underline">Shop Now</a>
+                                    <a href="{{route('product_list', ['gender' => 1])}}" class="btn btn-outline-white banner-link underline">Shop Now</a>
                                 </div><!-- End .banner-content -->
                             </div><!-- End .banner -->
                         </div><!-- End .col-sm-6 -->
@@ -32,7 +32,7 @@
                                 <div class="banner-content banner-content-center">
                                     <h4 class="banner-subtitle text-white"><a href="#">New in</a></h4><!-- End .banner-subtitle -->
                                     <h3 class="banner-title text-white"><a href="#"><strong>Men’s</strong></a></h3><!-- End .banner-title -->
-                                    <a href="#" class="btn btn-outline-white banner-link underline">Shop Now</a>
+                                    <a href="{{route('product_list', ['gender' => 0])}}" class="btn btn-outline-white banner-link underline">Shop Now</a>
                                 </div><!-- End .banner-content -->
                             </div><!-- End .banner -->
                         </div><!-- End .col-sm-6 -->
@@ -561,66 +561,66 @@
                         }'>
                         <article class="entry">
                             <figure class="entry-media">
-                                <a href="single.html">
+                                <div>
                                     <img src="assets/images/demos/demo-6/blog/post-1.jpg" alt="image desc">
-                                </a>
+                                </div>
                             </figure><!-- End .entry-media -->
 
                             <div class="entry-body text-center">
                                 <div class="entry-meta">
-                                    <a href="#">Nov 22, 2018</a>, 1 Comments
+                                    <a href="#">2024</a>, 0 Comments
                                 </div><!-- End .entry-meta -->
 
                                 <h3 class="entry-title">
-                                    <a href="single.html">Sed adipiscing ornare.</a>
+                                    <div>Blog 1.</div>
                                 </h3><!-- End .entry-title -->
 
                                 <div class="entry-content">
-                                    <a href="single.html" class="read-more">Read More</a>
+                                    <div class="read-more">Read More</div>
                                 </div><!-- End .entry-content -->
                             </div><!-- End .entry-body -->
                         </article><!-- End .entry -->
 
                         <article class="entry">
                             <figure class="entry-media">
-                                <a href="single.html">
+                                <div>
                                     <img src="assets/images/demos/demo-6/blog/post-2.jpg" alt="image desc">
-                                </a>
+                                </div>
                             </figure><!-- End .entry-media -->
 
                             <div class="entry-body text-center">
                                 <div class="entry-meta">
-                                    <a href="#">Dec 12, 2018</a>, 0 Comments
+                                    <a href="#">2024</a>, 0 Comments
                                 </div><!-- End .entry-meta -->
 
                                 <h3 class="entry-title">
-                                    <a href="single.html">Fusce lacinia arcuet nulla.</a>
+                                    <div>Blog 2.</div>
                                 </h3><!-- End .entry-title -->
 
                                 <div class="entry-content">
-                                    <a href="single.html" class="read-more">Read More</a>
+                                    <div class="read-more">Read More</div>
                                 </div><!-- End .entry-content -->
                             </div><!-- End .entry-body -->
                         </article><!-- End .entry -->
 
                         <article class="entry">
                             <figure class="entry-media">
-                                <a href="single.html">
+                                <div>
                                     <img src="assets/images/demos/demo-6/blog/post-3.jpg" alt="image desc">
-                                </a>
+                                </div>
                             </figure><!-- End .entry-media -->
 
                             <div class="entry-body text-center">
                                 <div class="entry-meta">
-                                    <a href="#">Dec 19, 2018</a>, 2 Comments
+                                    <a href="#">2024</a>, 0 Comments
                                 </div><!-- End .entry-meta -->
 
                                 <h3 class="entry-title">
-                                    <a href="single.html">Quisque volutpat mattis eros.</a>
+                                    <div>Blog 3.</div>
                                 </h3><!-- End .entry-title -->
 
                                 <div class="entry-content">
-                                    <a href="single.html" class="read-more">Read More</a>
+                                    <div class="read-more">Read More</div>
                                 </div><!-- End .entry-content -->
                             </div><!-- End .entry-body -->
                         </article><!-- End .entry -->

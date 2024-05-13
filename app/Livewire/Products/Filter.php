@@ -19,12 +19,15 @@ class Filter extends Component
     public $price = 1000000;
     public $sortPrice = 'all';
     public $keyword = '';
+    public $gender;
     // protected $queryString = ['category'];
 
     protected $paginationTheme = 'bootstrap';
 
-    public function mount($cate) {
+    public function mount($cate,$gender = null, $keyword = null) {
         $this->cate = $cate;
+        $this->gender = $gender;
+        $this->keyword = $keyword;
     }
 
     public function notFilter() {
@@ -54,6 +57,9 @@ class Filter extends Component
         ->where('price', '<', $this->price)
         ->when($this->keyword, function($q) {
             $q->where('name', 'like', '%'.$this->keyword.'%');
+        })
+        ->when(isset($this->gender), function($q) {
+            $q->where('sex', '=', $this->gender);
         })
         ->orderby('name')
         ->paginate(6);

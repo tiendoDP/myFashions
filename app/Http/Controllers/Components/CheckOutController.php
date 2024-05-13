@@ -86,7 +86,7 @@ class CheckOutController extends Controller
             }
             $sql->delete();
             session()->forget('fntotal');
-            return redirect()->route('order');
+            return redirect()->route('order')->with('success', 'Order successfully');
         } 
         else if(isset($_POST['payUrl'])) {
             $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
@@ -133,8 +133,7 @@ class CheckOutController extends Controller
             
             $result = $this->execPostRequest($endpoint, json_encode($data));
             $jsonResult = json_decode($result, true); 
-             return redirect()->to( $jsonResult['payUrl'])->send();
-            
+             return redirect()->to( $jsonResult['payUrl'])->send();            
         }
         else {
             $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";

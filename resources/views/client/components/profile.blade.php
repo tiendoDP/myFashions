@@ -14,6 +14,8 @@
 @endsection
 
 @section('content')
+@include('client.components.Models.editProfile')
+
 <section style="background-color: #f4f5f7;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -31,9 +33,9 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body p-4" style="max-width: 550px">
-                  <p style="width: max-content; border-radius: 6px;" class="p-1 m-1">
+                  <p style="width: max-content; border-radius: 6px; cursor: pointer" class="p-1 m-1">
                     <span class="m-1"><i class="fa-regular fa-pen-to-square"></i></span>
-                    <a href="#!" style="color: black;">Edit Profile</a>
+                    <span class="" style="" data-bs-toggle="modal" data-bs-target="#editProfile" data-bs-whatever="@mdo">Edit Profile</span>
                   </p>
                   <hr class="mt-0 mb-4">
                   <div class="row pt-1">
@@ -43,7 +45,7 @@
                     </div>
                     <div class="col-6 mb-3">
                       <h6>Phone</h6>
-                      <p class="text-muted">123 456 789</p>
+                      <p class="text-muted">{{Auth::user()->phone_number}}</p>
                     </div>
                   </div>
                   <h6></h6>
@@ -54,15 +56,15 @@
                       <p class="text-muted"><a href="{{route('order')}}">View Order ({{count($allOrder)}})</a></p>
                     </div>
                     <div class="col-6 mb-3">
-                      <h6>Link</h6>
-                      <p class="text-muted"></p>
+                      <h6>Address</h6>
+                      <p class="text-muted">{{Auth::user()->address}}</p>
                     </div>
                   </div>
-                  <div class="d-flex justify-content-start">
+                  {{-- <div class="d-flex justify-content-start">
                     <a href="#!" class="m-2"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
                     <a href="#!" class="m-2"><i class="fab fa-twitter fa-lg me-3"></i></a>
                     <a href="#!" class="m-2"><i class="fab fa-instagram fa-lg"></i></a>
-                  </div>
+                  </div> --}}
                 </div>
               </div>
             </div>
@@ -78,4 +80,15 @@
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"
 ></script>
+
+<script>
+  $(document).ready(function() {
+    $('#updateUser').on('click', function() {
+      $isCheck = confirm('Are you sure you want to update');
+      if($isCheck) {
+        $('#formUpdateUser').submit();
+      }
+    })
+  })
+</script>
 @endsection
