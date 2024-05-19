@@ -23,11 +23,11 @@
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-6">
             <div class="card">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Sales statistics</h3>
+                  <h3 class="card-title">Thống kê doanh thu</h3>
                   <div class="card-tools">
                     <div title="Export pdf" id="downloadTurnover" class="btn btn-tool btn-sm">
                       <i class="fas fa-download"></i>
@@ -71,9 +71,13 @@
             </div>
             <!-- /.card -->
 
+        
+            <!-- /.card -->
+          </div>
+          <div class="col-lg-6">
             <div class="card">
               <div class="card-header border-0">
-                <h3 class="card-title">Top 5 Selling Products</h3>
+                <h3 class="card-title">Top 5 sản phẩm bán chạy nhất</h3>
                 <div class="card-tools">
                   <div id="exportTopSelling" class="btn btn-tool btn-sm">
                     <i class="fas fa-download"></i>
@@ -93,9 +97,9 @@
                   <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Sales</th>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng bán</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -151,7 +155,7 @@
                           <i class="fas fa-arrow-up"></i>
                           12%
                         </small> --}}
-                        {{$selling->total_quantity}} Sold
+                        {{$selling->total_quantity}} Đã bán
                       </td>
                     </tr>
                     @endforeach
@@ -160,7 +164,6 @@
                 </table>
               </div>
             </div>
-            <!-- /.card -->
           </div>
           <!-- /.col-md-6 -->
           {{-- <div class="col-lg-6">
@@ -283,7 +286,7 @@
 
   // Lấy tên viết tắt của 6 tháng gần đây
   const recentMonthsAbbreviated = [];
-  for (let i = 8; i >= 0; i--) {
+  for (let i = 11; i >= 0; i--) {
       // Giảm thời gian hiện tại đi i tháng
       const pastMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() - i, 1);
       const monthAbbreviation = monthAbbreviations[pastMonth.getMonth()];
@@ -302,7 +305,7 @@
           labels: recentMonthsAbbreviated,
           datasets: [
               {
-                  label: 'Growth',
+                  label: 'Mức độ thu nhập từng tháng',
                   data: totalIncomes,
                   borderColor: 'red',
                   backgroundColor: 'rgba(0, 255, 255, 0)',
@@ -310,7 +313,7 @@
               },
 
               {
-                  label: 'Gross income',
+                  label: 'Tổng thu nhập',
                   data: totalIncomes,
                   borderColor: 'rgba(0, 0, 255, 244, 1)',
                   backgroundColor: 'rgba(0, 0, 255, 0.6)',
@@ -322,7 +325,7 @@
       options: {
         title: {
             display: true,
-            text: 'Sales revenue in the most recent 8 months'
+            text: 'Doanh thu bán hàng trong 12 tháng gần nhất'
         },
         scales: {
             y: {

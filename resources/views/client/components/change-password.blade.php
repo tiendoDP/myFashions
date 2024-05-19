@@ -9,12 +9,12 @@
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col col-lg-6 mb-4 mb-lg-0 p-4" style="background-color: white; border-radius: 8px;">
-            <h3 class="text-center">Change Password *</h3>
+            <h3 class="text-center">Đổi mật khẩu</h3>
             <form id="formChangePassword" method="POST">
                 @csrf
                 @method('PATCH')
                 <div class="mb-2">
-                  <label for="oldPassword" class="form-label">Old password *</label>
+                  <label for="oldPassword" class="form-label">Mật khẩu cũ *</label>
                   <input type="password" name="oldPassword" class="form-control rounded" id="oldPassword">
                   @error('oldPassword')
                     <small class="form-text text-muted">
@@ -23,7 +23,7 @@
                   @enderror
                 </div>
                 <div class="mb-2">
-                  <label for="newPassword" class="form-label">New Password *</label>
+                  <label for="newPassword" class="form-label">Mật khẩu mới *</label>
                   <input type="password" name="newPassword" class="form-control rounded" id="newPassword">
                   @error('newPassword')
                     <small class="form-text text-muted">
@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="mb-2">
-                    <label for="repeatPassword" class="form-label">Repeat Password</label>
+                    <label for="repeatPassword" class="form-label">Xác nhận mật khẩu mới</label>
                     <input type="password" name="repeatPassword" class="form-control rounded" id="repeatPassword">
                     @error('repeatPassword')
                     <small class="form-text text-muted">
@@ -42,7 +42,7 @@
                     @enderror
                 </div>
                 
-                <button type="button" id="submitButton" class="btn btn-primary">Submit</button>
+                <button type="button" id="submitButton" class="btn btn-primary">Cập nhật</button>
             </form>
         </div>
       </div>

@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content" style="padding: 14px;">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit profile</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -14,22 +14,22 @@
               <input type="text" name="email" value="{{Auth::user()->email}}" class="form-control" id="recipient-name">
             </div>
             <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Name *:</label>
+                <label for="recipient-name" class="col-form-label">Họ tên *:</label>
                 <input type="text" name="name" value="{{Auth::user()->name}}" class="form-control" id="recipient-name">
             </div>
             <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Address:</label>
+                <label for="recipient-name" class="col-form-label">Địa chỉ:</label>
                 <input type="text" name="address" value="{{Auth::user()->address}}" class="form-control" id="recipient-name">
             </div>
             <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Phone:</label>
+                <label for="recipient-name" class="col-form-label">Số điện thoại:</label>
                 <input type="text" name="phone" value="{{Auth::user()->phone_number}}" class="form-control" id="recipient-name">
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" id="updateUser" class="btn btn-primary">Update</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+          <button type="button" id="updateUser" class="btn btn-primary">Cập nhật</button>
         </div>
       </div>
     </div>

@@ -16,23 +16,23 @@
                 <ul class="top-menu">
                     <li>
                         <ul>
-                            <li><i class="icon-phone"></i>Call: +0862 671 500</li>
-                            <li><a href="{{route('wishlist.index')}}"><i class="icon-heart-o"></i>Wishlist <span>({{!empty($all_wishlist) ? count($all_wishlist) : 0 }})</span></a></li>
-                            <li><a href="{{route('contact')}}">About Us</a></li>
+                            <li><i class="icon-phone font-tv"></i>Contact: +0862 671 500</li>
+                            <li><a href="{{route('wishlist.index')}}" class="font-tv"><i class="icon-heart-o"></i>Yêu thích <span>({{!empty($all_wishlist) ? count($all_wishlist) : 0 }})</span></a></li>
+                            <li><a href="{{route('contact')}}" class="font-tv">Thông tin</a></li>
                             <li>                                
                                 @if(!empty(Auth::check()) && Auth::User()->role == 0)
                                     <div class="header-dropdown">
-                                        <a href="#">{{Auth::user()->name}}</a>
+                                        <a href="#" class="font-tv">{{Auth::user()->name}}</a>
                                         <div class="header-menu">
                                             <ul style="flex-wrap: wrap; justify-content:center">
-                                                <li style="margin: 0; padding: 4px"><a href="{{route('profile')}}">Account</a></li>
-                                                <li style="margin: 0; padding: 4px"><a href="{{route('changePassword')}}">Change Password</a></li>
+                                                <li style="margin: 0; padding: 4px"><a href="{{route('profile')}}" class="font-tv">Tài khoản</a></li>
+                                                <li style="margin: 0; padding: 4px"><a href="{{route('changePassword')}}" class="font-tv">Đổi mật khẩu</a></li>
                           
-                                                <li style="margin: 0; padding: 4px"><a href="{{route('logout')}}">Logout</a></li>
+                                                <li style="margin: 0; padding: 4px"><a href="{{route('logout')}}" class="font-tv">Đăng xuất</a></li>
                                             </ul>
                                         </div>
                                     </div>
-                                @else <a href="{{route('login')}}"><i class="icon-user"></i>Login</a>
+                                @else <a href="{{route('login')}}"><i class="icon-user" class="font-tv"></i>Đăng nhập</a>
                                 @endif
                             </li>
                         </ul>
@@ -46,7 +46,7 @@
         <div class="container">
             <div class="header-left">
                 <button class="mobile-menu-toggler">
-                    <span class="sr-only">Toggle mobile menu</span>
+                    <span class="sr-only">Mobile menu</span>
                     <i class="icon-bars"></i>
                 </button>
 
@@ -57,23 +57,23 @@
                 <nav class="main-nav">
                     <ul class="menu sf-arrows">
                         <li class="">
-                            <a href="{{route('home')}}" class="pr-0">Home</a>
+                            <a href="{{route('home')}}" class="pr-0 font-tv">Trang chủ</a>
                         </li>
                         <li class="">
-                            <a href="{{route('product_list')}}" class="pr-0">Products</a>
+                            <a href="{{route('product_list')}}" class="pr-0 font-tv">Sản phẩm</a>
                         </li>
                         <li>
-                            <a href="{{route('product_list', ['gender' => 0])}}" class="pr-0">Men</a>
+                            <a href="{{route('product_list', ['gender' => 0])}}" class="pr-0 font-tv">Nam</a>
                         </li>
                         <li>
-                            <a href="{{route('product_list', ['gender' => 1])}}" class="pr-0">Women</a>
+                            <a href="{{route('product_list', ['gender' => 1])}}" class="pr-0 font-tv">Nữ</a>
                         </li>
                         <li>
-                            <a href="#" class="sf-with-ul">Pages</a>
+                            <a href="#" class="sf-with-ul font-tv">Pages</a>
 
                             <ul>
                                 <li>
-                                    <a href="{{route('contact')}}">About us</a>
+                                    <a href="{{route('contact')}}">Thông tin</a>
                                 </li>
                                 
                                 <li><a href="#">FAQs</a></li>
@@ -90,7 +90,7 @@
                 <form action="{{route('product_list')}}" method="GET">
                     <div class="p-1 pl-3 bg-white rounded rounded-pill shadow-sm">
                         <div class="input-group">
-                          <input type="search" placeholder="Search ?" name="search" value="{{ request('search') }}"  autocomplete="off" class="form-control border-0 bg-white p-0 pl-3">
+                          <input type="search" placeholder="Tìm kiếm ?" name="search" value="{{ request('search') }}"  autocomplete="off" class="form-control border-0 bg-white p-0 pl-3">
                           <div class="input-group-append">
                             <button id="button-addon1" type="submit" class="btn btn-link text-primary pl-0" style="border: none"><i class="fa fa-search"></i></button>
                           </div>
@@ -119,8 +119,8 @@
                                     <span class="cart-product-info">
                                         <span class="cart-product-qty">{{$cart->quantity}}</span>
                                         x @if($cart->discount != null)
-                                        <span class="">đ {{number_format((int) ($cart->price - ($cart->price * ($cart->discount / 100))), 0 , ',', '.')}}</span>
-                                        @else <span class="">đ {{number_format((int) $cart->price, 0 , ',', '.')}}</span>
+                                        <span class="">{{number_format((int) ($cart->price - ($cart->price * ($cart->discount / 100))), 0 , ',', '.')}}đ</span>
+                                        @else <span class="">{{number_format((int) $cart->price, 0 , ',', '.')}}đ</span>
                                         @endif
                                     </span>
                                 </div><!-- End .product-cart-details -->
@@ -135,16 +135,16 @@
                             @endforeach
                         </div><!-- End .cart-product -->
                         <div class="dropdown-cart-total">
-                            <span>Total</span>
+                            <span>Tổng tiền</span>
 
-                            <span class="cart-total-price">${{$total}}</span>
+                            <span class="cart-total-price">{{number_format((int) ($total), 0 , ',', '.')}} VND</span>
                         </div>
 
                         <div class="dropdown-cart-action">
-                            <a href="{{route('cart.view')}}" class="btn btn-primary">View Cart</a>
-                            <a href="{{route('checkout')}}" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
+                            <a href="{{route('cart.view')}}" class="btn btn-primary">Giỏ hàng</a>
+                            <a href="{{route('checkout')}}" class="btn btn-outline-primary-2"><span>Thanh toán</span><i class="icon-long-arrow-right"></i></a>
                         </div>
-                        @else <p class="text-center">Product is not found</p>
+                        @else <p class="text-center">Chưa có sản phẩm nào</p>
                         @endif
                     </div><!-- End .dropdown-menu -->
                 </div><!-- End .cart-dropdown -->

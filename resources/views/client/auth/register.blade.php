@@ -12,7 +12,7 @@
                 <div class="form-tab">
                     <ul class="nav nav-pills nav-fill" role="tablist">
                         <li class="nav-item">
-                            <div class="nav-link p-4" id="register-tab-2" data-toggle="tab" href="#register-2" role="tab" aria-controls="register-2" aria-selected="true" style="font-size: 30px">Register</div>
+                            <div class="nav-link p-4" id="register-tab-2" data-toggle="tab" href="#register-2" role="tab" aria-controls="register-2" aria-selected="true" style="font-size: 30px">Đăng ký</div>
                         </li>
                     </ul>
                     @if(!empty(session('error')))
@@ -23,7 +23,7 @@
                             <form action="" method="POST">
                                 @csrf
                                 <div class="form-group">
-                                    <label >Name *</label>
+                                    <label >Họ tên *</label>
                                     <input type="text" class="form-control" name="name" value="{{old('name')}}">
                                 </div>
                                 @error('name')
@@ -32,7 +32,7 @@
                                 </small>
                                 @enderror                    
                                 <div class="form-group">
-                                    <label for="register-email-2">Your email address *</label>
+                                    <label for="register-email-2">Email *</label>
                                     <input type="email" class="form-control" id="register-email-2" value="{{old('email')}}" name="email">
                                 </div><!-- End .form-group -->
                                 @error('email')
@@ -41,7 +41,7 @@
                                 </small>
                                 @enderror
                                 <div class="form-group">
-                                    <label for="register-password-2">Password *</label>
+                                    <label for="register-password-2">Mật khẩu *</label>
                                     <input type="password" class="form-control" id="register-password-2" value="{{old('password')}}" name="password">
                                 </div><!-- End .form-group -->
                                 @error('password')
@@ -51,13 +51,13 @@
                                 @enderror
                                 <div class="form-footer">
                                     <button type="submit" class="btn btn-outline-primary-2">
-                                        <span>SIGN UP</span>
+                                        <span>Đăng ký</span>
                                         <i class="icon-long-arrow-right"></i>
                                     </button>
 
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="register-policy-2" name="check">
-                                        <label class="custom-control-label" for="register-policy-2">I agree to the <a href="#">privacy policy</a> *</label>
+                                        <label class="custom-control-label" for="register-policy-2">Tôi đồng ý với <a href="#">chính sách</a> *</label>
                                     </div>
                                     @error('check')
                                     <small class="form-text text-muted">
@@ -67,19 +67,19 @@
                                 </div><!-- End .form-footer -->
                             </form>
                             <div class="form-choice">
-                                <p>You have account? <a href="{{route('login')}}">Login</a></p>
-                                <p class="text-center">or sign in with</p>
+                                <p>Đã có tài khoản? <a href="{{route('login')}}">Đăng nhập ngay</a></p>
+                                <p class="text-center">Hoặc đăng nhập với</p>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <a href="#" class="btn btn-login btn-g">
                                             <i class="icon-google"></i>
-                                            Login With Google
+                                            Đăng nhập với Google
                                         </a>
                                     </div><!-- End .col-6 -->
                                     <div class="col-sm-6">
                                         <a href="#" class="btn btn-login  btn-f">
                                             <i class="icon-facebook-f"></i>
-                                            Login With Facebook
+                                            Đăng nhập với Facebook
                                         </a>
                                     </div><!-- End .col-6 -->
                                 </div><!-- End .row -->

@@ -37,8 +37,8 @@ class OrderDetail extends Model
         // Mảng chứa tổng thu nhập của 6 tháng gần nhất
         $totalIncomes = [];
 
-        // Lặp qua 6 tháng gần nhất
-        for ($i = 8; $i >= 0; $i--) {
+        // Lặp qua 12 tháng gần nhất
+        for ($i = 11; $i >= 0; $i--) {
             // Tính thời gian đầu tiên của tháng
             $startOfMonth = Carbon::now()->subMonths($i)->startOfMonth();
 

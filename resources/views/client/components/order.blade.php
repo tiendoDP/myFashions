@@ -7,7 +7,7 @@
     <main class="main">
         <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
             <div class="container">
-                <h1 class="page-title">My order<span>({{ count($allOrder) }})</span></h1>
+                <h1 class="page-title">Đơn hàng<span>({{ count($allOrder) }})</span></h1>
             </div><!-- End .container -->
         </div><!-- End .page-header -->
         <nav aria-label="breadcrumb" class="breadcrumb-nav">
@@ -24,12 +24,12 @@
                                 <thead>
                                     <tr>
                                         <th>STT</th>
-                                        <th>Name</th>
-                                        <th>Phone</th>
-                                        <th>Price</th>
-                                        <th>Status</th>
-                                        <th>Note</th>
-                                        <th>Created At</th>
+                                        <th>Họ tên</th>
+                                        <th>Số điện thoại</th>
+                                        <th>Giá</th>
+                                        <th>Tình trạng</th>
+                                        <th>Ghi chú</th>
+                                        <th>Ngày đặt</th>
                                     </tr>
                                 </thead>
                                 @php
@@ -52,15 +52,15 @@
                                             </td>
                                             <td class="product-col">{{ $item->phone }}</td>
 
-                                            <td class="product-col">đ {{ number_format($item->amount, 0, ',', '.') }}</td>
+                                            <td class="product-col">{{ number_format($item->amount, 0, ',', '.') }}đ</td>
                                             <td class="product-col">
                                                 @php
                                                     if ($item->status == 1) {
-                                                        echo 'Processing';
+                                                        echo 'Đang xử lý';
                                                     } elseif ($item->status == 2) {
-                                                        echo 'Delivering';
+                                                        echo 'Đang giao hàng';
                                                     } else {
-                                                        echo 'Successful delivery';
+                                                        echo 'Đã nhận hàng';
                                                     }
                                                 @endphp
                                             </td>
@@ -76,7 +76,7 @@
                                 </tbody>
                             </table>
                         @else
-                            <p>Order is not found</p>
+                            <p>Không tìm thấy đơn hàng</p>
                         @endif
                     </div><!-- End .row -->
                 </div><!-- End .container -->

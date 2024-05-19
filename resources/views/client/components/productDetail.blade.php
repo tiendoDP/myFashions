@@ -177,7 +177,7 @@
     <main class="main">
         <div class="page-header text-center" style="background-image: url({{ asset('assets/images/page-header-bg.jpg') }})">
             <div class="container">
-                <h1 class="page-title">Product<span>Detail</span></h1>
+                <h1 class="page-title">Sản phẩm<span>Chi tiết</span></h1>
             </div><!-- End .container -->
         </div><!-- End .page-header -->
         <nav aria-label="breadcrumb" class="breadcrumb-nav">
@@ -243,7 +243,7 @@
                                     <input type="hidden" name="id" value="{{ $product_detail->id }}" />
 
                                     <div class="details-filter-row details-row-color">
-                                        <label class="col-form-label">Color:</label>
+                                        <label class="col-form-label">Màu sắc:</label>
                                     
                                         <div class="btn-group btn-group-toggle" style="" data-toggle="buttons">
                                             @foreach($product_colors as $color)
@@ -255,7 +255,7 @@
                                     </div>
 
                                     <div class="details-filter-row details-row-size">
-                                        <label class="col-form-label">Size:</label>
+                                        <label class="col-form-label">Kích cỡ:</label>
                                     
                                         <div class="btn-group btn-group-toggle" style="" data-toggle="buttons">
                                             @foreach($product_sizes as $size)
@@ -270,37 +270,35 @@
                                                                                                                                        
 
                                     <div class="details-filter-row details-row-size">
-                                        <label for="qty">Qty:</label>
+                                        <label for="qty">Số lượng:</label>
                                         <div class="product-details-quantity">
                                             <input type="number" name="quantity" id="qty" class="form-control"
                                                 value="1" min="1" max="10" step="1"
                                                 data-decimals="0" required>
                                         </div>
-                                        <span style="margin-left: 12px; opacity: 0.7">Remaining:
-                                            {{ $product_detail->quantity }}</span>
+                                        <span class="font-tv" style="margin-left: 12px; opacity: 0.7">
+                                            {{ $product_detail->quantity }} sản phẩm có sẵn</span>
                                     </div>
 
                                     <div class="product-details-action">
-                                        <button type="submit" class="btn-product btn-cart"><span>add to
-                                                cart</span></button>
+                                        <button type="submit" class="btn-product btn-cart"><span>Thêm vào giỏ</span></button>
 
                                         <div class="details-action-wrapper">
                                             <a href="{{ route('wishlist.add', ['id' => $product_detail->id]) }}"
-                                                class="btn-product btn-wishlist" title="Wishlist"><span>Add to
-                                                    Wishlist</span></a>
+                                                class="btn-product btn-wishlist" title="Wishlist"><span>Yêu thích</span></a>
                                         </div><!-- End .details-action-wrapper -->
                                     </div><!-- End .product-details-action -->
 
                                 </form>
                                 <div class="product-details-footer">
                                     <div class="product-cat">
-                                        <span>Category:</span>
+                                        <span>Danh mục:</span>
                                         <a href="#">{{ $product_detail->category_name }}</a>,
 
                                     </div><!-- End .product-cat -->
 
                                     <div class="social-icons social-icons-sm">
-                                        <span class="social-label">Share:</span>
+                                        <span class="social-label">Chia sẻ:</span>
                                         <a href="#" class="social-icon" title="Facebook" target="_blank"><i
                                                 class="icon-facebook-f"></i></a>
                                         <a href="#" class="social-icon" title="Twitter" target="_blank"><i
@@ -320,25 +318,25 @@
                     <ul class="nav nav-pills justify-content-center" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="product-desc-link" data-toggle="tab" href="#product-desc-tab"
-                                role="tab" aria-controls="product-desc-tab" aria-selected="true">Description</a>
+                                role="tab" aria-controls="product-desc-tab" aria-selected="true">Mô tả</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab"
-                                role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews <span class="numberComment">({{$comments->count()}})</span></a>
+                                role="tab" aria-controls="product-review-tab" aria-selected="false">Đánh giá <span class="numberComment">({{$comments->count()}})</span></a>
                         </li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="product-desc-tab" role="tabpanel"
                             aria-labelledby="product-desc-link">
                             <div class="product-desc-content">
-                                <h3>Product Information</h3>
-                                <p>{!! nl2br(e($product_detail->description)) !!}</p>
+                                <h3>Thông tin sản phẩm</h3>
+                                <p class="font-tv">{!! nl2br(e($product_detail->description)) !!}</p>
                             </div><!-- End .product-desc-content -->
                         </div><!-- .End .tab-pane -->
 
                         <div class="tab-pane fade" id="product-review-tab" role="tabpanel"
                             aria-labelledby="product-review-link">
-                            <h3 class="fs-4">Reviews</h3>
+                            <h3 class="fs-4">Đánh giá</h3>
                             @if (Auth::check())
                                 <div class="comment">
                                     <div class="w-100">
@@ -406,7 +404,7 @@
                     </div>
                 </div>
 
-                <h2 class="title text-center mb-4">You May Also Like</h2>
+                <h2 class="title text-center mb-4">Có thể bạn cũng thích</h2>
 
                 <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                     data-owl-options='{
@@ -447,13 +445,12 @@
                                     </a>
 
                                     <div class="product-action-vertical">
-                                        <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                                to wishlist</span></a>
+                                        <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>Yêu thích</span></a>
                                     </div><!-- End .product-action-vertical -->
 
                                     <div class="product-action">
                                         <a href="{{ route('cart.add', ['id' => $item->id]) }}"
-                                            class="btn-product btn-cart"><span>add to cart</span></a>
+                                            class="btn-product btn-cart"><span>Thêm vào giỏ</span></a>
                                     </div>
                                 </figure>
 
@@ -483,13 +480,13 @@
                                         <div class="ratings">
                                             <div class="ratings-val" style="width: 20%;"></div><!-- End .ratings-val -->
                                         </div><!-- End .ratings -->
-                                        <span class="ratings-text">( 2 Reviews )</span>
+                                        <span class="ratings-text">( 2 đánh giá )</span>
                                     </div>
                                 </div><!-- End .product-body -->
                             </div>
                         @endforeach
                     @else
-                        <p class="class="text-center"">Not product</p>
+                        <p class="class=text-center">Không tìm thấy sản phẩm</p>
                     @endif
 
                 </div><!-- End .owl-carousel -->
@@ -655,15 +652,15 @@
             var diffInWeeks = now.diff(date, 'weeks');
 
             if (diffInMinutes < 1) {
-                commentDate.innerText = diffInSeconds + " seconds ago";
+                commentDate.innerText = diffInSeconds + " giây trước";
             } else if (diffInMinutes < 60) {
-                commentDate.innerText = diffInMinutes + " minutes ago";
+                commentDate.innerText = diffInMinutes + " phút trước";
             } else if (diffInMinutes < 1440) {
-                commentDate.innerText = diffInHours + " hours ago";
+                commentDate.innerText = diffInHours + " giờ trước";
             } else if (diffInDays < 8) {
-                commentDate.innerText = diffInDays + " days ago";
+                commentDate.innerText = diffInDays + " ngày trước";
             } else if (diffInWeeks < 5) {
-                commentDate.innerText = diffInWeeks + " weeks ago";
+                commentDate.innerText = diffInWeeks + " tuần trước";
             } else {
                 commentDate.innerText = moment(date).format("DD/MM/YYYY");
             }

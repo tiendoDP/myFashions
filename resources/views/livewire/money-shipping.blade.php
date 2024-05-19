@@ -2,11 +2,11 @@
     <table class="table table-summary">
         <tbody>
             <tr class="summary-subtotal">
-                <td>Subtotal:</td>
-                <td>đ {{number_format($total, 0, ',' , '.')}}</td>
+                <td>Tổng tiền:</td>
+                <td>{{number_format($total, 0, ',' , '.')}}đ</td>
             </tr><!-- End .summary-subtotal -->
             <tr class="summary-shipping">
-                <td>Shipping:</td>
+                <td>Vận chuyển:</td>
                 <td>&nbsp;</td>
             </tr>
 
@@ -14,37 +14,37 @@
                 <td>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="free-shipping" name="shipping" wire:click="finalTotal(0)" @if(session('type_shipping') == 'Free Shipping') checked @endif class="custom-control-input">
-                        <label class="custom-control-label" for="free-shipping">Free Shipping</label>
+                        <label class="custom-control-label" for="free-shipping">Miễn phí vận chuyển</label>
                     </div><!-- End .custom-control -->
                 </td>
-                <td>đ 0.000</td>
+                <td>0đ</td>
             </tr>
 
-            <tr class="summary-shipping-row">
+            {{-- <tr class="summary-shipping-row">
                 <td>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="standart-shipping" name="shipping" wire:click="finalTotal(10000)" @if(session('type_shipping') == 'Standart') checked @endif class="custom-control-input">
-                        <label class="custom-control-label" for="standart-shipping">Standart</label>
+                        <label class="custom-control-label" for="standart-shipping">Bình thường</label>
                     </div><!-- End .custom-control -->
                 </td>
-                <td>đ 10.000</td>
-            </tr>
+                <td>10.000đ</td>
+            </tr> --}}
 
             <tr class="summary-shipping-row">
                 <td>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="express-shipping" name="shipping" wire:click="finalTotal(20000)" @if(session('type_shipping') == 'Express') checked @endif class="custom-control-input">
-                        <label class="custom-control-label" for="express-shipping">Express</label>
+                        <label class="custom-control-label" for="express-shipping">Hỏa tốc</label>
                     </div><!-- End .custom-control -->
                 </td>
-                <td>đ 20.000</td>
+                <td>20.000đ</td>
             </tr>
 
             
 
             <tr class="summary-total">
-                <td>Total: </td>
-                <td>đ {{number_format($fnTotal, 0, ',', '.')}}</td>
+                <td>Tổng cộng: </td>
+                <td>{{number_format($fnTotal, 0, ',', '.')}}đ</td>
             </tr><!-- End .summary-total -->
         </tbody>
     </table>

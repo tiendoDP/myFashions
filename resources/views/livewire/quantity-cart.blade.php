@@ -9,12 +9,12 @@
         <table class="table table-cart table-mobile">
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Size</th>
-                    <th>Color</th>
-                    <th>Total</th>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Kích cỡ</th>
+                    <th>Màu sắc</th>
+                    <th>Tổng tiền</th>
                     <th></th>
                 </tr>
             </thead>
@@ -37,10 +37,9 @@
                         </td>
                         <td class="price-col">
                             @if ($cart->discount != null)
-                                <span class="">đ
-                                    {{ number_format((int) ($cart->price - $cart->price * ($cart->discount / 100)), 0, ',', '.') }}</span>
+                                <span class="">{{ number_format((int) ($cart->price - $cart->price * ($cart->discount / 100)), 0, ',', '.') }}đ</span>
                             @else
-                                <span class="">đ {{ number_format((int) $cart->price, 0, ',', '.') }}</span>
+                                <span class="">{{ number_format((int) $cart->price, 0, ',', '.') }}đ</span>
                             @endif
                         </td>
                         <td class="quantity-col">
@@ -55,7 +54,7 @@
                         </td>
                         <td class="price-col">{{$cart->size}}</td>
                         <td class="price-col">{{$cart->color}}</td>
-                        <td class="total-col">đ {{ number_format((int) $cart->money, 0, ',', '.') }}</td>
+                        <td class="total-col">{{ number_format((int) $cart->money, 0, ',', '.') }}đ</td>
                         <td class="remove-col"><a href="{{ route('cart.delete', ['id' => $cart->id]) }}"
                                 class="btn-remove"><i class="icon-close"></i></a></td>
                     </tr>
@@ -63,7 +62,7 @@
             </tbody>
         </table>
     @else
-        <p>Product is not found</p>
+        <p>Không tìm thấy sản phẩm</p>
     @endif
 
     <script>

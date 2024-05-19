@@ -35,7 +35,7 @@ class CategoryController extends Controller
         $category->status = $request->status;
         $category->save();
         
-        return redirect('admin/category/list')->with('success', "Category Successfully Created");
+        return redirect('admin/category/list')->with('success', "Thêm mới danh mục thành công!");
     }
 
     public function edit($id) {
@@ -57,14 +57,14 @@ class CategoryController extends Controller
         $category->status = $request->status;
         $category->save();
         
-        return redirect('admin/category/list')->with('success', "Category Successfully Updated");
+        return redirect('admin/category/list')->with('success', "Cập nhật danh mục thành công!");
     }
 
     public function delete($id, Request $request) {
         $category = CategoryModel::find($id);       
         $category->delete();
         
-        return redirect()->back()->with('success', "Category Successfully Deleted");
+        return redirect()->back()->with('success', "Xóa danh mục thành công!");
     }
 
 

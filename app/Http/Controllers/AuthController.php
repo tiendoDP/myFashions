@@ -32,7 +32,7 @@ class AuthController extends Controller
             //dd($remember);
             return redirect()->route('admin.dashboard');
         }
-        else return redirect()->back()->with('error', "account or password is incorrect");
+        else return redirect()->back()->with('error', "Email hoặc mật khẩu không chính xác");
         return redirect()->route('admin.dashboard');
     }
 
@@ -69,7 +69,7 @@ class AuthController extends Controller
             }
             //return redirect()->route('home');
         }
-        else return redirect()->back()->with('error', "account or password is incorrect");
+        else return redirect()->back()->with('error', "Email hoặc mật khẩu không chính xác");
     }
 
     public function logout_user() {

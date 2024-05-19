@@ -31,5 +31,11 @@ class Order extends Model
         ->get();
     }
 
+    public static function list() {
+        return self::select('orders.*', 'payments.amount as amount')
+        ->join('payments', 'payments.order_id', '=', 'orders.id')
+        ->get();
+    }
+
     
 }

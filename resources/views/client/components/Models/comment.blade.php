@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="commentModalLabel">Comment</h5>
+                <h5 class="modal-title" id="commentModalLabel">Đánh giá</h5>
                 {{-- <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button> --}}
             </div>
             <div class="modal-body">
@@ -13,12 +13,12 @@
                         <input type="text" class="form-control" id="recipient-name" />
                     </div> --}}
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Message:</label>
+                        <label for="message-text" class="col-form-label">Nhận xét:</label>
                         <textarea class="form-control" id="message-text"></textarea>
                     </div>
                     <div class="mb-1">
                         <label for="fileInput" class="fileLabel mb-0">
-                            <div class="d-flex justify-content-center alight-itemscenter">Upload image <i class="fa-solid fa-camera ml-2"></i></div>
+                            <div class="d-flex justify-content-center alight-itemscenter">Đăng ảnh <i class="fa-solid fa-camera ml-2"></i></div>
                         </label>
                         <input type="file" id="fileInput" class="fileInput" multiple />
                     </div>
@@ -46,8 +46,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="closeModalComment" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" id="closeModalComment" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary">Lưu</button>
             </div>
         </div>
     </div>

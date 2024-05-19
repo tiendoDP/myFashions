@@ -15,6 +15,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset("assets/images/icons/apple-touch-icon.png")}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset("assets/images/icons/favicon-32x32.png")}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset("assets/images/icons/favicon-16x16.png")}}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     <link rel="mask-icon" href="{{asset("assets/images/icons/safari-pinned-tab.svg")}}" color="#666666">
     <link rel="shortcut icon" href="{{asset("assets/images/icons/favicon.ico")}}">
@@ -37,6 +39,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @yield('styles')
     @livewireStyles
+    <style>
+        .font-tv {
+            font-family: 'Roboto', sans-serif !important;
+        }
+    </style>
 </head>
 
 <body>

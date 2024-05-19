@@ -14,7 +14,7 @@
         <nav class="mobile-nav">
             <ul class="mobile-menu">
                 <li class="active">
-                    <a href="{{route('home')}}">Home</a>
+                    <a href="{{route('home')}}">Trang chủ</a>
                 </li>
                 <li>
                     <a href="category.html">Shop</a>

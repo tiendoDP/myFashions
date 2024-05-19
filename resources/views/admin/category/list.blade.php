@@ -8,17 +8,17 @@
 
 <div class="content-wrapper">
     <div class="p-3 d-flex justify-content-between align-items-center">
-        <p class="h2">Category list</p>
-        <a href="{{url('admin/category/add')}}" class="btn btn-primary">Add new Category</a>
+        <p class="h2">Danh mục</p>
+        <a href="{{url('admin/category/add')}}" class="btn btn-primary">Thêm mới</a>
     </div>
     <table class="table ">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Create By</th>
-            <th scope="col">Status</th>
-            <th scope="col">Action</th>
+            <th scope="col">Tên</th>
+            <th scope="col">Tạo bởi</th>
+            <th scope="col">Tình trạng</th>
+            <th scope="col">Thao tác</th>
           </tr>
         </thead>
         <tbody>
@@ -30,8 +30,8 @@
                 <td>{{$value->create_by_name}}</td>
                 <td>{{($value->status) == 0 ? 'active' : 'inactive'}}</td>
                 <td>
-                  <a href="{{url('admin/category/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
-                  <a href="{{url('admin/category/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
+                  <a href="{{url('admin/category/edit/'.$value->id)}}" class="btn btn-primary">Sửa</a>
+                  <a href="{{url('admin/category/delete/'.$value->id)}}" class="btn btn-danger">Xóa</a>
                 </td> 
               </tr>
             @endforeach

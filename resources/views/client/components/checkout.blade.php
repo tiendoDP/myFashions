@@ -8,7 +8,7 @@
 <main class="main">
     <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
         <div class="container">
-            <h1 class="page-title">Checkout<span>Shop</span></h1>
+            <h1 class="page-title">Thanh toán</h1>
         </div><!-- End .container -->
     </div><!-- End .page-header -->
     <nav aria-label="breadcrumb" class="breadcrumb-nav">
@@ -23,17 +23,17 @@
                 <div class="checkout-discount">
                     <form action="" method="POST">
                         <input type="text" class="form-control" required id="checkout-discount-input">
-                        <label for="checkout-discount-input" class="text-truncate">Have a coupon? <span>Click here to enter your code</span></label>
+                        <label for="checkout-discount-input" class="text-truncate">Có mã giảm giá? <span>Nhập mã giảm giá của bạn</span></label>
                     </form>
                 </div><!-- End .checkout-discount -->
                 <form action="{{url('/checkout')}}" method="POST">
                     @csrf
                     <div class="row">
                         <div class="col-lg-9">
-                            <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
+                            <h2 class="checkout-title">Thông tin giao hàng</h2><!-- End .checkout-title -->
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <label>Full Name *</label>
+                                        <label>Họ tên *</label>
                                         <input type="text" name="full_name" value="{{Auth::user()->name}}" class="form-control">
                                     </div>
                                     @error('full_name')
@@ -43,21 +43,21 @@
                                     @enderror
                                 </div><!-- End .row -->
 
-                                <label>Country *</label>
+                                <label>Quốc gia *</label>
                                 <input type="text" name="country" class="form-control">
                                 @error('country')
                                     <small class="form-text text-muted">
                                     <div style="color:red">{{$message}}</div>
                                     </small>
                                 @enderror
-                                <label>Province *</label>
+                                <label>Tỉnh / Thành phố *</label>
                                 <input type="text" name="province" class="form-control">
                                 @error('province')
                                     <small class="form-text text-muted">
                                     <div style="color:red">{{$message}}</div>
                                     </small>
                                 @enderror
-                                <label>Street address *</label>
+                                <label>Địa chỉ đường *</label>
                                 <input type="text" name="street_address" class="form-control" placeholder="House number and Street name">
                                 @error('street_address')
                                     <small class="form-text text-muted">
@@ -66,7 +66,7 @@
                                 @enderror
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <label>Email address *</label>
+                                        <label>Email *</label>
                                         <input type="email" name="email" value="{{Auth::user()->email}}" class="form-control">
                                         @error('email')
                                         <small class="form-text text-muted">
@@ -76,7 +76,7 @@
                                     </div>
 
                                     <div class="col-sm-6">
-                                        <label>Phone *</label>
+                                        <label>Số điện thoại *</label>
                                         <input type="tel" name="phone" class="form-control">
                                         @error('phone')
                                         <small class="form-text text-muted">
@@ -88,45 +88,45 @@
 
                             
 
-                                <label>Order notes (optional)</label>
+                                <label>Ghi chú</label>
                                 <textarea class="form-control" name="notes" cols="30" rows="4" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
                         </div><!-- End .col-lg-9 -->
                         <aside class="col-lg-3">
                             <div class="summary">
-                                <h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
+                                <h3 class="summary-title font-tv">Đơn hàng của bạn</h3><!-- End .summary-title -->
 
                                 <table class="table table-summary">
                                     <thead>
                                         <tr>
-                                            <th>Product</th>
-                                            <th>Total</th>
+                                            <th class="font-tv">Sản phẩm</th>
+                                            <th class="font-tv">Thành tiền</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                         @foreach($all_cart as $cart)
                                         <tr>
-                                            <td><a href="#">{{$cart->product_name}} <span style="opacity: 0.7;">x{{$cart->quantity}}</span></a></td>
-                                            <td>${{$cart->money}}</td>
+                                            <td><a href="#" class="font-tv">{{$cart->product_name}} <span class="font-tv" style="opacity: 0.7;">x{{$cart->quantity}}</span></a></td>
+                                            <td>{{$cart->money}}đ</td>
                                         </tr>
                                         @endforeach
                                         <tr class="summary-subtotal">
-                                            <td>Subtotal:</td>
-                                            <td>${{$total}}</td>
+                                            <td class="font-tv">Tổng tiền:</td>
+                                            <td>{{$total}}đ</td>
                                         </tr><!-- End .summary-subtotal -->
                                         <tr>
-                                            <td>Shipping:</td>
-                                            <td>
+                                            <td class="font-tv">Vận chuyển:</td>
+                                            <td class="font-tv">
                                                 @if(session('type_shipping')) {{session('type_shipping')}}
-                                                @else Free shipping
+                                                @else Miễn phí vận chuyển
                                                 @endif
                                             </td>
                                         </tr>
                                         <tr class="summary-total">
-                                            <td>Total:</td>
+                                            <td class="font-tv">Tổng cộng:</td>
                                             <td>
                                                 @if(session('fntotal')) ${{session('fntotal')}}
-                                                @else ${{$total}}
+                                                @else {{$total}}đ
                                                 @endif
                                             </td>
                                         </tr><!-- End .summary-total -->
@@ -136,19 +136,15 @@
                                 <input type="hidden" name="fntotal" value="{{session('fntotal') ? session('fntotal') : $total}}" />
 
                                 <button type="submit" name="cod" class="btn btn-outline-primary-2 btn-order btn-block mb-3">
-                                    <span class="btn-text">Payment on delivery</span>
-                                    <span class="btn-hover-text">Proceed to Checkout</span>
+                                    <span class="btn-text">Thanh toán khi giao hàng</span>
+                                    <span class="btn-hover-text">Thanh toán</span>
                                 </button>
 
                                 <button type="submit" name="payUrl" class="btn btn-outline-primary-2 btn-order btn-block mb-3">
-                                    <span class="btn-text">Payment with Momo</span>
-                                    <span class="btn-hover-text">Proceed to Checkout</span>
+                                    <span class="btn-text">Thanh toán qua MoMo</span>
+                                    <span class="btn-hover-text">Thanh toán</span>
                                 </button>
-
-                                <button type="submit" name="vnPay" class="btn btn-outline-primary-2 btn-order btn-block mb-3">
-                                    <span class="btn-text">Payment with VNPay</span>
-                                    <span class="btn-hover-text">Proceed to Checkout</span>
-                                </button>
+                            
                             </div><!-- End .summary -->
                         </aside><!-- End .col-lg-3 -->
                     </div><!-- End .row -->
