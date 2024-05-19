@@ -276,8 +276,8 @@
                                                 value="1" min="1" max="10" step="1"
                                                 data-decimals="0" required>
                                         </div>
-                                        <span style="margin-left: 12px; opacity: 0.7">Còn lại:
-                                            {{ $product_detail->quantity }}</span>
+                                        <span class="font-tv" style="margin-left: 12px; opacity: 0.7">
+                                            {{ $product_detail->quantity }} sản phẩm có sẵn</span>
                                     </div>
 
                                     <div class="product-details-action">
@@ -330,7 +330,7 @@
                             aria-labelledby="product-desc-link">
                             <div class="product-desc-content">
                                 <h3>Thông tin sản phẩm</h3>
-                                <p>{!! nl2br(e($product_detail->description)) !!}</p>
+                                <p class="font-tv">{!! nl2br(e($product_detail->description)) !!}</p>
                             </div><!-- End .product-desc-content -->
                         </div><!-- .End .tab-pane -->
 

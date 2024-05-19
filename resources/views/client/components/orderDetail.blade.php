@@ -91,6 +91,22 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        @if($details[0]->status == 1)
+                            <form method="post" id="formDeleteOrder" action="{{route('deleteOrder')}}">
+                                @csrf
+                                @method('Delete')
+                                <input type="hidden" name="id" value="{{$details[0]->id}}" />
+                                <button type="button" id="buttonDeleteOrder" class="btn btn-primary">Hủy đơn</button>
+                            </form>
+                        @endif
+                        @if($details[0]->status == 2)
+                            <form method="post" id="formSuccessOrder" action="{{route('successOrder')}}">
+                                @csrf
+                                @method('Patch')
+                                <input type="hidden" name="id" value="{{$details[0]->id}}" />
+                                <button type="button" id="buttonSuccessOrder" class="btn btn-primary">Nhận hàng thành công</button>
+                            </form>
+                        @endif
                     @else
                         <p>Không tìm thấy đơn hàng</p>
                     @endif                   
@@ -106,7 +122,21 @@
 @section('scripts')
 
 <script>
-    
+    $(document).ready(function() {
+      $('#buttonDeleteOrder').on('click', function() {
+        $isCheck = confirm('Bạn có chắc chắn muốn hủy đơn hàng này không ?');
+        if($isCheck) {
+          $('#formDeleteOrder').submit();
+        }
+      })
+
+      $('#buttonSuccessOrder').on('click', function() {
+        $isCheck = true;
+        if($isCheck) {
+          $('#formSuccessOrder').submit();
+        }
+      })
+    })
 </script>
 
 @endsection

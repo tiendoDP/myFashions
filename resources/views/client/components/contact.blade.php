@@ -13,26 +13,26 @@
         <div class="container">
             <div class="page-header page-header-big text-center"
                 style="background-image: url('assets/images/about-header-bg.jpg')">
-                <h1 class="page-title text-white">Liên hệ</h1>
+                <h1 class="page-title text-white">Thông tin về chúng tôi</h1>
             </div><!-- End .page-header -->
         </div><!-- End .container -->
 
         <div class="page-content pb-0">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 mb-3 mb-lg-0">
-                        <h2 class="title">Our Vision</h2><!-- End .title -->
-                        <p>Trong tầm nhìn của chúng tôi về tương lai, cửa hàng thời trang vượt qua vai trò truyền thống là cửa hàng bán lẻ đơn thuần.
+                    <div class="col-lg-6 mb-3 mb-lg-0 font-tv">
+                        <h2 class="title font-tv">Mục tiêu</h2><!-- End .title -->
+                        <p class="font-tv text-justify">Trong tầm nhìn của chúng tôi về tương lai, cửa hàng thời trang vượt qua vai trò truyền thống là cửa hàng bán lẻ đơn thuần.
                             không gian, biến thành một trung tâm trải nghiệm độc đáo và sáng tạo. Chúng tôi hình dung một không gian nơi
                             khách hàng không chỉ mua sắm mà còn bắt tay vào hành trình khám phá thông qua các sản phẩm đa dạng và chiết trung
                             thế giới thời trang.</p>
 
-                        <p>Tầm nhìn của chúng tôi là tạo ra một môi trường thân thiện và tương tác, nơi có sự đổi mới và mới lạ.
+                        <p class="font-tv text-justify">Tầm nhìn của chúng tôi là tạo ra một môi trường thân thiện và tương tác, nơi có sự đổi mới và mới lạ.
                             được đánh giá cao. Cửa hàng không chỉ cung cấp các bộ sưu tập thời trang hàng đầu mà còn đóng vai trò là địa điểm
                             để gặp gỡ các nhà thiết kế xuất sắc và tổ chức các sự kiện thú vị như trình diễn thời trang,
                             triển lãm và hội thảo có sự góp mặt của các chuyên gia hàng đầu trong ngành.</p>
 
-                        <p>Chúng tôi cam kết mang đến cho khách hàng nhiều điều hơn là chỉ trải nghiệm mua sắm; chúng tôi nhắm tới
+                        <p class="font-tv text-justify">Chúng tôi cam kết mang đến cho khách hàng nhiều điều hơn là chỉ trải nghiệm mua sắm; chúng tôi nhắm tới
                             mang đến một hành trình thú vị để khám phá phong cách và cách thể hiện cá nhân. Bằng cách kết hợp liền mạch
                             hiện đại với truyền thống, mục tiêu của chúng tôi là để mỗi khách hàng cảm nhận được sự độc đáo và chân thực
                             trong mọi sản phẩm, mọi không gian và mọi trải nghiệm trong cửa hàng thời trang của chúng tôi.</p>
@@ -46,23 +46,20 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5 mb-3 mb-lg-0">
-                            <h2 class="title">Chúng tôi là</h2><!-- End .title -->
+                            <h2 class="title font-tv text-justify">Chúng tôi là</h2><!-- End .title -->
                             <p class="lead text-primary mb-3">TD Fashion</p><!-- End .lead text-primary -->
-                            <p class="mb-2">Chào mừng bạn đến với cửa hàng thời trang của chúng tôi, nơi bạn có thể khám phá các phong cách và thưởng thức
+                            <p class="mb-2 font-tv text-justify">Chào mừng bạn đến với cửa hàng thời trang của chúng tôi, nơi bạn có thể khám phá các phong cách và thưởng thức
                                 trải nghiệm mua sắm độc đáo. Chúng tôi tự hào giới thiệu một không gian thời trang hiện đại mang đến
                                 không chỉ là những bộ quần áo đặc biệt mà còn là một cuộc phiêu lưu vào thế giới thời trang đa dạng.</p>
-                            <p class="mb-2">Với sứ mệnh đổi mới và tạo nên sự khác biệt, cửa hàng chúng tôi luôn kiên định
+                            <p class="mb-2 font-tv text-justify">Với sứ mệnh đổi mới và tạo nên sự khác biệt, cửa hàng chúng tôi luôn kiên định
                                 cập nhật những xu hướng mới nhất và thiết kế độc đáo từ các thương hiệu hàng đầu trên thị trường. Chúng tôi là
                                 cam kết mang đến cho khách hàng trải nghiệm mua sắm vượt xa việc lựa chọn
                                 trang phục – đó là hành trình khám phá phong cách cá nhân và sự tự tin.</p>
-                            <p class="mb-2">Không chỉ là một địa điểm mua sắm, cửa hàng của chúng tôi còn là trung tâm của sự sáng tạo,
+                            <p class="mb-2 font-tv text-justify">Không chỉ là một địa điểm mua sắm, cửa hàng của chúng tôi còn là trung tâm của sự sáng tạo,
                                 tổ chức các sự kiện, triển lãm và hội thảo thời trang nơi bạn có thể chia sẻ niềm đam mê và
                                 kiến thức với cộng đồng thời trang. Hãy đến và trải nghiệm không gian thời trang đặc sắc nơi
                                 vẻ đẹp và phong cách hội tụ, tạo nên những phút giây thăng hoa cho mọi tín đồ thời trang.</p>
-                            <a href="blog.html" class="btn btn-sm btn-minwidth btn-outline-primary-2">
-                                <span>VIEW OUR NEWS</span>
-                                <i class="icon-long-arrow-right"></i>
-                            </a>
+                            
                         </div><!-- End .col-lg-5 -->
 
                         <div class="col-lg-6 offset-lg-1">
@@ -178,9 +175,8 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="brands-text">
-                            <h2 class="title">Địa chỉ cửa hàng.</h2><!-- End .title -->
-                            <p>Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus
-                                id, mattis vel, nis</p>
+                            <h2 class="title font-tv text-justify">Địa chỉ cửa hàng.</h2><!-- End .title -->
+                            <p class="font-tv text-justify">Số 298 Đ. Cầu Diễn, Minh Khai, Bắc Từ Liêm, Hà Nội</p>
                         </div><!-- End .brands-text -->
                     </div><!-- End .col-lg-5 -->
                     <div class="col-lg-7">
@@ -198,7 +194,7 @@
 
                 <hr class="mt-4 mb-6">
 
-                <h2 class="title text-center mb-4">Gặp mặt chúng tôi</h2><!-- End .title text-center mb-2 -->
+                <h2 class="title text-center mb-4 font-tv text-justify">Gặp mặt chúng tôi</h2><!-- End .title text-center mb-2 -->
 
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-4">
@@ -209,7 +205,7 @@
 
                                 <figcaption class="member-overlay" style="border-radius: 12px">
                                     <div class="member-overlay-content">
-                                        <h3 class="member-title">Nguyễn Vũ Tiến Độ<span>Founder & CEO</span></h3>
+                                        <h3 class="member-title font-tv text-justify">Nguyễn Vũ Tiến Độ<span>Founder & CEO</span></h3>
                                         <!-- End .member-title -->
                                         <p>Xin chào !.</p>
                                         <div class="social-icons social-icons-simple">
@@ -245,7 +241,7 @@
                         "margin": 20,
                         "loop": true,
                         "autoplay": true,
-                        "autoplayTimeout": 3000,
+                        "autoplayTimeout": 5000,
                         "responsive": {
                             "1200": {
                                 "nav": true
@@ -253,36 +249,27 @@
                         }
                     }'>
                         <blockquote class="testimonial text-center">
-                            <img src="{{ asset('assets/images/avt.jpg') }}" alt="user">
-                            <p>“ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque aliquet nibh nec
-                                urna. <br>In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula
-                                sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh.
-                                Nullam mollis. Ut justo. Suspendisse potenti. ”</p>
+                            <img style="height: 82px !important;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4s9D-wpMuvvT6HeTOYHUjv7VPu6aW07kqyg&s" alt="user">
+                            <p class="font-tv text-justify">“ TDFashion Store thật sự làm tôi ấn tượng với bộ sưu tập quần áo và phụ kiện phong phú. Chất liệu sản phẩm rất tốt, thiết kế hợp thời trang và dịch vụ khách hàng tuyệt vời. Mỗi lần mua sắm tại đây, tôi đều nhận được sự tư vấn nhiệt tình và chuyên nghiệp. Đặc biệt, cửa hàng thường xuyên có các chương trình khuyến mãi hấp dẫn, giúp tôi tiết kiệm được khá nhiều chi phí. ”</p>
                             <cite>
-                                Jenson Gregory
+                                Nguyễn Văn Đức
                                 <span>Customer</span>
                             </cite>
                         </blockquote>
                         <blockquote class="testimonial text-center">
-                            <img src="{{ asset('assets/images/avt.jpg') }}" alt="user">
-                            <p>“ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque aliquet nibh nec
-                                urna. <br>In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula
-                                sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh.
-                                Nullam mollis. Ut justo. Suspendisse potenti. ”</p>
+                            <img style="height: 82px !important;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZLgZ9lG5B_yo1E7KKEusH2bp8BriYHsPdZWhQPctwGQ&s" alt="user">
+                            <p class="font-tv text-justify">“ Tôi rất thích không gian bài trí của TDFashion Store. Cửa hàng được sắp xếp gọn gàng và dễ dàng tìm kiếm sản phẩm. Đội ngũ nhân viên rất thân thiện và luôn sẵn lòng giúp đỡ. Tuy nhiên, tôi thấy giá cả hơi cao so với một số cửa hàng khác. Mặc dù vậy, chất lượng sản phẩm thì không chê vào đâu được. ”</p>
                             <cite>
-                                Jenson Gregory
+                                Trần Anh Minh
                                 <span>Customer</span>
                             </cite>
                         </blockquote><!-- End .testimonial -->
                         <blockquote class="testimonial text-center">
-                            <img src="{{ asset('assets/images/avt.jpg') }}" alt="user">
-                            <p>“ Impedit, ratione sequi, sunt incidunt magnam et. Delectus obcaecati optio eius error libero
-                                perferendis nesciunt atque dolores magni recusandae! Doloremque quidem error eum quis
-                                similique doloribus natus qui ut ipsum.Velit quos ipsa exercitationem, vel unde obcaecati
-                                impedit eveniet non. ”</p>
+                            <img style="height: 82px !important;" src="https://bizweb.dktcdn.net/100/438/408/files/anh-chan-dung-dep-yodyvn1.jpg?v=1683537734987" alt="user">
+                            <p class="font-tv text-justify">“ Đây là lần đầu tiên tôi đến TDFashion Store. Các sản phẩm ở đây khá đẹp và đa dạng, tuy nhiên tôi gặp một chút khó khăn trong việc tìm kiếm size phù hợp cho mình. Nhân viên cũng hỗ trợ nhiệt tình nhưng có lẽ do khách đông nên phải chờ đợi hơi lâu. Hy vọng lần sau cửa hàng có thể cải thiện điều này. ”</p>
 
                             <cite>
-                                Victoria Ventura
+                                Nguyễn Thị Quỳnh
                                 <span>Customer</span>
                             </cite>
                         </blockquote><!-- End .testimonial -->

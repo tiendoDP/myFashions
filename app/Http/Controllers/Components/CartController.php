@@ -21,7 +21,7 @@ class CartController extends Controller
             $cart = CartModel::getProductInCart($id, $request->size, $request->color);
             $product = ProductModel::find($id);
             if($request->quantity > $product->quantity) {
-                return redirect()->back()->with('error', 'Quá số lượng đang có');
+                return redirect()->back()->with('error', 'Rất tiếc, trong kho không đủ hàng.');
             }
             if ($cart->isEmpty()) {      
                 $cartNew = new CartModel;
@@ -49,7 +49,7 @@ class CartController extends Controller
         $data['header_title'] = 'View Cart';
         $data['total'] = CartModel::total();
         session()->put('fntotal', $data['total']);
-        session()->put('type_shipping', 'Free Shipping');      
+        session()->put('type_shipping', 'Miễn phí giao hàng');      
         return view('client/components/cart', $data);
     }
 

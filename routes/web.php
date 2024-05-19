@@ -17,6 +17,7 @@ use App\Http\Controllers\Components\CommentController;
 use App\Http\Controllers\Components\ContactController;
 use App\Http\Controllers\Components\ProfileController;
 use App\Http\Controllers\Components\OrderController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\Components\ProductController as ComponentProductController;
 use App\Livewire\Cart;
@@ -74,6 +75,8 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::post('product/edit/{id}', [ProductController::class, 'update']);
     Route::get('product/delete/{id}', [ProductController::class, 'delete']);
 
+    Route::get('order/list', [AdminOrderController::class, 'list']);
+    Route::get('order/detail', [AdminOrderController::class, 'showDetail'])->name('showDetail');
 });
 
 Route::middleware('shareView')->group(function () {
@@ -86,6 +89,9 @@ Route::middleware('shareView')->group(function () {
         Route::get('/profile', [ProfileController::class, 'Index'])->name('profile');
         Route::get('/order', [OrderController::class, 'Index'])->name('order');
         Route::get('/order-detail/{id}', [OrderController::class, 'orderDetail'])->name('orderDetail');
+        Route::patch('order/confim', [AdminOrderController::class, 'confirmOrder'])->name('confirmOrder');
+        Route::delete('order/delete', [AdminOrderController::class, 'deleteOrder'])->name('deleteOrder');
+        Route::patch('order/success', [AdminOrderController::class, 'successOrder'])->name('successOrder');
         Route::get('/paymentOnline', [CheckOutController::class, 'paymentOnline'])->name('paymentOnline');
     });
 });

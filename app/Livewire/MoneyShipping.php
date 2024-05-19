@@ -18,15 +18,15 @@ class MoneyShipping extends Component
     public function finalTotal($tt) {
         if($tt == 0) {
             $this->fnTotal = $this->total;
-            session()->put('type_shipping', 'Free shipping');
+            session()->put('type_shipping', 'Miễn phí vận chuyển');
         }
         else if($tt == 10000) {
             $this->fnTotal = $this->total + $tt;
-            session()->put('type_shipping', 'Standart');
+            session()->put('type_shipping', 'Bình thường');
         }
         else {
             $this->fnTotal = $this->total + $tt;
-            session()->put('type_shipping', 'Express');
+            session()->put('type_shipping', 'Hỏa tốc');
         }
         session()->put('fntotal', $this->fnTotal);
     }

@@ -20,7 +20,7 @@
                 <td>0đ</td>
             </tr>
 
-            <tr class="summary-shipping-row">
+            {{-- <tr class="summary-shipping-row">
                 <td>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="standart-shipping" name="shipping" wire:click="finalTotal(10000)" @if(session('type_shipping') == 'Standart') checked @endif class="custom-control-input">
@@ -28,7 +28,7 @@
                     </div><!-- End .custom-control -->
                 </td>
                 <td>10.000đ</td>
-            </tr>
+            </tr> --}}
 
             <tr class="summary-shipping-row">
                 <td>

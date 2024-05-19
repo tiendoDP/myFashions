@@ -11,7 +11,7 @@
 
                     <div class="toolbox-right">
                         <div class="toolbox-sort">
-                            <label for="sortby">Lọc theo giá:</label>
+                            <label for="sortby" class="font-tv">Lọc theo giá:</label>
                             <div class="select-custom">
                                 <select name="sortby" id="sortby" class="form-control" wire:model = 'sortPrice'
                                     wire:change='changeCategory'>
@@ -55,7 +55,7 @@
                                             <div class="product-cat">
                                                 <a href="#">{{ $item->category_name }}</a>
                                             </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="product.html">{{ $item->name }}</a>
+                                            <h3 class="product-title"><a href="#" class="fw-400 font-tv">{{ $item->name }}</a>
                                             </h3>
                                             <div class="product-price">
                                                 @if ($item->discount != null)
@@ -80,7 +80,7 @@
                                 </div>
                             @endforeach
                         @else
-                            <p>Không tìm thấy sản phẩm</p>
+                            <p class="font-tv fw-bold">Không tìm thấy sản phẩm</p>
                         @endif
                     </div><!-- End .row -->
                 </div><!-- End .products -->
@@ -97,7 +97,7 @@
                     <div class="widget widget-collapsible">
                         <h3 class="widget-title">
                             <a data-toggle="collapse" href="#widget-1" role="button" aria-expanded="true"
-                                aria-controls="widget-1">
+                                aria-controls="widget-1" class="fw-400 font-tv">
                                 Danh mục
                             </a>
                         </h3><!-- End .widget-title -->

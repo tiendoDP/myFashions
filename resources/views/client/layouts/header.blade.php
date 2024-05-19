@@ -16,23 +16,23 @@
                 <ul class="top-menu">
                     <li>
                         <ul>
-                            <li><i class="icon-phone"></i>Đường dây nóng: +0862 671 500</li>
-                            <li><a href="{{route('wishlist.index')}}"><i class="icon-heart-o"></i>Yêu thích <span>({{!empty($all_wishlist) ? count($all_wishlist) : 0 }})</span></a></li>
-                            <li><a href="{{route('contact')}}">Liên hệ</a></li>
+                            <li><i class="icon-phone font-tv"></i>Contact: +0862 671 500</li>
+                            <li><a href="{{route('wishlist.index')}}" class="font-tv"><i class="icon-heart-o"></i>Yêu thích <span>({{!empty($all_wishlist) ? count($all_wishlist) : 0 }})</span></a></li>
+                            <li><a href="{{route('contact')}}" class="font-tv">Thông tin</a></li>
                             <li>                                
                                 @if(!empty(Auth::check()) && Auth::User()->role == 0)
                                     <div class="header-dropdown">
-                                        <a href="#">{{Auth::user()->name}}</a>
+                                        <a href="#" class="font-tv">{{Auth::user()->name}}</a>
                                         <div class="header-menu">
                                             <ul style="flex-wrap: wrap; justify-content:center">
-                                                <li style="margin: 0; padding: 4px"><a href="{{route('profile')}}">Tài khoản</a></li>
-                                                <li style="margin: 0; padding: 4px"><a href="{{route('changePassword')}}">Đổi mật khẩu</a></li>
+                                                <li style="margin: 0; padding: 4px"><a href="{{route('profile')}}" class="font-tv">Tài khoản</a></li>
+                                                <li style="margin: 0; padding: 4px"><a href="{{route('changePassword')}}" class="font-tv">Đổi mật khẩu</a></li>
                           
-                                                <li style="margin: 0; padding: 4px"><a href="{{route('logout')}}">Đăng xuất</a></li>
+                                                <li style="margin: 0; padding: 4px"><a href="{{route('logout')}}" class="font-tv">Đăng xuất</a></li>
                                             </ul>
                                         </div>
                                     </div>
-                                @else <a href="{{route('login')}}"><i class="icon-user"></i>Đăng nhập</a>
+                                @else <a href="{{route('login')}}"><i class="icon-user" class="font-tv"></i>Đăng nhập</a>
                                 @endif
                             </li>
                         </ul>
@@ -57,23 +57,23 @@
                 <nav class="main-nav">
                     <ul class="menu sf-arrows">
                         <li class="">
-                            <a href="{{route('home')}}" class="pr-0">Trang chủ</a>
+                            <a href="{{route('home')}}" class="pr-0 font-tv">Trang chủ</a>
                         </li>
                         <li class="">
-                            <a href="{{route('product_list')}}" class="pr-0">Sản phẩm</a>
+                            <a href="{{route('product_list')}}" class="pr-0 font-tv">Sản phẩm</a>
                         </li>
                         <li>
-                            <a href="{{route('product_list', ['gender' => 0])}}" class="pr-0">Nam</a>
+                            <a href="{{route('product_list', ['gender' => 0])}}" class="pr-0 font-tv">Nam</a>
                         </li>
                         <li>
-                            <a href="{{route('product_list', ['gender' => 1])}}" class="pr-0">Nữ</a>
+                            <a href="{{route('product_list', ['gender' => 1])}}" class="pr-0 font-tv">Nữ</a>
                         </li>
                         <li>
-                            <a href="#" class="sf-with-ul">Pages</a>
+                            <a href="#" class="sf-with-ul font-tv">Pages</a>
 
                             <ul>
                                 <li>
-                                    <a href="{{route('contact')}}">Liên hệ</a>
+                                    <a href="{{route('contact')}}">Thông tin</a>
                                 </li>
                                 
                                 <li><a href="#">FAQs</a></li>

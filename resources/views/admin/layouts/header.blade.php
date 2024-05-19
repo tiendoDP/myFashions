@@ -188,6 +188,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{url('admin/order/list')}}" class="nav-link @if(Request::segment(2) == 'order') active @endif">
+              <i class="nav-icon fab fa-first-order"></i></i>
+              <p>
+                Đơn hàng
+              </p>
+            </a>
+          </li>
 
           <li class="nav-item">
             <a href="{{url('admin/logout')}}" class="nav-link @if(Request::segment(2) == 'logout') active @endif">

@@ -8,19 +8,19 @@
 
 <div class="content-wrapper">
     <div class="p-3 d-flex justify-content-between align-items-center">
-        <p class="h2">Account list</p>
-        <a href="{{url('admin/admin/add')}}" class="btn btn-primary">Add new Account</a>
+        <p class="h2">Tài khoản</p>
+        <a href="{{url('admin/admin/add')}}" class="btn btn-primary">Thêm mới</a>
     </div>
 
     <table class="table ">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
+            <th scope="col">Tên</th>
             <th scope="col">Email</th>
-            <th scope="col">Status</th>
-            <th scope="col">Role</th>
-            <th scope="col">Action</th>
+            <th scope="col">Tình trạng</th>
+            <th scope="col">Vai trò</th>
+            <th scope="col">Thao tác</th>
           </tr>
         </thead>
         <tbody>

@@ -43,7 +43,7 @@
                                     @enderror
                                 </div><!-- End .row -->
 
-                                <label>Nước *</label>
+                                <label>Quốc gia *</label>
                                 <input type="text" name="country" class="form-control">
                                 @error('country')
                                     <small class="form-text text-muted">
@@ -93,37 +93,37 @@
                         </div><!-- End .col-lg-9 -->
                         <aside class="col-lg-3">
                             <div class="summary">
-                                <h3 class="summary-title">Đơn hàng của bạn</h3><!-- End .summary-title -->
+                                <h3 class="summary-title font-tv">Đơn hàng của bạn</h3><!-- End .summary-title -->
 
                                 <table class="table table-summary">
                                     <thead>
                                         <tr>
-                                            <th>Sản phẩm</th>
-                                            <th>Thành tiền</th>
+                                            <th class="font-tv">Sản phẩm</th>
+                                            <th class="font-tv">Thành tiền</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                         @foreach($all_cart as $cart)
                                         <tr>
-                                            <td><a href="#">{{$cart->product_name}} <span style="opacity: 0.7;">x{{$cart->quantity}}</span></a></td>
+                                            <td><a href="#" class="font-tv">{{$cart->product_name}} <span class="font-tv" style="opacity: 0.7;">x{{$cart->quantity}}</span></a></td>
                                             <td>{{$cart->money}}đ</td>
                                         </tr>
                                         @endforeach
                                         <tr class="summary-subtotal">
-                                            <td>Tổng tiền:</td>
+                                            <td class="font-tv">Tổng tiền:</td>
                                             <td>{{$total}}đ</td>
                                         </tr><!-- End .summary-subtotal -->
                                         <tr>
-                                            <td>Vận chuyển:</td>
-                                            <td>
+                                            <td class="font-tv">Vận chuyển:</td>
+                                            <td class="font-tv">
                                                 @if(session('type_shipping')) {{session('type_shipping')}}
                                                 @else Miễn phí vận chuyển
                                                 @endif
                                             </td>
                                         </tr>
                                         <tr class="summary-total">
-                                            <td>Tổng cộng:</td>
+                                            <td class="font-tv">Tổng cộng:</td>
                                             <td>
                                                 @if(session('fntotal')) ${{session('fntotal')}}
                                                 @else {{$total}}đ
@@ -144,11 +144,7 @@
                                     <span class="btn-text">Thanh toán qua MoMo</span>
                                     <span class="btn-hover-text">Thanh toán</span>
                                 </button>
-
-                                <button type="submit" name="vnPay" class="btn btn-outline-primary-2 btn-order btn-block mb-3">
-                                    <span class="btn-text">Thanh toán qua VNpay</span>
-                                    <span class="btn-hover-text">Thanh toán</span>
-                                </button>
+                            
                             </div><!-- End .summary -->
                         </aside><!-- End .col-lg-3 -->
                     </div><!-- End .row -->

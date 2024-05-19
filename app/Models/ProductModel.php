@@ -49,7 +49,7 @@ class ProductModel extends Model
     static public function getRecord() {
         return self::select('products.*', 'categories.name as category_name')
         ->join('categories', 'products.category_id', '=', 'categories.id')
-        ->orderby('id', 'desc')
+        ->orderBy('quantity', 'asc')
         ->get();
     }
 
