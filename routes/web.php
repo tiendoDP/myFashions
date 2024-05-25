@@ -35,7 +35,7 @@ use App\Http\Controllers\MailController;
 */
 
 Route::get('/', function () {
-    return 'Hello World';
+    return redirect()->route('home');
 });
 
 Route::get('admin', [AuthController::class, 'login_admin']);

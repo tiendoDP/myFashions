@@ -16,9 +16,9 @@
                                 </a>
 
                                 <div class="banner-content banner-content-center">
-                                    <h4 class="banner-subtitle text-white"><a href="#">New in</a></h4><!-- End .banner-subtitle -->
-                                    <h3 class="banner-title text-white"><a href="#"><strong>Women’s</strong></h3><!-- End .banner-title -->
-                                    <a href="{{route('product_list', ['gender' => 1])}}" class="btn btn-outline-white banner-link underline">Shop Now</a>
+                                    <h4 class="banner-subtitle text-white font-tv">Mới nhất</h4><!-- End .banner-subtitle -->
+                                    <h3 class="banner-title text-white"><strong class="font-tv">Nữ</strong></h3><!-- End .banner-title -->
+                                    <a href="{{route('product_list', ['gender' => 1])}}" class="btn btn-outline-white banner-link underline font-tv">Mua ngay</a>
                                 </div><!-- End .banner-content -->
                             </div><!-- End .banner -->
                         </div><!-- End .col-sm-6 -->
@@ -30,9 +30,9 @@
                                 </a>
 
                                 <div class="banner-content banner-content-center">
-                                    <h4 class="banner-subtitle text-white"><a href="#">New in</a></h4><!-- End .banner-subtitle -->
-                                    <h3 class="banner-title text-white"><a href="#"><strong>Men’s</strong></a></h3><!-- End .banner-title -->
-                                    <a href="{{route('product_list', ['gender' => 0])}}" class="btn btn-outline-white banner-link underline">Shop Now</a>
+                                    <h4 class="banner-subtitle text-white font-tv">Mới nhất</h4><!-- End .banner-subtitle -->
+                                    <h3 class="banner-title text-white"><strong class="font-tv">Nam</strong></h3><!-- End .banner-title -->
+                                    <a href="{{route('product_list', ['gender' => 0])}}" class="btn btn-outline-white banner-link underline font-tv">Mua ngay</a>
                                 </div><!-- End .banner-content -->
                             </div><!-- End .banner -->
                         </div><!-- End .col-sm-6 -->
@@ -277,8 +277,8 @@
                     <div class="row justify-content-center">
                         <div class="col-sm-12 col-md-8 col-lg-6">
                             <div class="deal-content text-center">
-                                <h4>Giới hạn số lượng. </h4>
-                                <h2>Khuyến mãi trong ngày</h2>
+                                <h4 class="font-tv">Giới hạn số lượng. </h4>
+                                <h2 class="font-tv">Khuyến mãi trong ngày</h2>
                                 <div class="deal-countdown" data-until="+10h"></div><!-- End .deal-countdown -->
                             </div><!-- End .deal-content -->
                             <div class="row deal-products">
@@ -291,13 +291,13 @@
                                     </figure><!-- End .product-media -->
 
                                     <div class="product-body">
-                                        <h3 class="product-title"><a href="product.html">Elasticated cotton shorts</a></h3><!-- End .product-title -->
+                                        <h3 class="product-title"><a href="product.html">Quần short cotton co giãn</a></h3><!-- End .product-title -->
                                         <div class="product-price">
-                                            <span class="new-price">Now $24.99</span>
-                                            <span class="old-price">Was $30.99</span>
+                                            <span class="new-price">đ 99.000</span>
+                                            {{-- <span class="old-price">Was $30.99</span> --}}
                                         </div><!-- End .product-price -->
                                     </div><!-- End .product-body -->
-                                    <a href="category.html" class="action">shop now</a>
+                                    <a href="category.html" class="action">Mua ngay</a>
                                 </div>
                                 <div class="col-6 deal-product text-center">
                                     <figure class="product-media">
@@ -308,13 +308,13 @@
                                     </figure><!-- End .product-media -->
 
                                     <div class="product-body">
-                                        <h3 class="product-title"><a href="product.html">Fine-knit jumper</a></h3><!-- End .product-title -->
+                                        <h3 class="product-title"><a href="product.html">Áo len dệt kim mịn</a></h3><!-- End .product-title -->
                                         <div class="product-price">
-                                            <span class="new-price">Now $8.99</span>
-                                            <span class="old-price">Was $17.99</span>
+                                            <span class="new-price">đ 149.000</span>
+                                            {{-- <span class="old-price">Was $17.99</span> --}}
                                         </div><!-- End .product-price -->
                                     </div><!-- End .product-body -->
-                                    <a href="category.html" class="action">shop now</a>
+                                    <a href="category.html" class="action">Mua ngay</a>
                                 </div>
                             </div>
                         </div><!-- End .col-lg-5 -->
@@ -332,7 +332,7 @@
                                 </span>
                                 <div class="icon-box-content">
                                     <h3 class="icon-box-title">Thanh toán & Giao hàng</h3><!-- End .icon-box-title -->
-                                    <p>Free shipping for orders over $50</p>
+                                    <p class="font-tv">Miễn phí giao hàng</p>
                                 </div><!-- End .icon-box-content -->
                             </div><!-- End .icon-box -->
                         </div><!-- End .col-lg-3 col-sm-6 -->
@@ -344,7 +344,7 @@
                                 </span>
                                 <div class="icon-box-content">
                                     <h3 class="icon-box-title">Trả hàng & Hoàn tiền</h3><!-- End .icon-box-title -->
-                                    <p>Free 100% money back guarantee</p>
+                                    <p class="font-tv">Hỗ trợ trả hàng trong 7 ngày</p>
                                 </div><!-- End .icon-box-content -->
                             </div><!-- End .icon-box -->
                         </div><!-- End .col-lg-3 col-sm-6 -->
@@ -356,7 +356,7 @@
                                 </span>
                                 <div class="icon-box-content">
                                     <h3 class="icon-box-title">Bảo mật thanh toán</h3><!-- End .icon-box-title -->
-                                    <p>100% secure payment</p>
+                                    <p class="font-tv">100% bảo mật thanh toán</p>
                                 </div><!-- End .icon-box-content -->
                             </div><!-- End .icon-box -->
                         </div><!-- End .col-lg-3 col-sm-6 -->
@@ -368,7 +368,7 @@
                                 </span>
                                 <div class="icon-box-content">
                                     <h3 class="icon-box-title">Hỗ trợ nhiệt tình</h3><!-- End .icon-box-title -->
-                                    <p>Alway online feedback 24/7</p>
+                                    <p class="font-tv">Luôn luôn phản hồi 24/7</p>
                                 </div><!-- End .icon-box-content -->
                             </div><!-- End .icon-box -->
                         </div><!-- End .col-lg-3 col-sm-6 -->
