@@ -217,7 +217,14 @@
 
                                 <div class="ratings-container">
                                     <div class="ratings">
-                                        <div class="ratings-val" style="width: 80%;"></div>
+                                        <div class="ratings-val" style="width: 
+                                            @if(isset($rating->avgRating) && !is_null($rating->avgRating)) 
+                                                {{ $rating->avgRating * 20 }}% 
+                                            @else 
+                                                100% 
+                                            @endif;">
+                                        </div>
+
                                     </div>
                                     <a class="ratings-text" href="#product-review-link" id="review-link"><span class="numberComment">({{$comments->count()}})</span></a>
                                 </div>
@@ -476,12 +483,12 @@
                                                 {{ number_format((int) $item->price, 0, ',', '.') }}</span>
                                         @endif
                                     </div><!-- End .product-price -->
-                                    <div class="ratings-container">
+                                    {{-- <div class="ratings-container">
                                         <div class="ratings">
                                             <div class="ratings-val" style="width: 20%;"></div><!-- End .ratings-val -->
                                         </div><!-- End .ratings -->
                                         <span class="ratings-text">( 2 đánh giá )</span>
-                                    </div>
+                                    </div> --}}
                                 </div><!-- End .product-body -->
                             </div>
                         @endforeach

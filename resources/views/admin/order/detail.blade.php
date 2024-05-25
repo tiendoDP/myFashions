@@ -34,6 +34,7 @@
                     <td style="font-weight: 600;">Tình trạng</td>
                     <td>: @if($details[0]->status == 1) <span style="color: red;">Đang xử lý</span>
                             @elseif($details[0]->status == 2) <span style="color: rgb(60, 71, 58);">Đang giao hàng</span>
+                            @elseif($details[0]->status == 5) <span style="color: red;">Đơn hàng đã bị hủy</span>
                             @else	<span style="color: rgb(132, 151, 214);">Đã nhận hàng</span>
                             @endif  
                     </td>

@@ -96,4 +96,5 @@ class ProductModel extends Model
         ->join('categories', 'products.category_id', '=', 'categories.id')
         ->paginate(6);
     }
+    
 }

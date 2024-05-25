@@ -297,7 +297,7 @@
                                             {{-- <span class="old-price">Was $30.99</span> --}}
                                         </div><!-- End .product-price -->
                                     </div><!-- End .product-body -->
-                                    <a href="category.html" class="action">Mua ngay</a>
+                                    <a href="#" class="action">Mua ngay</a>
                                 </div>
                                 <div class="col-6 deal-product text-center">
                                     <figure class="product-media">
@@ -308,7 +308,7 @@
                                     </figure><!-- End .product-media -->
 
                                     <div class="product-body">
-                                        <h3 class="product-title"><a href="product.html">Áo len dệt kim mịn</a></h3><!-- End .product-title -->
+                                        <h3 class="product-title"><a href="#">Áo len dệt kim mịn</a></h3><!-- End .product-title -->
                                         <div class="product-price">
                                             <span class="new-price">đ 149.000</span>
                                             {{-- <span class="old-price">Was $17.99</span> --}}

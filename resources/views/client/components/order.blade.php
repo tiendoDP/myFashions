@@ -30,6 +30,7 @@
                                         <th>Tình trạng</th>
                                         <th>Ghi chú</th>
                                         <th>Ngày đặt</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 @php
@@ -41,36 +42,39 @@
                                             $stt++;
                                         @endphp
                                         <tr>
-                                            <td class="total-col">{{ $stt }}</td>
+                                            <td class="total-col font-tv">{{ $stt }}</td>
                                             <td class="product-col">
                                                 <div class="product">
                                                     <h3 class="product-title">
                                                         <a
-                                                            href="{{ route('orderDetail', ['id' => $item->id]) }}">{{ $item->full_name }}</a>
+                                                            href="{{ route('orderDetail', ['id' => $item->id]) }}" class="font-tv">{{ $item->full_name }}</a>
                                                     </h3><!-- End .product-title -->
                                                 </div><!-- End .product -->
                                             </td>
-                                            <td class="product-col">{{ $item->phone }}</td>
+                                            <td class="product-col font-tv">{{ $item->phone }}</td>
 
-                                            <td class="product-col">{{ number_format($item->amount, 0, ',', '.') }}đ</td>
-                                            <td class="product-col">
+                                            <td class="product-col font-tv">{{ number_format($item->amount, 0, ',', '.') }}đ</td>
+                                            <td class="product-col font-tv">
                                                 @php
                                                     if ($item->status == 1) {
                                                         echo 'Đang xử lý';
                                                     } elseif ($item->status == 2) {
                                                         echo 'Đang giao hàng';
+                                                    } elseif ($item->status == 5) {
+                                                        echo 'Đơn hàng đã bị hủy';
                                                     } else {
                                                         echo 'Đã nhận hàng';
                                                     }
                                                 @endphp
                                             </td>
-                                            <td class="product-col">
+                                            <td class="product-col font-tv">
                                                 @if ($item->notes != null)
                                                     {{ $item->notes }}                                                   
                                                 @endif
                                             </td>
-                                            <td class="product-col">{{ $item->created_at }}</td>
-
+                                            <td class="product-col font-tv">{{ $item->created_at }}</td>
+                                            <td><a
+                                                href="{{ route('orderDetail', ['id' => $item->id]) }}" class="font-tv">Xem chi tiết</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

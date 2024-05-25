@@ -90,7 +90,7 @@ Route::middleware('shareView')->group(function () {
         Route::get('/order', [OrderController::class, 'Index'])->name('order');
         Route::get('/order-detail/{id}', [OrderController::class, 'orderDetail'])->name('orderDetail');
         Route::patch('order/confim', [AdminOrderController::class, 'confirmOrder'])->name('confirmOrder');
-        Route::delete('order/delete', [AdminOrderController::class, 'deleteOrder'])->name('deleteOrder');
+        Route::patch('order/delete', [AdminOrderController::class, 'deleteOrder'])->name('deleteOrder');
         Route::patch('order/success', [AdminOrderController::class, 'successOrder'])->name('successOrder');
         Route::get('/paymentOnline', [CheckOutController::class, 'paymentOnline'])->name('paymentOnline');
     });

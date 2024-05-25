@@ -28,12 +28,14 @@ class Order extends Model
         return self::select('orders.*', 'payments.amount as amount')
         ->join('payments', 'payments.order_id', '=', 'orders.id')
         ->where('orders.user_id', '=', Auth::user()->id)
+        ->orderBy('id', 'desc')
         ->get();
     }
 
     public static function list() {
         return self::select('orders.*', 'payments.amount as amount')
         ->join('payments', 'payments.order_id', '=', 'orders.id')
+        ->orderBy('id', 'desc')
         ->get();
     }
 

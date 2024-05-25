@@ -48,7 +48,7 @@ class UserController extends Controller
 
         MailController::sendMail($token_verify_email, $user->email);
         
-        return redirect()->route('login')->with('success', "User Successfully Created");
+        return redirect()->route('login')->with('success', "Tạo tài khoản người dùng thành công");
         //return redirect()->route('VerifyEmail.Message');
     }
 
@@ -68,14 +68,14 @@ class UserController extends Controller
 
         // Kiểm tra mật khẩu cũ
         if (!Hash::check($request->oldPassword, $user->password)) {
-            return redirect()->back()->with('error', 'Old password is incorrect');
+            return redirect()->back()->with('error', 'Sai mật khẩu cũ');
         }
 
         // Cập nhật mật khẩu mới cho người dùng
         $user->password = Hash::make($request->newPassword);
         // $user->save();
 
-        return redirect()->back()->with('success', 'Password changed successfully');
+        return redirect()->back()->with('success', 'Thay đổi mật khẩu thành công');
     }
 
     public function editProfile(Request $request) {

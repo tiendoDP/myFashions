@@ -21,6 +21,7 @@
             <th scope="col">Giá</th>
             <th scope="col">Tình trạng</th>
             <th scope="col">Ngày đặt</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -37,13 +38,15 @@
                             echo 'Đang xử lý';
                         } elseif ($value->status == 2) {
                             echo 'Đang giao hàng';
+                        } elseif ($value->status == 5) {
+                            echo 'Đơn hàng đã bị hủy';
                         } else {
                             echo 'Đã nhận hàng';
                         }
                     @endphp
                 </td>
                 <td>{{$value->created_at}}</td>
-                
+                <th scope="row"><a href="{{ route('showDetail', ['id' => $value->id]) }}">Xem chi tiết</a></th>
               </tr>
             @endforeach
           @else <p class="text-center">Không tìm thấy đơn hàng</p>

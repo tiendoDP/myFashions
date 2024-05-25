@@ -40,7 +40,9 @@
                             <td style="font-weight: 600;">Tình trạng</td>
                             <td>: @if($details[0]->status == 1) <span style="color: red;">Đang xử lý</span>
                                   @elseif($details[0]->status == 2) <span style="color: rgb(60, 71, 58);">Đang giao hàng</span>
-                                  @else	<span style="color: rgb(132, 151, 214);">Đã nhận hàng</span>
+                                  @elseif($details[0]->status == 4) <span style="color: rgb(60, 71, 58);">Đã nhận hàng</span>
+                                  @elseif($details[0]->status == 5) <span style="color: rgb(22, 105, 7);">Đơn hàng đã bị hủy</span>
+                                  {{-- @else	<span style="color: rgb(132, 151, 214);">Đã nhận hàng</span> --}}
                                   @endif  
                             </td>
                         </tr>
@@ -94,7 +96,7 @@
                         @if($details[0]->status == 1)
                             <form method="post" id="formDeleteOrder" action="{{route('deleteOrder')}}">
                                 @csrf
-                                @method('Delete')
+                                @method('Patch')
                                 <input type="hidden" name="id" value="{{$details[0]->id}}" />
                                 <button type="button" id="buttonDeleteOrder" class="btn btn-primary">Hủy đơn</button>
                             </form>
@@ -106,6 +108,9 @@
                                 <input type="hidden" name="id" value="{{$details[0]->id}}" />
                                 <button type="button" id="buttonSuccessOrder" class="btn btn-primary">Nhận hàng thành công</button>
                             </form>
+                        @endif
+                        @if($details[0]->status == 5)
+                            <button type="button" disabled class="btn btn-primary">Đơn hàng đã bị hủy</button>
                         @endif
                     @else
                         <p>Không tìm thấy đơn hàng</p>

@@ -36,7 +36,8 @@ class OrderController extends Controller
         if($order->status == 2) {
             return redirect()->back()->with('error', 'Bạn không thể hủy đơn hàng đang được giao');
         }
-        $order->delete();
+        $order->status = 5;
+        $order->save();
         return redirect()->route('order')->with('success', 'Hủy đơn hàng thành công');
     }
 
